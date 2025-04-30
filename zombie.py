@@ -25,6 +25,12 @@ SCREEN_WIDTH = 1200
 SCREEN_HEIGHT = 600
 FPS = 60
 
+# 游戏状态常量
+GAME_STATE_START_MENU = 0
+GAME_STATE_PLAYING = 1
+GAME_STATE_PAUSED = 2
+GAME_STATE_GAME_OVER = 3
+
 # 僵尸状态常量
 ZOMBIE_MOVE = 0
 ZOMBIE_STAND = 1
@@ -34,10 +40,12 @@ ZOMBIE_ATTACK = 2
 IMAGE_DIR = "img"
 FONTS_DIR = os.path.join(IMAGE_DIR, "fonts")
 ZOMBIE_MOVE_DIR = os.path.join(IMAGE_DIR, "move")
-BACKGROUND_IMAGE = os.path.join(IMAGE_DIR, "background.jpg")
+BACKGROUND_PLAYING_IMAGE = os.path.join(IMAGE_DIR, "background_playing.jpg")
+BACKGROUND_START_MENU_IMAGE = os.path.join(IMAGE_DIR, "background_start-menu.jpg")
 GAME_OVER_IMAGE = os.path.join(IMAGE_DIR, "game_over_screen.png")
-CANNON_IMAGE = os.path.join(IMAGE_DIR, "cannon.png")
-BULLET_IMAGE = os.path.join(IMAGE_DIR, "bullet.png")
+CANNON_IMAGE = os.path.join(IMAGE_DIR, "cannon_new.png")
+BULLET_IMAGE = os.path.join(IMAGE_DIR, "bullet_new.png")
+BUTTON_IMAGE = os.path.join(IMAGE_DIR, "button.png")
 BACKGROUND_MUSIC = os.path.join(IMAGE_DIR, "Laura Shigihara - Zombies On Your Lawn.mp3")
 
 # 字体文件常量
@@ -203,7 +211,7 @@ class Zombie(pygame.sprite.Sprite):
         # 加载僵尸移动动画帧
         self.move_frames = []
         for i in range(1, 14):
-            frame_path = os.path.join(ZOMBIE_MOVE_DIR, f"{i:02d}.png")
+            frame_path = os.path.join(ZOMBIE_MOVE_DIR, f"zombie_move_{i:02d}.png")
             self.move_frames.append(ResourceManager.load_image(frame_path))
         
         # 当前显示的帧
@@ -252,6 +260,58 @@ class Player(pygame.sprite.Sprite):
             self.rect.bottom = SCREEN_HEIGHT
 
 
+class Button(pygame.sprite.Sprite):
+    """按钮类，用于游戏菜单"""
+    
+    def __init__(self, x, y, width, height, text, font_size=40, font_type="regular"):
+        """初始化按钮对象
+        
+        Args:
+            x: 按钮的x坐标
+            y: 按钮的y坐标
+            width: 按钮宽度
+            height: 按钮高度
+            text: 按钮文本
+            font_size: 字体大小
+            font_type: 字体类型
+        """
+        super().__init__()
+        self.original_image = ResourceManager.load_image(BUTTON_IMAGE)
+        self.image = pygame.transform.scale(self.original_image, (width, height))
+        self.rect = self.image.get_rect()
+        self.rect.x = x
+        self.rect.y = y
+        self.text = text
+        self.font_size = font_size
+        self.font_type = font_type
+        self.font = pygame.font.Font(REGULAR_FONT, font_size)
+        
+    def draw(self, surface):
+        """绘制按钮
+        
+        Args:
+            surface: 绘制的目标表面
+        """
+        # 绘制按钮背景
+        surface.blit(self.image, self.rect)
+        
+        # 绘制按钮文本
+        text_surface = self.font.render(self.text, True, (0, 0, 0))
+        text_rect = text_surface.get_rect(center=self.rect.center)
+        surface.blit(text_surface, text_rect)
+    
+    def is_clicked(self, pos):
+        """检测按钮是否被点击
+        
+        Args:
+            pos: 鼠标点击位置
+            
+        Returns:
+            bool: 如果点击返回True，否则返回False
+        """
+        return self.rect.collidepoint(pos)
+
+
 class Game:
     """游戏主类，管理游戏状态和逻辑"""
     
@@ -265,7 +325,8 @@ class Game:
         pygame.display.set_caption("炮打僵尸_无尽版")
         
         # 加载游戏资源
-        self.background = ResourceManager.load_image(BACKGROUND_IMAGE)
+        self.background_playing = ResourceManager.load_image(BACKGROUND_PLAYING_IMAGE)
+        self.background_start_menu = ResourceManager.load_image(BACKGROUND_START_MENU_IMAGE)
         self.game_over_bg = ResourceManager.load_image(GAME_OVER_IMAGE)
         
         # 创建文本渲染器
@@ -276,16 +337,21 @@ class Game:
         self.zombies = pygame.sprite.Group()
         self.bullets = pygame.sprite.Group()
         
+        # 创建按钮
+        self.start_button = Button(SCREEN_WIDTH // 2 - 150, SCREEN_HEIGHT // 2, 300, 80, "开始游戏")
+        self.quit_button = Button(SCREEN_WIDTH // 2 - 150, SCREEN_HEIGHT // 2 + 100, 300, 80, "退出游戏")
+        self.resume_button = Button(SCREEN_WIDTH // 2 - 150, SCREEN_HEIGHT // 2 - 50, 300, 80, "继续游戏")
+        self.restart_button = Button(SCREEN_WIDTH // 2 - 150, SCREEN_HEIGHT // 2 + 50, 300, 80, "重新开始")
+        self.menu_button = Button(SCREEN_WIDTH // 2 - 150, SCREEN_HEIGHT // 2 + 150, 300, 80, "返回菜单")
+        
         # 创建玩家
-        self.player = Player()
-        self.all_sprites.add(self.player)
+        self.player = None
         
         # 游戏状态
-        self.game_over = False
-        self.start_time = time.time()
-        self.zombie_spawn_timer = time.time()
+        self.game_state = GAME_STATE_START_MENU
+        self.start_time = 0
+        self.zombie_spawn_timer = 0
         self.clock = pygame.time.Clock()
-        self.paused = False
         
         # 加载背景音乐
         try:
@@ -301,29 +367,74 @@ class Game:
             if event.type == pygame.QUIT or (event.type == KEYDOWN and event.key == K_ESCAPE):
                 self.quit_game()
             
-            # 暂停/继续游戏
-            elif event.type == KEYDOWN and event.key == K_p:
-                self.toggle_pause()
-            
-            # 重新开始游戏
-            elif event.type == KEYDOWN and event.key == K_r and self.game_over:
-                self.reset_game()
+            # 鼠标点击事件
+            elif event.type == MOUSEBUTTONDOWN and event.button == 1:
+                mouse_pos = event.pos
+                
+                # 开始菜单状态
+                if self.game_state == GAME_STATE_START_MENU:
+                    if self.start_button.is_clicked(mouse_pos):
+                        self.start_game()
+                    elif self.quit_button.is_clicked(mouse_pos):
+                        self.quit_game()
+                
+                # 游戏进行状态
+                elif self.game_state == GAME_STATE_PLAYING:
+                    self.fire_bullet(mouse_pos[1])
+                
+                # 游戏暂停状态
+                elif self.game_state == GAME_STATE_PAUSED:
+                    if self.resume_button.is_clicked(mouse_pos):
+                        self.resume_game()
+                    elif self.restart_button.is_clicked(mouse_pos):
+                        self.reset_game()
+                    elif self.menu_button.is_clicked(mouse_pos):
+                        self.return_to_menu()
+                
+                # 游戏结束状态
+                elif self.game_state == GAME_STATE_GAME_OVER:
+                    if self.restart_button.is_clicked(mouse_pos):
+                        self.reset_game()
+                    elif self.menu_button.is_clicked(mouse_pos):
+                        self.return_to_menu()
             
             # 鼠标移动事件
-            elif event.type == MOUSEMOTION and not self.paused and not self.game_over:
+            elif event.type == MOUSEMOTION and self.game_state == GAME_STATE_PLAYING:
                 self.player.update(event.pos[1])
             
-            # 鼠标点击事件 - 发射子弹
-            elif event.type == MOUSEBUTTONDOWN and event.button == 1 and not self.paused and not self.game_over:
-                self.fire_bullet(event.pos[1])
+            # 暂停/继续游戏
+            elif event.type == KEYDOWN and event.key == K_p and self.game_state == GAME_STATE_PLAYING:
+                self.pause_game()
     
-    def toggle_pause(self):
-        """切换游戏暂停状态"""
-        self.paused = not self.paused
-        if self.paused:
-            pygame.mixer.music.pause()
-        else:
-            pygame.mixer.music.unpause()
+    def start_game(self):
+        """开始新游戏"""
+        # 清空所有精灵组
+        self.all_sprites.empty()
+        self.zombies.empty()
+        self.bullets.empty()
+        
+        # 创建玩家
+        self.player = Player()
+        self.all_sprites.add(self.player)
+        
+        # 设置游戏状态
+        self.game_state = GAME_STATE_PLAYING
+        self.start_time = time.time()
+        self.zombie_spawn_timer = time.time()
+    
+    def pause_game(self):
+        """暂停游戏"""
+        self.game_state = GAME_STATE_PAUSED
+        pygame.mixer.music.pause()
+    
+    def resume_game(self):
+        """继续游戏"""
+        self.game_state = GAME_STATE_PLAYING
+        pygame.mixer.music.unpause()
+    
+    def return_to_menu(self):
+        """返回主菜单"""
+        self.game_state = GAME_STATE_START_MENU
     
     def reset_game(self):
         """重置游戏状态"""
@@ -337,7 +448,7 @@ class Game:
         self.all_sprites.add(self.player)
         
         # 重置游戏状态
-        self.game_over = False
+        self.game_state = GAME_STATE_PLAYING
         self.start_time = time.time()
         self.zombie_spawn_timer = time.time()
         
@@ -396,7 +507,7 @@ class Game:
     
     def update(self):
         """更新游戏状态"""
-        if self.paused or self.game_over:
+        if self.game_state != GAME_STATE_PLAYING:
             return
         
         # 生成僵尸
@@ -408,7 +519,7 @@ class Game:
         # 更新僵尸并检查是否有僵尸到达左边缘
         for zombie in self.zombies:
             if zombie.update():
-                self.game_over = True
+                self.game_state = GAME_STATE_GAME_OVER
                 pygame.mixer.music.stop()
         
         # 检测碰撞
@@ -416,22 +527,29 @@ class Game:
     
     def draw(self):
         """绘制游戏画面"""
-        # 绘制背景
-        self.screen.blit(self.background, (0, 0))
-        
-        if self.game_over:
-            # 绘制游戏结束画面
-            self.screen.blit(self.game_over_bg, (0, 0))
-            self.text_renderer.render_text("游戏结束！", (200, 200), "game_over", (255, 12, 3))
-            self.text_renderer.render_text(f"最终得分: {self.player.score}", (200, 300), "regular", (255, 255, 255))
-            self.text_renderer.render_text("按R键重新开始", (200, 400), "regular", (255, 255, 255))
-        else:
+        # 根据游戏状态绘制不同画面
+        if self.game_state == GAME_STATE_START_MENU:
+            # 绘制开始菜单
+            self.screen.blit(self.background_start_menu, (0, 0))
+            
+            # 绘制游戏标题
+            self.text_renderer.render_text("炮打僵尸", (SCREEN_WIDTH // 2 - 150, 100), "game_over", (255, 255, 255))
+            
+            # 绘制按钮
+            self.start_button.draw(self.screen)
+            self.quit_button.draw(self.screen)
+            
+        elif self.game_state == GAME_STATE_PLAYING:
+            # 绘制游戏背景
+            self.screen.blit(self.background_playing, (0, 0))
+            
             # 绘制所有精灵
             for sprite in self.all_sprites:
                 self.screen.blit(sprite.image, sprite.rect)
             
             # 绘制得分
-            self.text_renderer.render_text(f"得分: {self.player.score}", (900, 10), "regular", (0, 0, 0))
+            score_text = f"得分: {self.player.score}"
+            self.text_renderer.render_text(score_text, (SCREEN_WIDTH - 250, 20), "regular", (255, 255, 255))
             
             # 根据得分显示不同的提示
             if 0 <= self.player.score <= 10:
@@ -439,9 +557,34 @@ class Game:
             elif 210 <= self.player.score <= 250:
                 self.text_renderer.render_text("(阶段2)觉得自己很帅？僵尸不这么想！！！，感受恐惧吧！！", (200, 100), "warning", (255, 0, 0))
             
-            # 如果游戏暂停，显示暂停提示
-            if self.paused:
-                self.text_renderer.render_text("游戏暂停 - 按P继续", (400, 300), "regular", (255, 0, 0))
+        elif self.game_state == GAME_STATE_PAUSED:
+            # 绘制暂停菜单
+            self.screen.blit(self.background_playing, (0, 0))
+            
+            # 半透明背景
+            overlay = pygame.Surface((SCREEN_WIDTH, SCREEN_HEIGHT), pygame.SRCALPHA)
+            overlay.fill((0, 0, 0, 128))  # 黑色半透明
+            self.screen.blit(overlay, (0, 0))
+            
+            # 绘制暂停标题
+            self.text_renderer.render_text("游戏暂停", (SCREEN_WIDTH // 2 - 150, 100), "regular", (255, 255, 255))
+            
+            # 绘制按钮
+            self.resume_button.draw(self.screen)
+            self.restart_button.draw(self.screen)
+            self.menu_button.draw(self.screen)
+            
+        elif self.game_state == GAME_STATE_GAME_OVER:
+            # 绘制游戏结束画面
+            self.screen.blit(self.game_over_bg, (0, 0))
+            
+            # 绘制游戏结束文本
+            self.text_renderer.render_text("游戏结束！", (SCREEN_WIDTH // 2 - 200, 100), "game_over", (255, 12, 3))
+            self.text_renderer.render_text(f"最终得分: {self.player.score}", (SCREEN_WIDTH // 2 - 150, 200), "regular", (255, 255, 255))
+            
+            # 绘制按钮
+            self.restart_button.draw(self.screen)
+            self.menu_button.draw(self.screen)
     
     def run(self):
         """运行游戏主循环"""
