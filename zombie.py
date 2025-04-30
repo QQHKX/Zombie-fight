@@ -227,9 +227,16 @@ class Zombie(pygame.sprite.Sprite):
     
     def update(self):
         """更新僵尸状态和位置"""
-        # 更新动画帧
+        # 更新动画帧，动画速度与移动速度成正比
         if self.state == ZOMBIE_MOVE:
-            self.image = self.move_frames[self.index % len(self.move_frames)]
+            # 根据移动速度调整动画速度，速度越快，动画播放越快
+            animation_speed_factor = max(1, self.speed) / 3  # 基准速度为3时动画正常播放
+            
+            # 计算当前应该显示的帧
+            frame_index = int(self.index * animation_speed_factor) % len(self.move_frames)
+            self.image = self.move_frames[frame_index]
+            
+            # 更新位置
             self.rect.x -= self.speed
         
         self.index += 1
@@ -620,13 +627,16 @@ class Game:
         # 检测子弹和僵尸的碰撞
         for bullet in self.bullets:
             hits = pygame.sprite.spritecollide(bullet, self.zombies, False)
-            for zombie in hits:
+            if hits:  # 如果有碰撞
+                # 只处理第一个碰撞的僵尸
+                zombie = hits[0]  # 获取第一个碰撞的僵尸
+                
                 # 获取僵尸位置，用于显示得分动画
                 zombie_pos = (zombie.rect.centerx, zombie.rect.centery)
                 
                 # 击杀僵尸
                 zombie.kill()
-                bullet.kill()
+                bullet.kill()  # 子弹也被销毁
                 
                 # 增加得分
                 self.player.score += 1
