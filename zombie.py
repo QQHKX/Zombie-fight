@@ -12,11 +12,11 @@ pygame.display.set_caption("炮打僵尸_无尽版")
 pygame.mixer.music.load("img/Laura Shigihara - Zombies On Your Lawn.mp3")
 pygame.mixer.music.play()
 # 背景图片加载
-bg = pygame.image.load('img/不过.jpg')
-bg1 = pygame.image.load('img/ZombiesWon.png')
-bg_end = pygame.image.load('img/ZombiesWon.png')
+bg = pygame.image.load('img/background.jpg')
+bg1 = pygame.image.load('img/game_over_screen.png')
+bg_end = pygame.image.load('img/game_over_screen.png')
 # 加载大炮等图片
-wq = pygame.image.load('img/2222 - C_COPY - C_COPY.png')
+wq = pygame.image.load('img/cannon.png')
 zd = pygame.image.load('img/bullet.png')
 # 僵尸的三种状态
 # ：移动、攻击、站立
@@ -36,25 +36,25 @@ for i in range(1, 14):
 
 def fillText(text, position):
     # 设置字体样式和大小
-    my_font = pygame.font.Font("img/fonts/font1.ttf", 50)
+    my_font = pygame.font.Font("img/fonts/regular.ttf", 50)
     # 渲染文字
     text = my_font.render(text, True, (0, 0, 0))
     canvas.blit(text, position)
 def fillText2(text, position):
     # 设置字体样式和大小
-    my_font = pygame.font.Font("img/fonts/font2.ttf", 80)
+    my_font = pygame.font.Font("img/fonts/warning.ttf", 80)
     # 渲染文字
     text = my_font.render(text, True, (255, 0, 0))
     canvas.blit(text, position)
 def fillText3(text, position):
     # 设置字体样式和大小
-    my_font = pygame.font.Font("img/fonts/font1.ttf", 50)
+    my_font = pygame.font.Font("img/fonts/regular.ttf", 50)
     # 渲染文字
     text = my_font.render(text, True, (0, 255, 255))
     canvas.blit(text, position)
 def fillText4(text, position):
     # 设置字体样式和大小
-    my_font = pygame.font.Font("img/fonts/font5.ttf", 100)
+    my_font = pygame.font.Font("img/fonts/game_over.ttf", 100)
     # 渲染文字
     text = my_font.render(text, True, (255, 12, 3))
     canvas.blit(text, position)
