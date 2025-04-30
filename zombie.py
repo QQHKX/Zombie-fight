@@ -230,7 +230,7 @@ class Zombie(pygame.sprite.Sprite):
         # 更新动画帧，动画速度与移动速度成正比
         if self.state == ZOMBIE_MOVE:
             # 根据移动速度调整动画速度，速度越快，动画播放越快
-            animation_speed_factor = max(1, self.speed) / 3  # 基准速度为3时动画正常播放
+            animation_speed_factor = max(1, self.speed) / 2.31  # 基准速度为3时动画正常播放
             
             # 计算当前应该显示的帧
             frame_index = int(self.index * animation_speed_factor) % len(self.move_frames)
@@ -780,3 +780,4 @@ if __name__ == "__main__":
     # 创建并运行游戏
     game = Game()
     game.run()
+    
