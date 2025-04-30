@@ -48,6 +48,14 @@ BULLET_IMAGE = os.path.join(IMAGE_DIR, "bullet_new.png")
 BUTTON_IMAGE = os.path.join(IMAGE_DIR, "button.png")
 BACKGROUND_MUSIC = os.path.join(IMAGE_DIR, "Laura Shigihara - Zombies On Your Lawn.mp3")
 
+# 音效路径常量
+SOUND_DIR = "sound"
+BULLET_FIRED_SOUND = os.path.join(SOUND_DIR, "bulletFired.mp3")
+
+# 动画常量
+ANIMATION_SPEED = 5  # 动画速度
+SCORE_ANIMATION_DURATION = 30  # 得分动画持续帧数
+
 # 字体文件常量
 REGULAR_FONT = os.path.join(FONTS_DIR, "regular.ttf")
 WARNING_FONT = os.path.join(FONTS_DIR, "warning.ttf")
@@ -238,26 +246,125 @@ class Player(pygame.sprite.Sprite):
     def __init__(self):
         """初始化玩家对象"""
         super().__init__()
-        self.image = ResourceManager.load_image(CANNON_IMAGE)
+        self.original_image = ResourceManager.load_image(CANNON_IMAGE)
+        self.image = self.original_image.copy()
         self.rect = self.image.get_rect()
-        self.rect.x = 0
+        self.initial_x = 20  # 设置初始x坐标，留出后坐力空间
+        self.rect.x = self.initial_x
         self.rect.y = SCREEN_HEIGHT // 2 - self.rect.height // 2
         self.score = 0
+        
+        # 发射动画相关
+        self.is_firing = False
+        self.firing_frame = 0
+        self.firing_max_frames = 15  # 增加帧数使动画更流畅
+        self.recoil_offset = 0  # 后坐力位移
+        self.original_center = None  # 存储原始中心点
+        
+        # 得分动画相关
+        self.score_animations = []
     
-    def update(self, mouse_y):
-        """更新玩家位置
+    def update(self, mouse_y=None):
+        """更新玩家位置和动画状态
         
         Args:
-            mouse_y: 鼠标的y坐标
+            mouse_y: 鼠标的y坐标，如果为None则只更新动画状态
         """
-        # 根据鼠标位置更新大炮的y坐标
-        self.rect.y = mouse_y - self.rect.height // 2
+        # 如果提供了鼠标位置，则更新炮台的垂直位置
+        if mouse_y is not None:
+            # 如果正在发射动画中，记录新的目标y坐标
+            if self.is_firing and self.original_center is not None:
+                # 更新原始中心点的y坐标，保持x坐标不变
+                self.original_center = (self.original_center[0], mouse_y - self.rect.height // 2 + self.rect.height // 2)
+            else:
+                # 根据鼠标位置更新大炮的y坐标
+                self.rect.y = mouse_y - self.rect.height // 2
+            
+            # 确保大炮不会超出屏幕
+            target_y = mouse_y - self.rect.height // 2
+            if target_y < 0:
+                target_y = 0
+            elif target_y + self.rect.height > SCREEN_HEIGHT:
+                target_y = SCREEN_HEIGHT - self.rect.height
+                
+            # 如果不在发射动画中，直接更新位置
+            if not self.is_firing:
+                self.rect.y = target_y
         
-        # 确保大炮不会超出屏幕
-        if self.rect.top < 0:
-            self.rect.top = 0
-        elif self.rect.bottom > SCREEN_HEIGHT:
-            self.rect.bottom = SCREEN_HEIGHT
+        # 更新发射动画
+        if self.is_firing:
+            self.firing_frame += 1
+            # 使用缓动函数使动画更加平滑
+            progress = self.firing_frame / self.firing_max_frames
+            
+            # 前半段使用快速缓出函数，后半段使用缓入函数
+            if progress < 0.5:
+                # 前半段：快速后退（后坐力）
+                half_progress = progress * 2  # 0-0.5 映射到 0-1
+                eased_progress = 1 - (1 - half_progress) * (1 - half_progress)  # 二次缓出
+                self.recoil_offset = -12 * eased_progress  # 减小后坐力位移
+            else:
+                # 后半段：缓慢恢复
+                half_progress = (progress - 0.5) * 2  # 0.5-1 映射到 0-1
+                eased_progress = half_progress * half_progress  # 二次缓入
+                self.recoil_offset = -12 * (1 - eased_progress)  # 减小后坐力恢复
+            
+            # 发射动画效果：缩放和旋转
+            if progress < 0.3:  # 前30%的时间快速缩小
+                scale_factor = 1.0 - 0.08 * (progress / 0.3)  # 减小缩放幅度
+            else:  # 后70%的时间缓慢恢复
+                recovery_progress = (progress - 0.3) / 0.7
+                scale_factor = 0.92 + 0.08 * recovery_progress  # 减小缩放幅度
+                
+            rotation_angle = -5 * self.recoil_offset / -12  # 减小旋转角度
+            
+            # 缩放原始图像
+            scaled_image = pygame.transform.scale(self.original_image, 
+                                               (int(self.original_image.get_width() * scale_factor),
+                                                int(self.original_image.get_height() * scale_factor)))
+            
+            # 旋转缩放后的图像
+            self.image = pygame.transform.rotate(scaled_image, rotation_angle)
+            
+            # 保持炮台位置跟随鼠标移动，同时应用后坐力位移
+            if self.original_center is None:
+                self.original_center = self.rect.center
+                
+            self.rect = self.image.get_rect()
+            self.rect.centery = self.original_center[1]  # 使用当前的垂直位置
+            self.rect.x = self.initial_x + self.recoil_offset  # 基于初始位置应用后坐力位移
+            
+            # 动画结束，恢复原始图像
+            if self.firing_frame >= self.firing_max_frames:
+                self.is_firing = False
+                self.firing_frame = 0
+                self.recoil_offset = 0
+                self.image = self.original_image.copy()
+                self.rect = self.image.get_rect()
+                self.rect.centery = self.original_center[1]
+                self.rect.x = self.initial_x
+                self.original_center = None  # 重置原始中心点
+    
+    def fire(self):
+        """触发发射动画"""
+        self.is_firing = True
+        self.firing_frame = 0
+        self.original_center = self.rect.center  # 记录发射前的中心位置
+        # 立即应用初始后坐力效果，使动画更加连贯
+        self.recoil_offset = 0
+    
+    def add_score_animation(self, score, position):
+        """添加得分动画
+        
+        Args:
+            score: 增加的得分
+            position: 动画起始位置
+        """
+        self.score_animations.append({
+            "score": score,
+            "position": position,
+            "frame": 0
+        })
 
 
 class Button(pygame.sprite.Sprite):
@@ -319,6 +426,7 @@ class Game:
         """初始化游戏"""
         # 初始化pygame
         pygame.init()
+        pygame.mixer.init()  # 初始化音频系统
         
         # 创建游戏窗口
         self.screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
@@ -328,6 +436,11 @@ class Game:
         self.background_playing = ResourceManager.load_image(BACKGROUND_PLAYING_IMAGE)
         self.background_start_menu = ResourceManager.load_image(BACKGROUND_START_MENU_IMAGE)
         self.game_over_bg = ResourceManager.load_image(GAME_OVER_IMAGE)
+        
+        # 加载音效
+        self.sounds = {
+            "bullet_fired": ResourceManager.load_sound(BULLET_FIRED_SOUND)
+        }
         
         # 创建文本渲染器
         self.text_renderer = TextRenderer(self.screen)
@@ -398,7 +511,7 @@ class Game:
                     elif self.menu_button.is_clicked(mouse_pos):
                         self.return_to_menu()
             
-            # 鼠标移动事件
+            # 鼠标移动事件 - 允许炮台在发射动画状态时也能移动
             elif event.type == MOUSEMOTION and self.game_state == GAME_STATE_PLAYING:
                 self.player.update(event.pos[1])
             
@@ -469,9 +582,16 @@ class Game:
         bullet_speed = min(10, 5 + game_time // 60)  # 最大速度为10
         
         # 创建子弹对象
-        bullet = Bullet(self.player.rect.right, y_pos - 20, bullet_speed)
+        bullet = Bullet(self.player.rect.right, y_pos - 40, bullet_speed)
         self.bullets.add(bullet)
         self.all_sprites.add(bullet)
+        
+        # 触发炮台发射动画
+        self.player.fire()
+        
+        # 播放发射音效
+        if self.sounds["bullet_fired"]:
+            self.sounds["bullet_fired"].play()
     
     def spawn_zombies(self):
         """生成僵尸"""
@@ -501,9 +621,18 @@ class Game:
         for bullet in self.bullets:
             hits = pygame.sprite.spritecollide(bullet, self.zombies, False)
             for zombie in hits:
+                # 获取僵尸位置，用于显示得分动画
+                zombie_pos = (zombie.rect.centerx, zombie.rect.centery)
+                
+                # 击杀僵尸
                 zombie.kill()
                 bullet.kill()
+                
+                # 增加得分
                 self.player.score += 1
+                
+                # 添加得分动画
+                self.player.add_score_animation(1, zombie_pos)
     
     def update(self):
         """更新游戏状态"""
@@ -514,16 +643,22 @@ class Game:
         self.spawn_zombies()
         
         # 更新所有精灵
-        self.bullets.update()
+        # 对于玩家，只更新动画状态，不更新位置（位置更新由鼠标事件处理）
+        for sprite in self.all_sprites:
+            if sprite == self.player:
+                # 不传入鼠标位置，只更新动画
+                self.player.update()
+            else:
+                sprite.update()
         
-        # 更新僵尸并检查是否有僵尸到达左边缘
+        # 检测碰撞
+        self.check_collisions()
+        
+        # 检测僵尸是否到达左边缘
         for zombie in self.zombies:
             if zombie.update():
                 self.game_state = GAME_STATE_GAME_OVER
                 pygame.mixer.music.stop()
-        
-        # 检测碰撞
-        self.check_collisions()
     
     def draw(self):
         """绘制游戏画面"""
@@ -550,6 +685,27 @@ class Game:
             # 绘制得分
             score_text = f"得分: {self.player.score}"
             self.text_renderer.render_text(score_text, (SCREEN_WIDTH - 250, 20), "regular", (255, 255, 255))
+            
+            # 绘制得分动画
+            for anim in self.player.score_animations[:]:  # 使用副本进行迭代
+                # 计算动画位置和透明度
+                pos_y = anim["position"][1] - anim["frame"] // 2  # 向上移动
+                alpha = 255 - int(255 * (anim["frame"] / SCORE_ANIMATION_DURATION))  # 逐渐变透明
+                
+                # 创建带透明度的文本
+                font = pygame.font.Font(REGULAR_FONT, 30)
+                text = font.render(f"+{anim['score']}", True, (255, 255, 0))
+                text.set_alpha(alpha)
+                
+                # 绘制文本
+                self.screen.blit(text, (anim["position"][0], pos_y))
+                
+                # 更新动画帧
+                anim["frame"] += 1
+                
+                # 移除完成的动画
+                if anim["frame"] >= SCORE_ANIMATION_DURATION:
+                    self.player.score_animations.remove(anim)
             
             # 根据得分显示不同的提示
             if 0 <= self.player.score <= 10:
