@@ -70,7 +70,8 @@ class Game:
         self.resume_button = Button(SCREEN_WIDTH // 2 - 150, SCREEN_HEIGHT // 2 - 50, 300, 80, "继续游戏")
         self.restart_button = Button(SCREEN_WIDTH // 2 - 150, SCREEN_HEIGHT // 2 + 50, 300, 80, "重新开始")
         self.menu_button = Button(SCREEN_WIDTH // 2 - 150, SCREEN_HEIGHT // 2 + 150, 300, 80, "返回菜单")
-        self.upgrade_button = Button(SCREEN_WIDTH - 150, 80, 120, 50, "升级")
+        self.upgrade_button = Button(SCREEN_WIDTH - 150, 30, 120, 50, "升级")
+        self.pause_button = Button(SCREEN_WIDTH - 150, 90, 120, 50, "暂停")  # 添加暂停按钮
         
         # 创建玩家
         self.player = None
@@ -129,6 +130,9 @@ class Game:
                     # 检查是否点击了升级按钮
                     if self.upgrade_button.is_clicked(mouse_pos):
                         self.upgrade_menu.show()
+                    # 检查是否点击了暂停按钮
+                    elif self.pause_button.is_clicked(mouse_pos):
+                        self.pause_game()
                     else:
                         # 设置鼠标左键按下状态
                         self.mouse_left_down = True
@@ -437,6 +441,9 @@ class Game:
             
             # 绘制升级按钮
             self.upgrade_button.draw(self.screen)
+            
+            # 绘制暂停按钮
+            self.pause_button.draw(self.screen)
             
             # 绘制波次信息
             wave_info = self.zombie_spawner.get_wave_info()
