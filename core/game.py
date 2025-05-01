@@ -84,6 +84,13 @@ class Game:
         self.weapon_upgrades = WeaponUpgrades(self.upgrade_system)
         self.upgrade_menu = UpgradeMenu(self)
         
+        # 添加存档管理系统
+        from systems.save_manager import SaveManager
+        self.save_manager = SaveManager(self)
+        
+        # 应用存档数据
+        self.save_manager.apply_save_data()
+        
         # 游戏状态
         self.game_state = GAME_STATE_START_MENU
         self.start_time = 0
@@ -214,21 +221,30 @@ class Game:
         self.all_sprites.empty()
         self.zombies.empty()
         self.bullets.empty()
+        self.particles.empty()
+        self.coins.empty()
         
-        # 重新创建玩家
+        # 创建玩家
         self.player = Player()
         self.all_sprites.add(self.player)
         
-        # 重置系统
-        self.coin_system.reset()
+        # 重置游戏状态
+        self.score = 0
+        self.wave = 1
+        self.wave_zombies_count = INITIAL_WAVE_ZOMBIES
+        self.zombies_spawned = 0
+        self.wave_completed = False
+        self.wave_cooldown = 0
+        self.game_over = False
+        
+        # 应用存档数据
+        self.save_manager.apply_save_data()
+        
+        # 重置僵尸生成器
         self.zombie_spawner.reset()
         
-        # 应用升级效果到玩家
-        self.upgrade_system.apply_upgrades(self.player)
-        
-        # 重置游戏状态
-        self.game_state = GAME_STATE_PLAYING
-        self.start_time = time.time()
+        # 重置开始时间
+        self.start_time = pygame.time.get_ticks()
         self.zombie_spawn_timer = time.time()
         
         # 重新播放背景音乐
@@ -478,11 +494,32 @@ class Game:
             self.menu_button.draw(self.screen)
             
         elif self.game_state == GAME_STATE_GAME_OVER:
-            # 绘制游戏结束画面
-            self.screen.blit(self.game_over_bg, (0, 0))
-            
-            # 绘制游戏结束文本
-            self.text_renderer.render_text("游戏结束！", (SCREEN_WIDTH // 2 - 200, 100), "game_over", (255, 12, 3))
+            def game_over_screen(self):
+                """显示游戏结束画面"""
+                # 绘制游戏结束背景
+                self.screen.blit(self.game_over_bg, (0, 0))
+                
+                # 绘制游戏结束文本
+                self.text_renderer.render_text("游戏结束", SCREEN_WIDTH // 2, 150, font_size=80, font_type="game_over")
+                self.text_renderer.render_text(f"得分: {self.score}", SCREEN_WIDTH // 2, 250, font_size=50)
+                self.text_renderer.render_text(f"坚持时间: {self.get_survival_time_text()}", SCREEN_WIDTH // 2, 320, font_size=40)
+                
+                # 绘制重新开始和返回菜单按钮
+                self.restart_button.draw(self.screen)
+                self.menu_button.draw(self.screen)
+                
+                # 保存游戏数据
+                self.save_manager.save_game()
+                
+            def complete_level(self, level_id, score):
+                """完成关卡
+                
+                Args:
+                    level_id: 关卡ID
+                    score: 得分
+                """
+                # 更新存档数据
+                self.save_manager.complete_level(level_id, score)
             self.text_renderer.render_text(f"最终金币: {self.coin_system.coins}", (SCREEN_WIDTH // 2 - 150, 200), "regular", (255, 255, 255))
             
             # 绘制按钮

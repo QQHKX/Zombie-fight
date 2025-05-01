@@ -137,48 +137,16 @@ class UpgradeSystem:
         player.set_bullet_speed(5 + bullet_speed_level)
     
     def save_upgrades(self):
-        """保存升级数据"""
-        save_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), "saves")
-        
-        # 确保保存目录存在
-        if not os.path.exists(save_dir):
-            os.makedirs(save_dir)
-        
-        # 准备保存数据
-        save_data = {}
-        for upgrade_type, upgrade in self.upgrades.items():
-            save_data[upgrade_type] = upgrade["level"]
-        
-        # 保存到文件
-        save_path = os.path.join(save_dir, "upgrades.json")
-        try:
-            with open(save_path, "w") as f:
-                json.dump(save_data, f)
-        except Exception as e:
-            print(f"保存升级数据失败: {e}")
+        """保存升级数据（已禁用，由SaveManager统一管理）"""
+        # 此方法已禁用，升级数据由SaveManager统一管理
+        pass
     
     def load_upgrades(self):
-        """加载升级数据"""
-        save_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), "saves")
-        save_path = os.path.join(save_dir, "upgrades.json")
-        
-        # 如果保存文件存在，加载数据
-        if os.path.exists(save_path):
-            try:
-                with open(save_path, "r") as f:
-                    save_data = json.load(f)
-                
-                # 更新升级等级
-                for upgrade_type, level in save_data.items():
-                    if upgrade_type in self.upgrades:
-                        self.upgrades[upgrade_type]["level"] = level
-            except Exception as e:
-                print(f"加载升级数据失败: {e}")
+        """加载升级数据（已禁用，由SaveManager统一管理）"""
+        # 此方法已禁用，升级数据由SaveManager统一管理
+        pass
     
     def reset(self):
-        """重置所有升级"""
-        for upgrade in self.upgrades.values():
-            upgrade["level"] = 0
-        
-        # 保存重置后的数据
-        self.save_upgrades()
+        """重置所有升级（已禁用，由SaveManager统一管理）"""
+        # 此方法已禁用，升级数据由SaveManager统一管理
+        pass
