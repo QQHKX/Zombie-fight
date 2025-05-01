@@ -51,6 +51,7 @@ BACKGROUND_MUSIC = os.path.join(IMAGE_DIR, "Laura Shigihara - Zombies On Your La
 # 音效路径常量
 SOUND_DIR = "sound"
 BULLET_FIRED_SOUND = os.path.join(SOUND_DIR, "bulletFired.mp3")
+HIT_SOUND = os.path.join(SOUND_DIR, "hit.mp3")
 
 # 动画常量
 ANIMATION_SPEED = 5  # 动画速度
@@ -159,6 +160,44 @@ class TextRenderer:
         self.canvas.blit(text_surface, position)
 
 
+class Particle(pygame.sprite.Sprite):
+    """粒子效果类，用于显示打击效果"""
+    
+    def __init__(self, x, y, color=(255, 255, 0), size=5, speed_x=0, speed_y=0, lifetime=20):
+        """初始化粒子对象
+        
+        Args:
+            x: 粒子的x坐标
+            y: 粒子的y坐标
+            color: 粒子颜色
+            size: 粒子大小
+            speed_x: x方向速度
+            speed_y: y方向速度
+            lifetime: 粒子生命周期（帧数）
+        """
+        super().__init__()
+        self.image = pygame.Surface((size, size), pygame.SRCALPHA)
+        pygame.draw.circle(self.image, color, (size//2, size//2), size//2)
+        self.rect = self.image.get_rect(center=(x, y))
+        self.speed_x = speed_x
+        self.speed_y = speed_y
+        self.lifetime = lifetime
+        self.age = 0
+        
+    def update(self):
+        """更新粒子状态"""
+        self.rect.x += self.speed_x
+        self.rect.y += self.speed_y
+        self.age += 1
+        
+        # 随着年龄增长，粒子变得更透明
+        alpha = 255 * (1 - self.age / self.lifetime)
+        self.image.set_alpha(alpha)
+        
+        # 如果粒子寿命结束，将其移除
+        if self.age >= self.lifetime:
+            self.kill()
+
 class Bullet(pygame.sprite.Sprite):
     """子弹类，表示玩家发射的子弹"""
     
@@ -213,6 +252,10 @@ class Zombie(pygame.sprite.Sprite):
         super().__init__()
         self.speed = speed
         self.rect = pygame.Rect(SCREEN_WIDTH, y, 180, 180)
+        # 创建一个比视觉大小小一些的碰撞区域，并向后移动一点
+        self.hit_rect = pygame.Rect(0, 0, 140, 160)  # 碰撞区域比视觉区域小
+        self.update_hit_rect()  # 初始化碰撞区域位置
+        
         self.state = ZOMBIE_MOVE
         self.index = 0
         
@@ -238,6 +281,8 @@ class Zombie(pygame.sprite.Sprite):
             
             # 更新位置
             self.rect.x -= self.speed
+            # 更新碰撞区域位置
+            self.update_hit_rect()
         
         self.index += 1
         
@@ -245,6 +290,16 @@ class Zombie(pygame.sprite.Sprite):
         if self.rect.right <= 0:
             return True
         return False
+        
+    def update_hit_rect(self):
+        """更新碰撞区域位置，使其位于僵尸图像内部并向后移动一点"""
+        # 将碰撞区域放在僵尸图像的中心，但向后移动一点
+        self.hit_rect.centerx = self.rect.centerx + 20  # 向后移动20像素
+        self.hit_rect.centery = self.rect.centery
+        
+    def get_hit_rect(self):
+        """获取用于碰撞检测的矩形区域"""
+        return self.hit_rect
 
 
 class Player(pygame.sprite.Sprite):
@@ -271,32 +326,50 @@ class Player(pygame.sprite.Sprite):
         # 得分动画相关
         self.score_animations = []
     
-    def update(self, mouse_y=None):
+    def update(self, mouse_y=None, mouse_x=None):
         """更新玩家位置和动画状态
         
         Args:
             mouse_y: 鼠标的y坐标，如果为None则只更新动画状态
+            mouse_x: 鼠标的x坐标，如果为None则不更新水平位置
         """
-        # 如果提供了鼠标位置，则更新炮台的垂直位置
+        # 如果提供了鼠标位置，则更新炮台的位置
         if mouse_y is not None:
             # 如果正在发射动画中，记录新的目标y坐标
             if self.is_firing and self.original_center is not None:
-                # 更新原始中心点的y坐标，保持x坐标不变
+                # 更新原始中心点的y坐标
                 self.original_center = (self.original_center[0], mouse_y - self.rect.height // 2 + self.rect.height // 2)
             else:
                 # 根据鼠标位置更新大炮的y坐标
                 self.rect.y = mouse_y - self.rect.height // 2
             
-            # 确保大炮不会超出屏幕
+            # 确保大炮不会超出屏幕垂直边界
             target_y = mouse_y - self.rect.height // 2
             if target_y < 0:
                 target_y = 0
             elif target_y + self.rect.height > SCREEN_HEIGHT:
                 target_y = SCREEN_HEIGHT - self.rect.height
                 
-            # 如果不在发射动画中，直接更新位置
+            # 如果不在发射动画中，直接更新垂直位置
             if not self.is_firing:
                 self.rect.y = target_y
+        
+        # 更新水平位置（如果提供了鼠标x坐标）
+        if mouse_x is not None:
+            # 计算目标x坐标，但限制不能超过屏幕宽度的一半
+            max_x = SCREEN_WIDTH // 2 - self.rect.width // 2
+            target_x = min(mouse_x - self.rect.width // 2, max_x)
+            target_x = max(0, target_x)  # 确保不会小于0
+            
+            # 如果正在发射动画中，更新原始中心点的x坐标
+            if self.is_firing and self.original_center is not None:
+                self.original_center = (target_x + self.rect.width // 2, self.original_center[1])
+                # 后坐力位移是相对于初始位置的，所以更新初始位置
+                self.initial_x = target_x
+            else:
+                # 直接更新位置
+                self.rect.x = target_x
+                self.initial_x = target_x
         
         # 更新发射动画
         if self.is_firing:
@@ -446,8 +519,13 @@ class Game:
         
         # 加载音效
         self.sounds = {
-            "bullet_fired": ResourceManager.load_sound(BULLET_FIRED_SOUND)
+            "bullet_fired": ResourceManager.load_sound(BULLET_FIRED_SOUND),
+            "hit": ResourceManager.load_sound(HIT_SOUND)
         }
+        
+        # 设置打击音效音量
+        if self.sounds["hit"]:
+            self.sounds["hit"].set_volume(0.3)  # 设置为30%的音量
         
         # 创建文本渲染器
         self.text_renderer = TextRenderer(self.screen)
@@ -456,6 +534,7 @@ class Game:
         self.all_sprites = pygame.sprite.Group()
         self.zombies = pygame.sprite.Group()
         self.bullets = pygame.sprite.Group()
+        self.particles = pygame.sprite.Group()  # 添加粒子效果组
         
         # 创建按钮
         self.start_button = Button(SCREEN_WIDTH // 2 - 150, SCREEN_HEIGHT // 2, 300, 80, "开始游戏")
@@ -518,9 +597,9 @@ class Game:
                     elif self.menu_button.is_clicked(mouse_pos):
                         self.return_to_menu()
             
-            # 鼠标移动事件 - 允许炮台在发射动画状态时也能移动
+            # 鼠标移动事件 - 允许炮台在发射动画状态时也能移动，包括水平和垂直方向
             elif event.type == MOUSEMOTION and self.game_state == GAME_STATE_PLAYING:
-                self.player.update(event.pos[1])
+                self.player.update(event.pos[1], event.pos[0])
             
             # 暂停/继续游戏
             elif event.type == KEYDOWN and event.key == K_p and self.game_state == GAME_STATE_PLAYING:
@@ -599,6 +678,37 @@ class Game:
         # 播放发射音效
         if self.sounds["bullet_fired"]:
             self.sounds["bullet_fired"].play()
+            
+    def create_hit_particles(self, position):
+        """创建打击粒子效果
+        
+        Args:
+            position: 粒子生成位置 (x, y)
+        """
+        # 创建多个不同颜色、大小和速度的粒子
+        colors = [(255, 255, 0), (255, 165, 0), (255, 69, 0), (255, 0, 0)]
+        
+        for _ in range(15):  # 创建15个粒子
+            # 随机选择颜色
+            color = random.choice(colors)
+            # 随机大小
+            size = random.randint(3, 8)
+            # 随机速度和方向
+            speed_x = random.uniform(-3, 3)
+            speed_y = random.uniform(-3, 3)
+            # 随机生命周期
+            lifetime = random.randint(15, 30)
+            
+            # 创建粒子并添加到粒子组
+            particle = Particle(
+                position[0], position[1],
+                color=color,
+                size=size,
+                speed_x=speed_x,
+                speed_y=speed_y,
+                lifetime=lifetime
+            )
+            self.particles.add(particle)
     
     def spawn_zombies(self):
         """生成僵尸"""
@@ -626,23 +736,31 @@ class Game:
         """检测碰撞"""
         # 检测子弹和僵尸的碰撞
         for bullet in self.bullets:
-            hits = pygame.sprite.spritecollide(bullet, self.zombies, False)
-            if hits:  # 如果有碰撞
-                # 只处理第一个碰撞的僵尸
-                zombie = hits[0]  # 获取第一个碰撞的僵尸
-                
-                # 获取僵尸位置，用于显示得分动画
-                zombie_pos = (zombie.rect.centerx, zombie.rect.centery)
-                
-                # 击杀僵尸
-                zombie.kill()
-                bullet.kill()  # 子弹也被销毁
-                
-                # 增加得分
-                self.player.score += 1
-                
-                # 添加得分动画
-                self.player.add_score_animation(1, zombie_pos)
+            # 使用自定义碰撞检测，检查子弹是否与任何僵尸的hit_rect相交
+            for zombie in self.zombies:
+                if bullet.rect.colliderect(zombie.get_hit_rect()):
+                    # 获取僵尸位置，用于显示得分动画和粒子效果
+                    hit_pos = (bullet.rect.centerx, bullet.rect.centery)
+                    
+                    # 播放打击音效
+                    if self.sounds["hit"]:
+                        self.sounds["hit"].play()
+                    
+                    # 创建打击粒子效果
+                    self.create_hit_particles(hit_pos)
+                    
+                    # 击杀僵尸
+                    zombie.kill()
+                    bullet.kill()  # 子弹也被销毁
+                    
+                    # 增加得分
+                    self.player.score += 1
+                    
+                    # 添加得分动画
+                    self.player.add_score_animation(1, hit_pos)
+                    
+                    # 每个子弹只能击中一个僵尸，所以处理完一个碰撞后就跳出循环
+                    break
     
     def update(self):
         """更新游戏状态"""
@@ -661,6 +779,9 @@ class Game:
             else:
                 sprite.update()
         
+        # 更新粒子效果
+        self.particles.update()
+        
         # 检测碰撞
         self.check_collisions()
         
@@ -674,23 +795,31 @@ class Game:
         """绘制游戏画面"""
         # 根据游戏状态绘制不同画面
         if self.game_state == GAME_STATE_START_MENU:
-            # 绘制开始菜单
+            # 绘制开始菜单背景
             self.screen.blit(self.background_start_menu, (0, 0))
-            
-            # 绘制游戏标题
-            self.text_renderer.render_text("炮打僵尸", (SCREEN_WIDTH // 2 - 150, 100), "game_over", (255, 255, 255))
             
             # 绘制按钮
             self.start_button.draw(self.screen)
             self.quit_button.draw(self.screen)
             
+            # 绘制游戏标题
+            self.text_renderer.render_text("炮打僵尸", (SCREEN_WIDTH // 2 - 150, 100), "game_over", (255, 0, 0))
+            
         elif self.game_state == GAME_STATE_PLAYING:
             # 绘制游戏背景
             self.screen.blit(self.background_playing, (0, 0))
             
+            # 绘制红色边界线，标识炮台不能超过的位置
+            boundary_x = SCREEN_WIDTH // 2
+            pygame.draw.line(self.screen, (255, 0, 0), (boundary_x, 0), (boundary_x, SCREEN_HEIGHT), 3)
+            
             # 绘制所有精灵
             for sprite in self.all_sprites:
                 self.screen.blit(sprite.image, sprite.rect)
+                
+            # 绘制粒子效果
+            for particle in self.particles:
+                self.screen.blit(particle.image, particle.rect)
             
             # 绘制得分
             score_text = f"得分: {self.player.score}"
