@@ -1,11 +1,12 @@
 import pygame
 import time
+import math
 
 from config import *
 from core.resource_manager import ResourceManager
 
 class Player(pygame.sprite.Sprite):
-    """玩家类，表示玩家控制的大炮"""
+    """玩家类，控制炮台"""
     
     def __init__(self):
         """初始化玩家对象"""
@@ -16,7 +17,12 @@ class Player(pygame.sprite.Sprite):
         self.initial_x = 20  # 设置初始x坐标，留出后坐力空间
         self.rect.x = self.initial_x
         self.rect.y = SCREEN_HEIGHT // 2 - self.rect.height // 2
-        self.score = 0
+        
+        # 子弹属性 - 保留原来的子弹属性
+        self.bullet_damage = 1  # 默认子弹伤害
+        self.bullet_speed = 5   # 默认子弹速度
+        self.fire_cooldown = 0.5  # 默认冷却时间（秒）
+        self.last_fire_time = 0
         
         # 发射动画相关
         self.is_firing = False
@@ -24,29 +30,26 @@ class Player(pygame.sprite.Sprite):
         self.firing_max_frames = 15  # 增加帧数使动画更流畅
         self.recoil_offset = 0  # 后坐力位移
         self.original_center = None  # 存储原始中心点
-        
-        # 得分动画相关
-        self.score_animations = []
     
-    def update(self, mouse_y=None, mouse_x=None):
+    def update(self, y_pos=None, x_pos=None):
         """更新玩家位置和动画状态
         
         Args:
-            mouse_y: 鼠标的y坐标，如果为None则只更新动画状态
-            mouse_x: 鼠标的x坐标，如果为None则不更新水平位置
+            y_pos: 鼠标的y坐标，如果为None则只更新动画状态
+            x_pos: 鼠标的x坐标，如果为None则不更新水平位置
         """
         # 如果提供了鼠标位置，则更新炮台的位置
-        if mouse_y is not None:
+        if y_pos is not None:
             # 如果正在发射动画中，记录新的目标y坐标
             if self.is_firing and self.original_center is not None:
                 # 更新原始中心点的y坐标
-                self.original_center = (self.original_center[0], mouse_y - self.rect.height // 2 + self.rect.height // 2)
+                self.original_center = (self.original_center[0], y_pos - self.rect.height // 2 + self.rect.height // 2)
             else:
                 # 根据鼠标位置更新大炮的y坐标
-                self.rect.y = mouse_y - self.rect.height // 2
+                self.rect.y = y_pos - self.rect.height // 2
             
             # 确保大炮不会超出屏幕垂直边界
-            target_y = mouse_y - self.rect.height // 2
+            target_y = y_pos - self.rect.height // 2
             if target_y < 0:
                 target_y = 0
             elif target_y + self.rect.height > SCREEN_HEIGHT:
@@ -57,10 +60,10 @@ class Player(pygame.sprite.Sprite):
                 self.rect.y = target_y
         
         # 更新水平位置（如果提供了鼠标x坐标）
-        if mouse_x is not None:
+        if x_pos is not None:
             # 计算目标x坐标，但限制不能超过屏幕宽度的一半
             max_x = SCREEN_WIDTH // 2 - self.rect.width // 2
-            target_x = min(mouse_x - self.rect.width // 2, max_x)
+            target_x = min(x_pos - self.rect.width // 2, max_x)
             target_x = max(0, target_x)  # 确保不会小于0
             
             # 如果正在发射动画中，更新原始中心点的x坐标
@@ -84,21 +87,21 @@ class Player(pygame.sprite.Sprite):
                 # 前半段：快速后退（后坐力）
                 half_progress = progress * 2  # 0-0.5 映射到 0-1
                 eased_progress = 1 - (1 - half_progress) * (1 - half_progress)  # 二次缓出
-                self.recoil_offset = -12 * eased_progress  # 减小后坐力位移
+                self.recoil_offset = -12 * eased_progress  # 后坐力位移
             else:
                 # 后半段：缓慢恢复
                 half_progress = (progress - 0.5) * 2  # 0.5-1 映射到 0-1
                 eased_progress = half_progress * half_progress  # 二次缓入
-                self.recoil_offset = -12 * (1 - eased_progress)  # 减小后坐力恢复
+                self.recoil_offset = -12 * (1 - eased_progress)  # 后坐力恢复
             
             # 发射动画效果：缩放和旋转
             if progress < 0.3:  # 前30%的时间快速缩小
-                scale_factor = 1.0 - 0.08 * (progress / 0.3)  # 减小缩放幅度
+                scale_factor = 1.0 - 0.08 * (progress / 0.3)  # 缩放幅度
             else:  # 后70%的时间缓慢恢复
                 recovery_progress = (progress - 0.3) / 0.7
-                scale_factor = 0.92 + 0.08 * recovery_progress  # 减小缩放幅度
+                scale_factor = 0.92 + 0.08 * recovery_progress  # 缩放幅度
                 
-            rotation_angle = -5 * self.recoil_offset / -12  # 减小旋转角度
+            rotation_angle = -5 * self.recoil_offset / -12  # 旋转角度
             
             # 缩放原始图像
             scaled_image = pygame.transform.scale(self.original_image, 
@@ -129,21 +132,44 @@ class Player(pygame.sprite.Sprite):
     
     def fire(self):
         """触发发射动画"""
+        current_time = time.time()
+        
+        # 检查冷却时间
+        if current_time - self.last_fire_time < self.fire_cooldown:
+            return False
+            
         self.is_firing = True
         self.firing_frame = 0
         self.original_center = self.rect.center  # 记录发射前的中心位置
-        # 立即应用初始后坐力效果，使动画更加连贯
-        self.recoil_offset = 0
+        self.last_fire_time = current_time
+        
+        return True
     
-    def add_score_animation(self, score, position):
-        """添加得分动画
+    def can_fire(self):
+        """检查是否可以发射（冷却时间）"""
+        current_time = time.time()
+        return current_time - self.last_fire_time >= self.fire_cooldown
+    
+    def set_fire_cooldown(self, cooldown):
+        """设置发射冷却时间
         
         Args:
-            score: 增加的得分
-            position: 动画起始位置
+            cooldown: 新的冷却时间（秒）
         """
-        self.score_animations.append({
-            "score": score,
-            "position": position,
-            "frame": 0
-        })
+        self.fire_cooldown = max(0.1, cooldown)  # 最小冷却时间为0.1秒
+    
+    def set_bullet_damage(self, damage):
+        """设置子弹伤害
+        
+        Args:
+            damage: 新的子弹伤害值
+        """
+        self.bullet_damage = max(1, damage)  # 最小伤害为1
+    
+    def set_bullet_speed(self, speed):
+        """设置子弹速度
+        
+        Args:
+            speed: 新的子弹速度
+        """
+        self.bullet_speed = max(5, speed)  # 最小速度为5

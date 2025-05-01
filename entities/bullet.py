@@ -4,31 +4,44 @@ from config import *
 from core.resource_manager import ResourceManager
 
 class Bullet(pygame.sprite.Sprite):
-    """子弹类，表示玩家发射的子弹"""
+    """子弹类，由玩家发射"""
     
-    def __init__(self, x, y, speed):
+    def __init__(self, x, y, target_y, speed=None, damage=None):
         """初始化子弹对象
         
         Args:
-            x: 子弹的x坐标
-            y: 子弹的y坐标
-            speed: 子弹的移动速度
+            x: 子弹的初始x坐标
+            y: 子弹的初始y坐标
+            target_y: 子弹的目标y坐标，用于计算子弹的角度
+            speed: 子弹的速度，如果为None则使用默认值5
+            damage: 子弹的伤害值，如果为None则使用默认值1
         """
         super().__init__()
-        self.image = ResourceManager.load_image(BULLET_IMAGE)
+        
+        # 加载子弹图像
+        self.original_image = ResourceManager.load_image(BULLET_IMAGE)
+        self.image = self.original_image
         self.rect = self.image.get_rect()
         self.rect.x = x
         self.rect.y = y
-        self.width = 20
-        self.height = 20
-        self.speed = speed
+        
+        # 子弹属性
+        self.speed = 5 if speed is None else speed
+        self.damage = 1 if damage is None else damage
+        
+        # 子弹只水平移动，不再有垂直分量
+        self.vx = self.speed  # 水平速度固定
+        self.vy = 0  # 垂直速度为0，子弹水平飞行
     
     def update(self):
         """更新子弹位置"""
-        self.rect.x += self.speed
+        # 更新子弹位置
+        self.rect.x += self.vx
+        self.rect.y += self.vy
         
-        # 如果子弹超出屏幕，将其移除
-        if self.rect.left > SCREEN_WIDTH:
+        # 如果子弹超出屏幕，则移除
+        if self.rect.left > SCREEN_WIDTH or self.rect.right < 0 or \
+           self.rect.top > SCREEN_HEIGHT or self.rect.bottom < 0:
             self.kill()
     
     def check_hit(self, zombie):

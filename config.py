@@ -26,6 +26,7 @@ BACKGROUND_PLAYING_IMAGE = os.path.join(IMAGE_DIR, "background_playing.jpg")
 BACKGROUND_START_MENU_IMAGE = os.path.join(IMAGE_DIR, "background_start-menu.jpg")
 GAME_OVER_IMAGE = os.path.join(IMAGE_DIR, "game_over_screen.png")
 CANNON_IMAGE = os.path.join(IMAGE_DIR, "cannon_new.png")
+CANNON_FIRE_IMAGE = os.path.join(IMAGE_DIR, "cannon_fire.png")  # 添加炮台发射图像
 BULLET_IMAGE = os.path.join(IMAGE_DIR, "bullet_new.png")
 BUTTON_IMAGE = os.path.join(IMAGE_DIR, "button.png")
 BACKGROUND_MUSIC = os.path.join(IMAGE_DIR, "Laura Shigihara - Zombies On Your Lawn.mp3")

@@ -2,6 +2,7 @@ import pygame
 import sys
 import time
 import random
+import os
 from pygame.locals import *
 
 from config import *
@@ -12,6 +13,18 @@ from entities.bullet import Bullet
 from entities.particle import Particle
 from ui.text_renderer import TextRenderer
 from ui.button import Button
+
+# 导入新系统
+from systems.economy.coin_system import CoinSystem
+from ui.hud.coin_display import CoinDisplay
+from systems.spawner.zombie_spawner import ZombieSpawner
+from systems.upgrade.upgrade_system import UpgradeSystem
+from systems.upgrade.weapon_upgrades import WeaponUpgrades
+from ui.screens.upgrade_menu import UpgradeMenu
+from entities.collectibles.coin import Coin
+from entities.zombies.normal_zombie import NormalZombie
+from entities.zombies.fast_zombie import FastZombie
+from entities.zombies.tank_zombie import TankZombie
 
 class Game:
     """游戏主类，管理游戏状态和逻辑"""
@@ -49,6 +62,7 @@ class Game:
         self.zombies = pygame.sprite.Group()
         self.bullets = pygame.sprite.Group()
         self.particles = pygame.sprite.Group()  # 添加粒子效果组
+        self.coins = pygame.sprite.Group()  # 添加金币组
         
         # 创建按钮
         self.start_button = Button(SCREEN_WIDTH // 2 - 150, SCREEN_HEIGHT // 2, 300, 80, "开始游戏")
@@ -56,9 +70,18 @@ class Game:
         self.resume_button = Button(SCREEN_WIDTH // 2 - 150, SCREEN_HEIGHT // 2 - 50, 300, 80, "继续游戏")
         self.restart_button = Button(SCREEN_WIDTH // 2 - 150, SCREEN_HEIGHT // 2 + 50, 300, 80, "重新开始")
         self.menu_button = Button(SCREEN_WIDTH // 2 - 150, SCREEN_HEIGHT // 2 + 150, 300, 80, "返回菜单")
+        self.upgrade_button = Button(SCREEN_WIDTH - 150, 80, 120, 50, "升级")
         
         # 创建玩家
         self.player = None
+        
+        # 初始化新系统
+        self.coin_system = CoinSystem(self)
+        self.coin_display = CoinDisplay(self, self.coin_system)
+        self.zombie_spawner = ZombieSpawner(self)
+        self.upgrade_system = UpgradeSystem(self)
+        self.weapon_upgrades = WeaponUpgrades(self.upgrade_system)
+        self.upgrade_menu = UpgradeMenu(self)
         
         # 游戏状态
         self.game_state = GAME_STATE_START_MENU
@@ -66,13 +89,17 @@ class Game:
         self.zombie_spawn_timer = 0
         self.clock = pygame.time.Clock()
         
+        # 鼠标左键按下状态跟踪
+        self.mouse_left_down = False
+        self.last_mouse_pos = (0, 0)
+        
         # 加载背景音乐
         try:
             pygame.mixer.music.load(BACKGROUND_MUSIC)
             pygame.mixer.music.play(-1)  # 循环播放
         except pygame.error as e:
             print(f"无法加载背景音乐: {e}")
-    
+
     def handle_events(self):
         """处理游戏事件"""
         for event in pygame.event.get():
@@ -80,9 +107,15 @@ class Game:
             if event.type == pygame.QUIT or (event.type == KEYDOWN and event.key == K_ESCAPE):
                 self.quit_game()
             
-            # 鼠标点击事件
+            # 如果升级菜单激活，优先处理升级菜单事件
+            if self.upgrade_menu.active:
+                if self.upgrade_menu.handle_event(event):
+                    return
+            
+            # 鼠标按下事件
             elif event.type == MOUSEBUTTONDOWN and event.button == 1:
                 mouse_pos = event.pos
+                self.last_mouse_pos = mouse_pos
                 
                 # 开始菜单状态
                 if self.game_state == GAME_STATE_START_MENU:
@@ -93,7 +126,14 @@ class Game:
                 
                 # 游戏进行状态
                 elif self.game_state == GAME_STATE_PLAYING:
-                    self.fire_bullet(mouse_pos[1])
+                    # 检查是否点击了升级按钮
+                    if self.upgrade_button.is_clicked(mouse_pos):
+                        self.upgrade_menu.show()
+                    else:
+                        # 设置鼠标左键按下状态
+                        self.mouse_left_down = True
+                        # 立即发射一次子弹
+                        self.fire_bullet(mouse_pos[1])
                 
                 # 游戏暂停状态
                 elif self.game_state == GAME_STATE_PAUSED:
@@ -111,24 +151,39 @@ class Game:
                     elif self.menu_button.is_clicked(mouse_pos):
                         self.return_to_menu()
             
+            # 鼠标释放事件
+            elif event.type == MOUSEBUTTONUP and event.button == 1:
+                # 重置鼠标左键按下状态
+                self.mouse_left_down = False
+            
             # 鼠标移动事件 - 允许炮台在发射动画状态时也能移动，包括水平和垂直方向
             elif event.type == MOUSEMOTION and self.game_state == GAME_STATE_PLAYING:
+                self.last_mouse_pos = event.pos
                 self.player.update(event.pos[1], event.pos[0])
             
             # 暂停/继续游戏
             elif event.type == KEYDOWN and event.key == K_p and self.game_state == GAME_STATE_PLAYING:
                 self.pause_game()
-    
+
     def start_game(self):
         """开始新游戏"""
         # 清空所有精灵组
         self.all_sprites.empty()
         self.zombies.empty()
         self.bullets.empty()
+        self.coins.empty()
         
         # 创建玩家
         self.player = Player()
         self.all_sprites.add(self.player)
+        
+        # 重置系统
+        self.coin_system.reset()
+        self.zombie_spawner.reset()
+        self.upgrade_system.reset()
+        
+        # 应用升级效果到玩家
+        self.upgrade_system.apply_upgrades(self.player)
         
         # 设置游戏状态
         self.game_state = GAME_STATE_PLAYING
@@ -160,6 +215,13 @@ class Game:
         self.player = Player()
         self.all_sprites.add(self.player)
         
+        # 重置系统
+        self.coin_system.reset()
+        self.zombie_spawner.reset()
+        
+        # 应用升级效果到玩家
+        self.upgrade_system.apply_upgrades(self.player)
+        
         # 重置游戏状态
         self.game_state = GAME_STATE_PLAYING
         self.start_time = time.time()
@@ -177,12 +239,15 @@ class Game:
         Args:
             y_pos: 鼠标的y坐标
         """
-        # 计算子弹速度 (随时间增加)
-        game_time = time.time() - self.start_time
-        bullet_speed = min(10, 5 + game_time // 60)  # 最大速度为10
+        # 检查玩家是否可以发射（冷却时间）
+        if not self.player.can_fire():
+            return
         
-        # 创建子弹对象
-        bullet = Bullet(self.player.rect.right, y_pos - 40, bullet_speed)
+        # 使用武器升级系统创建升级后的子弹
+        bullet = self.weapon_upgrades.create_upgraded_bullet(
+            self.player.rect.right, y_pos - 40, y_pos
+        )
+        
         self.bullets.add(bullet)
         self.all_sprites.add(bullet)
         
@@ -226,26 +291,9 @@ class Game:
     
     def spawn_zombies(self):
         """生成僵尸"""
-        current_time = time.time()
-        game_time = current_time - self.start_time
-        
-        # 根据游戏时间调整僵尸生成频率
-        spawn_interval = max(1.0, 2.0 - game_time / 120)  # 最小间隔为1秒
-        
-        if current_time - self.zombie_spawn_timer >= spawn_interval:
-            self.zombie_spawn_timer = current_time
-            
-            # 根据游戏时间调整僵尸数量和速度
-            zombie_count = min(5, 1 + int(game_time // 60))  # 最多同时生成5个
-            
-            for _ in range(zombie_count):
-                y = random.randint(0, SCREEN_HEIGHT - 180)  # 僵尸高度为180
-                speed = random.randint(1, min(5, 1 + int(game_time // 30)))  # 最大速度为5
-                
-                zombie = Zombie(y, speed)
-                self.zombies.add(zombie)
-                self.all_sprites.add(zombie)
-    
+        # 使用僵尸生成系统生成僵尸
+        self.zombie_spawner.update()
+
     def check_collisions(self):
         """检测碰撞"""
         # 检测子弹和僵尸的碰撞
@@ -263,23 +311,52 @@ class Game:
                     # 创建打击粒子效果
                     self.create_hit_particles(hit_pos)
                     
-                    # 击杀僵尸
-                    zombie.kill()
-                    bullet.kill()  # 子弹也被销毁
+                    # 对僵尸造成伤害
+                    if zombie.take_damage(bullet.damage):
+                        # 僵尸死亡，生成金币
+                        self._spawn_coins(zombie)
+                        # 移除僵尸
+                        zombie.kill()
                     
-                    # 增加得分
-                    self.player.score += 1
-                    
-                    # 添加得分动画
-                    self.player.add_score_animation(1, hit_pos)
+                    # 子弹被销毁
+                    bullet.kill()
                     
                     # 每个子弹只能击中一个僵尸，所以处理完一个碰撞后就跳出循环
                     break
-    
+        
+        # 检测玩家和金币的碰撞
+        for coin in self.coins:
+            if pygame.sprite.collide_rect(self.player, coin):
+                # 收集金币
+                coin_value = coin.collect((100, 50))  # 金币UI显示位置
+                # 增加金币数量
+                self.coin_system.add_coins(coin_value, coin.rect.center)
+                # 触发金币显示动画
+                self.coin_display.trigger_pulse()
+
+    def _spawn_coins(self, zombie):
+        """从僵尸生成金币
+        
+        Args:
+            zombie: 被击杀的僵尸
+        """
+        # 获取僵尸的金币价值
+        coin_value = getattr(zombie, "coin_value", 1)
+        
+        # 创建金币对象
+        coin = Coin(zombie.rect.centerx, zombie.rect.centery, coin_value)
+        self.coins.add(coin)
+        self.all_sprites.add(coin)
+
     def update(self):
         """更新游戏状态"""
         if self.game_state != GAME_STATE_PLAYING:
             return
+        
+        # 检查鼠标左键是否按下，如果按下则尝试发射子弹
+        if self.mouse_left_down and self.game_state == GAME_STATE_PLAYING:
+            # 使用最后记录的鼠标位置发射子弹
+            self.fire_bullet(self.last_mouse_pos[1])
         
         # 生成僵尸
         self.spawn_zombies()
@@ -293,8 +370,25 @@ class Game:
             else:
                 sprite.update()
         
+        # 检测自动收集的金币
+        for coin in self.coins:
+            if coin.collected and not hasattr(coin, 'counted'):
+                # 增加金币数量
+                self.coin_system.add_coins(coin.value, coin.rect.center)
+                # 触发金币显示动画
+                self.coin_display.trigger_pulse()
+                # 标记金币已计数，避免重复计算
+                coin.counted = True
+        
         # 更新粒子效果
         self.particles.update()
+        
+        # 更新金币系统
+        self.coin_system.update_animations()
+        self.coin_display.update()
+        
+        # 更新升级菜单
+        self.upgrade_menu.update()
         
         # 检测碰撞
         self.check_collisions()
@@ -304,7 +398,7 @@ class Game:
             if zombie.update():
                 self.game_state = GAME_STATE_GAME_OVER
                 pygame.mixer.music.stop()
-    
+
     def draw(self):
         """绘制游戏画面"""
         # 根据游戏状态绘制不同画面
@@ -329,42 +423,35 @@ class Game:
             
             # 绘制所有精灵
             for sprite in self.all_sprites:
-                self.screen.blit(sprite.image, sprite.rect)
+                if hasattr(sprite, 'render') and callable(getattr(sprite, 'render')):
+                    sprite.render(self.screen)
+                else:
+                    self.screen.blit(sprite.image, sprite.rect)
                 
             # 绘制粒子效果
             for particle in self.particles:
                 self.screen.blit(particle.image, particle.rect)
             
-            # 绘制得分
-            score_text = f"得分: {self.player.score}"
-            self.text_renderer.render_text(score_text, (SCREEN_WIDTH - 250, 20), "regular", (255, 255, 255))
+            # 绘制金币UI
+            self.coin_display.render(self.screen)
             
-            # 绘制得分动画
-            for anim in self.player.score_animations[:]:  # 使用副本进行迭代
-                # 计算动画位置和透明度
-                pos_y = anim["position"][1] - anim["frame"] // 2  # 向上移动
-                alpha = 255 - int(255 * (anim["frame"] / SCORE_ANIMATION_DURATION))  # 逐渐变透明
-                
-                # 创建带透明度的文本
-                font = pygame.font.Font(REGULAR_FONT, 30)
-                text = font.render(f"+{anim['score']}", True, (255, 255, 0))
-                text.set_alpha(alpha)
-                
-                # 绘制文本
-                self.screen.blit(text, (anim["position"][0], pos_y))
-                
-                # 更新动画帧
-                anim["frame"] += 1
-                
-                # 移除完成的动画
-                if anim["frame"] >= SCORE_ANIMATION_DURATION:
-                    self.player.score_animations.remove(anim)
+            # 绘制升级按钮
+            self.upgrade_button.draw(self.screen)
             
-            # 根据得分显示不同的提示
-            if 0 <= self.player.score <= 10:
-                self.text_renderer.render_text("(阶段1)随着时间的推移 你会变强，但僵尸也会！", (270, 100), "regular", (0, 255, 255))
-            elif 210 <= self.player.score <= 250:
-                self.text_renderer.render_text("(阶段2)觉得自己很帅？僵尸不这么想！！！，感受恐惧吧！！", (200, 100), "warning", (255, 0, 0))
+            # 绘制波次信息
+            wave_info = self.zombie_spawner.get_wave_info()
+            if wave_info["state"] == "break":
+                wave_text = f"第 {wave_info['wave']} 波结束，下一波还有 {wave_info['remaining']:.1f} 秒"
+                self.text_renderer.render_text(wave_text, (SCREEN_WIDTH // 2 - 200, 50), "regular", (255, 255, 0))
+            else:
+                wave_text = f"第 {wave_info['wave']} 波进行中 ({wave_info['remaining']:.1f} 秒)"
+                self.text_renderer.render_text(wave_text, (SCREEN_WIDTH // 2 - 150, 50), "regular", (255, 255, 255))
+            
+            # # 根据得分显示不同的提示
+            # if 0 <= self.coin_system.coins <= 10:
+            #     self.text_renderer.render_text("(阶段1)随着时间的推移 你会变强，但僵尸也会！", (270, 100), "regular", (0, 255, 255))
+            # elif 210 <= self.coin_system.coins <= 250:
+            #     self.text_renderer.render_text("(阶段2)觉得自己很帅？僵尸不这么想！！！，感受恐惧吧！！", (200, 100), "warning", (255, 0, 0))
             
         elif self.game_state == GAME_STATE_PAUSED:
             # 绘制暂停菜单
@@ -389,11 +476,15 @@ class Game:
             
             # 绘制游戏结束文本
             self.text_renderer.render_text("游戏结束！", (SCREEN_WIDTH // 2 - 200, 100), "game_over", (255, 12, 3))
-            self.text_renderer.render_text(f"最终得分: {self.player.score}", (SCREEN_WIDTH // 2 - 150, 200), "regular", (255, 255, 255))
+            self.text_renderer.render_text(f"最终金币: {self.coin_system.coins}", (SCREEN_WIDTH // 2 - 150, 200), "regular", (255, 255, 255))
             
             # 绘制按钮
             self.restart_button.draw(self.screen)
             self.menu_button.draw(self.screen)
+        
+        # 绘制升级菜单（如果激活）
+        if self.upgrade_menu.active:
+            self.upgrade_menu.render(self.screen)
     
     def run(self):
         """运行游戏主循环"""
