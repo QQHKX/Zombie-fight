@@ -29,3 +29,82 @@ AttributeError: 'Game' object has no attribute 'upgrade_menu'
 [2025-05-02 01:47:25] [INFO] [logger.py:106] - 开始新游戏
 [2025-05-02 01:47:25] [INFO] [logger.py:106] - 重置僵尸生成器
 [2025-05-02 01:47:25] [DEBUG] [logger.py:106] - 游戏状态已设置为PLAYING
+[2025-05-02 01:59:39] [INFO] [SYSTEM] 日志系统初始化完成
+[2025-05-02 01:59:39] [INFO] [SYSTEM] 游戏初始化开始
+[2025-05-02 01:59:39] [INFO] [SYSTEM] 开始加载游戏资源
+[2025-05-02 01:59:39] [INFO] [SYSTEM] 初始化游戏系统
+[2025-05-02 01:59:39] [INFO] [SAVE] 应用存档数据
+[2025-05-02 01:59:39] [INFO] [SYSTEM] 游戏初始化完成
+[2025-05-02 01:59:40] [INFO] [GAME_STATE] 开始新游戏
+[2025-05-02 01:59:40] [INFO] [PLAYER] 玩家创建完成
+[2025-05-02 01:59:40] [INFO] [GAME_STATE] 游戏状态切换为进行中
+[2025-05-02 02:00:30] [INFO] [SYSTEM] 日志系统初始化完成
+[2025-05-02 02:00:30] [INFO] [SYSTEM] 游戏初始化开始
+[2025-05-02 02:00:30] [INFO] [SYSTEM] 开始加载游戏资源
+[2025-05-02 02:00:30] [INFO] [SYSTEM] 初始化游戏系统
+[2025-05-02 02:00:30] [INFO] [SAVE] 应用存档数据
+[2025-05-02 02:00:30] [INFO] [SYSTEM] 游戏初始化完成
+[2025-05-02 02:01:54] [INFO] [GAME_STATE] 开始新游戏
+[2025-05-02 02:01:54] [INFO] [PLAYER] 玩家创建完成
+[2025-05-02 02:01:54] [INFO] [GAME_STATE] 游戏状态切换为进行中
+[2025-05-02 02:02:35] [INFO] [SYSTEM] 日志系统初始化完成
+[2025-05-02 02:02:35] [INFO] [SYSTEM] 游戏初始化开始
+[2025-05-02 02:02:36] [INFO] [SYSTEM] 开始加载游戏资源
+[2025-05-02 02:02:36] [INFO] [SYSTEM] 初始化游戏系统
+[2025-05-02 02:02:36] [INFO] [SAVE] 应用存档数据
+[2025-05-02 02:02:36] [INFO] [SYSTEM] 游戏初始化完成
+[2025-05-02 02:02:37] [INFO] [GAME_STATE] 开始新游戏
+[2025-05-02 02:02:37] [INFO] [PLAYER] 玩家创建完成
+[2025-05-02 02:02:37] [INFO] [GAME_STATE] 游戏状态切换为进行中
+[2025-05-02 02:02:37] [INFO] [PLAYER] 玩家发射子弹 - position=(330, 335)
+[2025-05-02 02:02:38] [INFO] [PLAYER] 玩家发射子弹 - position=(232, 355)
+[2025-05-02 02:02:39] [INFO] [PLAYER] 玩家发射子弹 - position=(272, 459)
+[2025-05-02 02:02:39] [INFO] [PLAYER] 玩家发射子弹 - position=(334, 381)
+[2025-05-02 02:02:40] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=4
+[2025-05-02 02:02:40] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(1085, 320)
+[2025-05-02 02:02:40] [INFO] [PLAYER] 玩家发射子弹 - position=(275, 345)
+[2025-05-02 02:02:40] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=3
+[2025-05-02 02:02:40] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(987, 340)
+[2025-05-02 02:02:41] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=2
+[2025-05-02 02:02:41] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(947, 444)
+[2025-05-02 02:02:41] [INFO] [PLAYER] 玩家发射子弹 - position=(281, 393)
+[2025-05-02 02:02:41] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=1
+[2025-05-02 02:02:41] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(894, 366)
+[2025-05-02 02:02:41] [INFO] [PLAYER] 玩家发射子弹 - position=(274, 396)
+[2025-05-02 02:02:42] [INFO] [ZOMBIE] 僵尸被击杀 - zombie_type=NormalZombie, position=(889, 397)
+[2025-05-02 02:02:42] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(815, 330)
+[2025-05-02 02:02:42] [INFO] [PLAYER] 玩家发射子弹 - position=(279, 400)
+[2025-05-02 02:02:43] [INFO] [PLAYER] 玩家发射子弹 - position=(268, 268)
+[2025-05-02 02:02:43] [INFO] [PLAYER] 玩家发射子弹 - position=(271, 253)
+[2025-05-02 02:02:43] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=4
+[2025-05-02 02:02:43] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(1106, 378)
+[2025-05-02 02:02:44] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=3
+[2025-05-02 02:02:44] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(1054, 381)
+[2025-05-02 02:02:44] [INFO] [PLAYER] 玩家发射子弹 - position=(273, 257)
+[2025-05-02 02:02:44] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=2
+[2025-05-02 02:02:44] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(1014, 385)
+[2025-05-02 02:02:44] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=4
+[2025-05-02 02:02:44] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(768, 253)
+[2025-05-02 02:02:45] [INFO] [PLAYER] 玩家发射子弹 - position=(295, 361)
+[2025-05-02 02:02:45] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=3
+[2025-05-02 02:02:45] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(711, 238)
+[2025-05-02 02:02:45] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=2
+[2025-05-02 02:02:45] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(658, 242)
+[2025-05-02 02:02:45] [INFO] [PLAYER] 玩家发射子弹 - position=(303, 390)
+[2025-05-02 02:02:46] [INFO] [PLAYER] 玩家发射子弹 - position=(267, 300)
+[2025-05-02 02:02:46] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=1
+[2025-05-02 02:02:46] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(770, 346)
+[2025-05-02 02:02:47] [INFO] [PLAYER] 玩家发射子弹 - position=(280, 323)
+[2025-05-02 02:02:47] [INFO] [ZOMBIE] 僵尸被击杀 - zombie_type=NormalZombie, position=(787, 421)
+[2025-05-02 02:02:47] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(718, 375)
+[2025-05-02 02:02:47] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=1
+[2025-05-02 02:02:47] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(477, 285)
+[2025-05-02 02:02:47] [INFO] [ZOMBIE] 僵尸被击杀 - zombie_type=NormalZombie, position=(507, 241)
+[2025-05-02 02:02:47] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(435, 308)
+[2025-05-02 02:02:48] [INFO] [GAME_STATE] 游戏暂停
+[2025-05-02 02:02:50] [INFO] [GAME_STATE] 重置游戏
+[2025-05-02 02:02:50] [INFO] [PLAYER] 玩家重新创建完成
+[2025-05-02 02:02:50] [INFO] [SAVE] 重置时应用存档数据
+[2025-05-02 02:02:50] [INFO] [GAME_STATE] 游戏状态重置为进行中
+[2025-05-02 02:03:27] [INFO] [GAME_STATE] 返回主菜单
+[2025-05-02 02:03:29] [INFO] [GAME_STATE] 游戏退出

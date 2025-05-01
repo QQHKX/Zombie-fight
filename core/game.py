@@ -26,6 +26,21 @@ from entities.zombies.normal_zombie import NormalZombie
 from entities.zombies.fast_zombie import FastZombie
 from entities.zombies.tank_zombie import TankZombie
 
+# 在文件顶部导入日志系统
+from utils.logger import (
+    EventType,
+    log_system,
+    log_player,
+    log_game_state,
+    log_zombie,
+    log_collision,
+    log_economy,
+    log_upgrade,
+    log_save,
+    log_error,
+    log_exception
+)
+
 class Game:
     """游戏主类，管理游戏状态和逻辑"""
     
@@ -35,11 +50,15 @@ class Game:
         pygame.init()
         pygame.mixer.init()  # 初始化音频系统
         
+        # 记录游戏启动日志
+        log_system("游戏初始化开始")
+        
         # 创建游戏窗口
         self.screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
         pygame.display.set_caption("炮打僵尸_无尽版")
         
         # 加载游戏资源
+        log_system("开始加载游戏资源")
         self.background_playing = ResourceManager.load_image(BACKGROUND_PLAYING_IMAGE)
         self.background_start_menu = ResourceManager.load_image(BACKGROUND_START_MENU_IMAGE)
         self.game_over_bg = ResourceManager.load_image(GAME_OVER_IMAGE)
@@ -77,6 +96,7 @@ class Game:
         self.player = None
         
         # 初始化新系统
+        log_system("初始化游戏系统")
         self.coin_system = CoinSystem(self)
         self.coin_display = CoinDisplay(self, self.coin_system)
         self.zombie_spawner = ZombieSpawner(self)
@@ -89,6 +109,7 @@ class Game:
         self.save_manager = SaveManager(self)
         
         # 应用存档数据
+        log_save("应用存档数据")
         self.save_manager.apply_save_data()
         
         # 游戏状态
@@ -106,8 +127,11 @@ class Game:
             pygame.mixer.music.load(BACKGROUND_MUSIC)
             pygame.mixer.music.play(-1)  # 循环播放
         except pygame.error as e:
+            log_error(f"无法加载背景音乐: {e}")
             print(f"无法加载背景音乐: {e}")
-
+        
+        log_system("游戏初始化完成")
+    
     def handle_events(self):
         """处理游戏事件"""
         for event in pygame.event.get():
@@ -178,6 +202,7 @@ class Game:
 
     def start_game(self):
         """开始新游戏"""
+        log_game_state("开始新游戏")
         # 清空所有精灵组
         self.all_sprites.empty()
         self.zombies.empty()
@@ -187,6 +212,7 @@ class Game:
         # 创建玩家
         self.player = Player()
         self.all_sprites.add(self.player)
+        log_player("玩家创建完成")
         
         # 重置系统
         self.coin_system.reset()
@@ -200,23 +226,28 @@ class Game:
         self.game_state = GAME_STATE_PLAYING
         self.start_time = time.time()
         self.zombie_spawn_timer = time.time()
-    
+        log_game_state("游戏状态切换为进行中")
+
     def pause_game(self):
         """暂停游戏"""
         self.game_state = GAME_STATE_PAUSED
         pygame.mixer.music.pause()
-    
+        log_game_state("游戏暂停")
+
     def resume_game(self):
         """继续游戏"""
         self.game_state = GAME_STATE_PLAYING
         pygame.mixer.music.unpause()
-    
+        log_game_state("游戏继续")
+
     def return_to_menu(self):
         """返回主菜单"""
         self.game_state = GAME_STATE_START_MENU
-    
+        log_game_state("返回主菜单")
+
     def reset_game(self):
         """重置游戏状态"""
+        log_game_state("重置游戏")
         # 清空所有精灵组
         self.all_sprites.empty()
         self.zombies.empty()
@@ -227,6 +258,7 @@ class Game:
         # 创建玩家
         self.player = Player()
         self.all_sprites.add(self.player)
+        log_player("玩家重新创建完成")
         
         # 重置游戏状态
         self.score = 0
@@ -238,6 +270,7 @@ class Game:
         self.game_over = False
         
         # 应用存档数据
+        log_save("重置时应用存档数据")
         self.save_manager.apply_save_data()
         
         # 重置僵尸生成器
@@ -250,14 +283,13 @@ class Game:
         # 重新播放背景音乐
         try:
             pygame.mixer.music.play(-1)
-        except pygame.error:
-            pass
+        except pygame.error as e:
+            log_error(f"重置游戏时无法播放背景音乐: {e}")
         
         # 设置游戏状态为游戏进行中
         self.game_state = GAME_STATE_PLAYING
-        self.start_time = time.time()
-        self.zombie_spawn_timer = time.time()
-    
+        log_game_state("游戏状态重置为进行中")
+
     def fire_bullet(self, y_pos):
         """发射子弹
         
@@ -275,6 +307,7 @@ class Game:
         
         self.bullets.add(bullet)
         self.all_sprites.add(bullet)
+        log_player("玩家发射子弹", position=(self.player.rect.right, y_pos))
         
         # 触发炮台发射动画
         self.player.fire()
@@ -314,11 +347,6 @@ class Game:
             )
             self.particles.add(particle)
     
-    def spawn_zombies(self):
-        """生成僵尸"""
-        # 使用僵尸生成系统生成僵尸
-        self.zombie_spawner.update()
-
     def check_collisions(self):
         """检测碰撞"""
         # 检测子弹和僵尸的碰撞
@@ -340,8 +368,16 @@ class Game:
                     if zombie.take_damage(bullet.damage):
                         # 僵尸死亡，生成金币
                         self._spawn_coins(zombie)
+                        # 记录僵尸死亡
+                        log_zombie("僵尸被击杀", zombie_type=type(zombie).__name__, position=zombie.rect.center)
                         # 移除僵尸
                         zombie.kill()
+                    else:
+                        # 记录僵尸受伤
+                        log_zombie("僵尸受伤", zombie_type=type(zombie).__name__, damage=bullet.damage, health_remaining=zombie.health)
+                    
+                    # 记录碰撞事件
+                    log_collision("子弹击中僵尸", bullet_damage=bullet.damage, position=hit_pos)
                     
                     # 子弹被销毁
                     bullet.kill()
@@ -555,5 +591,17 @@ class Game:
     
     def quit_game(self):
         """退出游戏"""
+        log_game_state("游戏退出")
+        # 保存游戏数据
+        self.save_manager.save_game()
         pygame.quit()
         sys.exit()
+    
+    def spawn_zombies(self):
+        """生成僵尸"""
+        # 使用僵尸生成系统生成僵尸
+        new_zombies = self.zombie_spawner.update()
+        # 记录僵尸生成
+        if new_zombies:
+            for zombie in new_zombies:
+                log_zombie("生成新僵尸", zombie_type=type(zombie).__name__, position=zombie.rect.center)
