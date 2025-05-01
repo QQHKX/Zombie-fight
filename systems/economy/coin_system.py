@@ -14,7 +14,7 @@ class CoinSystem:
             game: 游戏实例
         """
         self.game = game
-        self.coins = 0
+        self.coins = 30  # 初始金币数设置为30
         
         # 加载金币图标
         self.coin_icon = self._create_coin_icon()
@@ -183,6 +183,6 @@ class CoinSystem:
     
     def reset(self):
         """重置金币系统"""
-        self.coins = 0
+        self.coins = 3000  # 将初始金币数设置为30
         self.coin_animations = []
         self.save_coins()
