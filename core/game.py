@@ -252,6 +252,11 @@ class Game:
             pygame.mixer.music.play(-1)
         except pygame.error:
             pass
+        
+        # 设置游戏状态为游戏进行中
+        self.game_state = GAME_STATE_PLAYING
+        self.start_time = time.time()
+        self.zombie_spawn_timer = time.time()
     
     def fire_bullet(self, y_pos):
         """发射子弹

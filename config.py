@@ -16,6 +16,9 @@ ZOMBIE_MOVE = 0
 ZOMBIE_STAND = 1
 ZOMBIE_ATTACK = 2
 
+# 游戏难度常量
+INITIAL_WAVE_ZOMBIES = 5  # 第一波僵尸数量
+
 # 资源路径常量
 ASSETS_DIR = "assets"
 IMAGE_DIR = os.path.join(ASSETS_DIR, "images")

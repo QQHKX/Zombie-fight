@@ -1,0 +1,31 @@
+[2025-05-02 00:57:05] [INFO] [logger.py:102] - 游戏初始化开始
+[2025-05-02 00:57:05] [INFO] [logger.py:102] - 游戏窗口创建成功: 1200x600
+[2025-05-02 00:57:43] [INFO] [logger.py:102] - 游戏初始化开始
+[2025-05-02 00:57:43] [INFO] [logger.py:102] - 游戏窗口创建成功: 1200x600
+[2025-05-02 00:57:43] [ERROR] [logger.py:119] - 处理游戏事件时发生错误: 'Game' object has no attribute 'upgrade_menu'
+Traceback (most recent call last):
+  File "D:\Desktop\炮打僵尸\core\game.py", line 164, in handle_events
+    if self.upgrade_menu.active:
+       ^^^^^^^^^^^^^^^^^
+AttributeError: 'Game' object has no attribute 'upgrade_menu'
+[2025-05-02 01:26:40] [INFO] [SYSTEM] [logger.py:114] - 游戏初始化开始
+[2025-05-02 01:26:41] [INFO] [ECONOMY] [logger.py:114] - 初始化金币系统，初始金币：0
+[2025-05-02 01:26:41] [INFO] [SYSTEM] [logger.py:114] - 游戏初始化完成
+[2025-05-02 01:26:41] [INFO] [SYSTEM] [logger.py:114] - 游戏主循环开始
+[2025-05-02 01:26:43] [INFO] [PLAYER] [logger.py:114] - 点击开始游戏按钮
+[2025-05-02 01:26:43] [INFO] [GAME] [logger.py:114] - 开始新游戏
+[2025-05-02 01:26:43] [INFO] [OTHER] [logger.py:114] - 重置僵尸生成器
+[2025-05-02 01:27:26] [INFO] [SYSTEM] [logger.py:114] - 游戏初始化开始
+[2025-05-02 01:27:27] [INFO] [ECONOMY] [logger.py:114] - 初始化金币系统，初始金币：0
+[2025-05-02 01:27:27] [INFO] [SYSTEM] [logger.py:114] - 游戏初始化完成
+[2025-05-02 01:27:27] [INFO] [SYSTEM] [logger.py:114] - 游戏主循环开始
+[2025-05-02 01:27:28] [INFO] [PLAYER] [logger.py:114] - 点击开始游戏按钮
+[2025-05-02 01:27:28] [INFO] [GAME] [logger.py:114] - 开始新游戏
+[2025-05-02 01:27:28] [INFO] [OTHER] [logger.py:114] - 重置僵尸生成器
+[2025-05-02 01:47:24] [INFO] [logger.py:106] - 游戏启动
+[2025-05-02 01:47:24] [DEBUG] [logger.py:106] - 创建游戏窗口: 1200x600
+[2025-05-02 01:47:24] [DEBUG] [logger.py:106] - 游戏资源加载成功
+[2025-05-02 01:47:24] [INFO] [logger.py:106] - 游戏主循环开始
+[2025-05-02 01:47:25] [INFO] [logger.py:106] - 开始新游戏
+[2025-05-02 01:47:25] [INFO] [logger.py:106] - 重置僵尸生成器
+[2025-05-02 01:47:25] [DEBUG] [logger.py:106] - 游戏状态已设置为PLAYING
