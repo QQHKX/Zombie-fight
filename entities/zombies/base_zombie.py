@@ -42,9 +42,9 @@ class BaseZombie(pygame.sprite.Sprite):
         
         # 血条相关
         self.show_health_bar = True
-        self.health_bar_width = 60
+        self.health_bar_width = 50
         self.health_bar_height = 8
-        self.health_bar_offset = 20  # 血条距离僵尸顶部的距离
+        self.health_bar_offset = 10  # 血条距离僵尸顶部的距离
         
         # 掉落金币相关
         self.coin_value = self._calculate_coin_value()
@@ -53,7 +53,7 @@ class BaseZombie(pygame.sprite.Sprite):
         """根据僵尸类型和等级设置属性"""
         # 基础属性（普通僵尸1级）
         base_health = 5
-        base_speed = 2
+        base_speed = 1
         base_damage = 10
         
         # 根据类型调整基础属性
@@ -169,8 +169,8 @@ class BaseZombie(pygame.sprite.Sprite):
         if not self.show_health_bar:
             return
         
-        # 计算血条位置
-        bar_x = self.rect.centerx - self.health_bar_width // 2
+       # 计算血条位置 - 调整x位置使其更好地对齐僵尸视觉中心
+        bar_x = self.rect.centerx - self.health_bar_width // 2 - 50  # 向左偏移20像素
         bar_y = self.rect.top - self.health_bar_offset
         
         # 绘制血条背景
