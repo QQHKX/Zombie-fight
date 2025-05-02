@@ -1,4 +1,4 @@
-# 炮打僵尸（无尽版）
+# 戴夫的炮击实验
 
 <p align="center">
   <img src="demo.png" alt="游戏截图" width="600">
@@ -10,7 +10,7 @@
 
 ## 简介
 
-**炮打僵尸**是一款用 Python 和 Pygame 制作的简单射击游戏。玩家将操作一门大炮，射击不断涌来的僵尸，阻止它们到达屏幕的左边缘。随着游戏进行，僵尸的速度会逐渐加快，游戏将变得越来越具有挑战性。
+**戴夫的炮击实验**是一款用 Python 和 Pygame 制作的简单射击游戏，灵感来源于《植物大战僵尸》。玩家将操作一门大炮，射击不断涌来的僵尸，阻止它们到达屏幕的左边缘。随着游戏进行，僵尸的速度会逐渐加快，游戏将变得越来越具有挑战性。
 
 ## 玩法
 
@@ -50,8 +50,8 @@ pip install pygame
 1. 克隆或下载此项目代码到你的本地目录：
 
 ```bash
-git clone https://github.com/你的用户名/炮打僵尸.git
-cd 炮打僵尸
+git clone https://github.com/你的用户名/daves-bombardment-experiment.git
+cd daves-bombardment-experiment
 ```
 
 2. 确保所有资源文件（如背景音乐、图片等）位于项目目录的正确位置。
@@ -158,7 +158,7 @@ python main.py
 
 如有任何问题或建议，请通过以下方式联系我：
 
-- GitHub Issues: [https://github.com/你的用户名/炮打僵尸/issues](https://github.com/你的用户名/炮打僵尸/issues)
+- GitHub Issues: [https://github.com/你的用户名/daves-bombardment-experiment/issues](https://github.com/你的用户名/daves-bombardment-experiment/issues)
 - 邮箱：你的邮箱地址
 
 ## 致谢

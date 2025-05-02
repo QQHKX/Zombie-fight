@@ -63,7 +63,7 @@ class Game:
         
         # 创建游戏窗口
         self.screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
-        pygame.display.set_caption("炮打僵尸_无尽版")
+        pygame.display.set_caption("戴夫的炮击实验")
         
         # 预加载僵尸动画资源（优化性能）
         from entities.zombies.base_zombie import BaseZombie
@@ -459,7 +459,7 @@ class Game:
             self.quit_button.draw(self.screen)
             
             # 绘制游戏标题
-            self.text_renderer.render_text("炮打僵尸", (SCREEN_WIDTH // 2 - 150, 100), "game_over", (255, 0, 0))
+            self.text_renderer.render_text("戴夫的炮击实验", (SCREEN_WIDTH // 2 - 150, 100), "game_over", (255, 0, 0))
             
         elif self.game_state == GAME_STATE_PLAYING:
             # 绘制游戏背景
