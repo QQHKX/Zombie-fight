@@ -156,8 +156,9 @@ class BaseZombie(pygame.sprite.Sprite):
         return False
     
     def update_hit_rect(self):
-        """更新碰撞区域位置"""
-        self.hit_rect.centerx = self.rect.centerx + 20  # 向后移动20像素
+        """更新碰撞区域的位置，使其跟随僵尸的位置"""
+        # 将碰撞区域居中于僵尸的矩形区域
+        self.hit_rect.centerx = self.rect.centerx
         self.hit_rect.centery = self.rect.centery
     
     def get_hit_rect(self):

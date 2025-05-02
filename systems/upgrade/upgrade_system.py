@@ -15,7 +15,7 @@ class UpgradeSystem:
             "damage": {
                 "name": "伤害升级",
                 "description": "增加子弹伤害",
-                "max_level": 5,
+                "max_level": 10,
                 "level": 0,
                 "base_price": 10,
                 "price_increase": 10
@@ -23,7 +23,7 @@ class UpgradeSystem:
             "fire_rate": {
                 "name": "射速升级",
                 "description": "增加射击速度",
-                "max_level": 5,
+                "max_level": 15,
                 "level": 0,
                 "base_price": 15,
                 "price_increase": 15
@@ -31,7 +31,7 @@ class UpgradeSystem:
             "bullet_speed": {
                 "name": "子弹速度升级",
                 "description": "增加子弹速度",
-                "max_level": 5,
+                "max_level": 10,
                 "level": 0,
                 "base_price": 8,
                 "price_increase": 8

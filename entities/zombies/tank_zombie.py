@@ -46,9 +46,10 @@ class TankZombie(BaseZombie):
         Returns:
             bool: 如果僵尸死亡则返回True，否则返回False
         """
-        # 如果护盾激活，减少50%伤害而不是完全免疫
+        # 如果护盾激活，减少80%伤害
         if self.shield_active:
-            damage = damage * 0.5  # 减少50%伤害
+            damage = damage * 0.4  # 减少60%伤害
+         
         
         # 护甲减伤
         actual_damage = max(1, damage - self.armor)  # 至少造成1点伤害
@@ -74,10 +75,21 @@ class TankZombie(BaseZombie):
         
         # 如果护盾激活，绘制护盾效果
         if self.shield_active:
-            # 创建半透明的护盾效果，减小护盾范围
-            shield_surface = pygame.Surface((self.rect.width - 20, self.rect.height - 20), pygame.SRCALPHA)
-            pygame.draw.ellipse(shield_surface, (100, 100, 255, 128), shield_surface.get_rect())
+            # 创建半透明的护盾效果，调整护盾大小为僵尸的0.9倍
+            shield_width = int(self.rect.width * 0.9)
+            shield_height = int(self.rect.height * 0.9)
+            shield_surface = pygame.Surface((shield_width, shield_height), pygame.SRCALPHA)
             
-            # 绘制护盾，确保位于僵尸正中心
-            shield_rect = shield_surface.get_rect(center=self.rect.center)
+            # 绘制椭圆形护盾，填充蓝紫色半透明效果
+            pygame.draw.ellipse(shield_surface, (120, 80, 255, 80), shield_surface.get_rect())
+            
+            # 绘制护盾边缘，增加一个发光效果
+            pygame.draw.ellipse(shield_surface, (150, 120, 255, 120), shield_surface.get_rect(), 2)
+            
+            # 确保护盾位于僵尸正中心，向左偏移以更好地覆盖僵尸
+            shield_rect = shield_surface.get_rect()
+            shield_rect.centerx = self.rect.centerx - 35  # 向左偏移15像素
+            shield_rect.centery = self.rect.centery - 20  # 向上偏移10像素
+            
+            # 绘制护盾
             screen.blit(shield_surface, shield_rect)

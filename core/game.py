@@ -50,6 +50,14 @@ class Game:
         pygame.init()
         pygame.mixer.init()  # 初始化音频系统
         
+        # 初始化音效声道
+        self.sound_channels = ResourceManager.init_sound_channels(16)  # 创建16个声道
+        self.current_channel = 0  # 当前使用的声道索引
+        
+        # 帧率显示设置
+        self.show_fps = False  # 是否显示帧率
+        self.fps_font = pygame.font.Font(None, 36)  # 帧率显示字体
+        
         # 记录游戏启动日志
         log_system("游戏初始化开始")
         
@@ -76,12 +84,15 @@ class Game:
         # 加载音效
         self.sounds = {
             "bullet_fired": ResourceManager.load_sound(BULLET_FIRED_SOUND),
-            "hit": ResourceManager.load_sound(HIT_SOUND)
+            "hit": ResourceManager.load_sound(HIT_SOUND),
+            "death": ResourceManager.load_sound(DEATH_SOUND)
         }
         
         # 设置打击音效音量
         if self.sounds["hit"]:
             self.sounds["hit"].set_volume(0.3)  # 设置为30%的音量
+        if self.sounds["bullet_fired"]:
+            self.sounds["bullet_fired"].set_volume(0.2)  # 设置为20%的音量
         
         # 创建文本渲染器
         self.text_renderer = TextRenderer(self.screen)
@@ -322,40 +333,9 @@ class Game:
         self.player.fire()
         
         # 播放发射音效
-        if self.sounds["bullet_fired"]:
-            self.sounds["bullet_fired"].play()
-            
-    def create_hit_particles(self, position):
-        """创建打击粒子效果
-        
-        Args:
-            position: 粒子生成位置 (x, y)
-        """
-        # 创建多个不同颜色、大小和速度的粒子
-        colors = [(255, 255, 0), (255, 165, 0), (255, 69, 0), (255, 0, 0)]
-        
-        for _ in range(15):  # 创建15个粒子
-            # 随机选择颜色
-            color = random.choice(colors)
-            # 随机大小
-            size = random.randint(3, 8)
-            # 随机速度和方向
-            speed_x = random.uniform(-3, 3)
-            speed_y = random.uniform(-3, 3)
-            # 随机生命周期
-            lifetime = random.randint(15, 30)
-            
-            # 创建粒子并添加到粒子组
-            particle = Particle(
-                position[0], position[1],
-                color=color,
-                size=size,
-                speed_x=speed_x,
-                speed_y=speed_y,
-                lifetime=lifetime
-            )
-            self.particles.add(particle)
-    
+        self.play_sound("bullet_fired")
+
+
     def check_collisions(self):
         """检测碰撞"""
         # 检测子弹和僵尸的碰撞
@@ -366,15 +346,14 @@ class Game:
                     # 获取僵尸位置，用于显示得分动画和粒子效果
                     hit_pos = (bullet.rect.centerx, bullet.rect.centery)
                     
-                    # 播放打击音效
-                    if self.sounds["hit"]:
-                        self.sounds["hit"].play()
-                    
-                    # 创建打击粒子效果
-                    self.create_hit_particles(hit_pos)
-                    
                     # 对僵尸造成伤害
                     if zombie.take_damage(bullet.damage):
+                        # 僵尸死亡，播放死亡音效
+                        self.play_sound("death")
+                        
+                        # 创建打击粒子效果
+                        self.create_hit_particles(hit_pos)
+                        
                         # 僵尸死亡，生成金币
                         self._spawn_coins(zombie)
                         # 记录僵尸死亡
@@ -382,6 +361,12 @@ class Game:
                         # 移除僵尸
                         zombie.kill()
                     else:
+                        # 僵尸受伤但未死亡，播放击中音效
+                        self.play_sound("hit")
+                        
+                        # 创建打击粒子效果
+                        self.create_hit_particles(hit_pos)
+                        
                         # 记录僵尸受伤
                         log_zombie("僵尸受伤", zombie_type=type(zombie).__name__, damage=bullet.damage, health_remaining=zombie.health)
                     
@@ -394,15 +379,7 @@ class Game:
                     # 每个子弹只能击中一个僵尸，所以处理完一个碰撞后就跳出循环
                     break
         
-        # 检测玩家和金币的碰撞
-        for coin in self.coins:
-            if pygame.sprite.collide_rect(self.player, coin):
-                # 收集金币
-                coin_value = coin.collect((100, 50))  # 金币UI显示位置
-                # 增加金币数量
-                self.coin_system.add_coins(coin_value, coin.rect.center)
-                # 触发金币显示动画
-                self.coin_display.trigger_pulse()
+        # 玩家和金币的碰撞检测已被移除，金币将通过自动收集功能收集
 
     def _spawn_coins(self, zombie):
         """从僵尸生成金币
@@ -520,11 +497,11 @@ class Game:
                 wave_text = f"第 {wave_info['wave']} 波进行中 ({wave_info['remaining']:.1f} 秒)"
                 self.text_renderer.render_text(wave_text, (SCREEN_WIDTH // 2 - 150, 50), "regular", (255, 255, 255))
             
-            # # 根据得分显示不同的提示
-            # if 0 <= self.coin_system.coins <= 10:
-            #     self.text_renderer.render_text("(阶段1)随着时间的推移 你会变强，但僵尸也会！", (270, 100), "regular", (0, 255, 255))
-            # elif 210 <= self.coin_system.coins <= 250:
-            #     self.text_renderer.render_text("(阶段2)觉得自己很帅？僵尸不这么想！！！，感受恐惧吧！！", (200, 100), "warning", (255, 0, 0))
+            # 显示帧率（如果启用）
+            if self.show_fps:
+                fps = int(self.clock.get_fps())
+                fps_text = self.fps_font.render(f"FPS: {fps}", True, (255, 255, 0))
+                self.screen.blit(fps_text, (10, 10))
             
         elif self.game_state == GAME_STATE_PAUSED:
             # 绘制暂停菜单
@@ -543,41 +520,33 @@ class Game:
             self.restart_button.draw(self.screen)
             self.menu_button.draw(self.screen)
             
+            # 绘制帧率显示开关按钮
+            fps_button_text = "关闭帧率显示" if self.show_fps else "开启帧率显示"
+            fps_button = Button(SCREEN_WIDTH // 2 - 150, SCREEN_HEIGHT // 2 + 220, 300, 60, fps_button_text)
+            fps_button.draw(self.screen)
+            
+            # 检测帧率按钮点击
+            mouse_pos = pygame.mouse.get_pos()
+            mouse_pressed = pygame.mouse.get_pressed()
+            if mouse_pressed[0] and fps_button.is_clicked(mouse_pos):
+                self.show_fps = not self.show_fps
+                log_game_state(f"帧率显示{'开启' if self.show_fps else '关闭'}")
+                # 防止按钮连续触发
+                pygame.time.wait(200)
+                
         elif self.game_state == GAME_STATE_GAME_OVER:
-            def game_over_screen(self):
-                """显示游戏结束画面"""
-                # 绘制游戏结束背景
-                self.screen.blit(self.game_over_bg, (0, 0))
-                
-                # 绘制游戏结束文本
-                self.text_renderer.render_text("游戏结束", SCREEN_WIDTH // 2, 150, font_size=80, font_type="game_over")
-                self.text_renderer.render_text(f"得分: {self.score}", SCREEN_WIDTH // 2, 250, font_size=50)
-                self.text_renderer.render_text(f"坚持时间: {self.get_survival_time_text()}", SCREEN_WIDTH // 2, 320, font_size=40)
-                
-                # 绘制重新开始和返回菜单按钮
-                self.restart_button.draw(self.screen)
-                self.menu_button.draw(self.screen)
-                
-                # 保存游戏数据
-                self.save_manager.save_game()
-                
-            def complete_level(self, level_id, score):
-                """完成关卡
-                
-                Args:
-                    level_id: 关卡ID
-                    score: 得分
-                """
-                # 更新存档数据
-                self.save_manager.complete_level(level_id, score)
+            # 绘制游戏结束背景
+            self.screen.blit(self.game_over_bg, (0, 0))
+            
+            # 绘制游戏结束文本
+            self.text_renderer.render_text("游戏结束", (SCREEN_WIDTH // 2, 150), "game_over", (255, 0, 0))
             self.text_renderer.render_text(f"最终金币: {self.coin_system.coins}", (SCREEN_WIDTH // 2 - 150, 200), "regular", (255, 255, 255))
             
             # 绘制按钮
             self.restart_button.draw(self.screen)
             self.menu_button.draw(self.screen)
         
-        # 绘制升级菜单（如果激活）
-        if self.upgrade_menu.active:
+            # 绘制升级菜单（如果激活）
             self.upgrade_menu.render(self.screen)
     
     def run(self):
@@ -614,3 +583,51 @@ class Game:
         if new_zombies:
             for zombie in new_zombies:
                 log_zombie("生成新僵尸", zombie_type=type(zombie).__name__, position=zombie.rect.center)
+    
+    def play_sound(self, sound_key):
+        """使用轮换声道播放音效，避免阻塞
+        
+        Args:
+            sound_key: 音效键名
+        """
+        if self.sounds[sound_key]:
+            # 使用当前声道播放音效
+            if self.sound_channels and len(self.sound_channels) > 0:
+                channel = self.sound_channels[self.current_channel]
+                channel.play(self.sounds[sound_key])
+                # 更新声道索引，循环使用所有声道
+                self.current_channel = (self.current_channel + 1) % len(self.sound_channels)
+            else:
+                # 如果没有可用声道，使用普通方式播放
+                self.sounds[sound_key].play()
+
+    def create_hit_particles(self, position):
+        """创建打击粒子效果
+        
+        Args:
+            position: 粒子生成位置 (x, y)
+        """
+        # 创建多个不同颜色、大小和速度的粒子
+        colors = [(255, 255, 0), (255, 165, 0), (255, 69, 0), (255, 0, 0)]
+        
+        for _ in range(15):  # 创建15个粒子
+            # 随机选择颜色
+            color = random.choice(colors)
+            # 随机大小
+            size = random.randint(3, 8)
+            # 随机速度和方向
+            speed_x = random.uniform(-3, 3)
+            speed_y = random.uniform(-3, 3)
+            # 随机生命周期
+            lifetime = random.randint(15, 30)
+            
+            # 创建粒子并添加到粒子组
+            particle = Particle(
+                position[0], position[1],
+                color=color,
+                size=size,
+                speed_x=speed_x,
+                speed_y=speed_y,
+                lifetime=lifetime
+            )
+            self.particles.add(particle)

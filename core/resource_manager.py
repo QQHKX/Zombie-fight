@@ -78,3 +78,19 @@ class ResourceManager:
                 log_error("音频加载失败", file_path=file_path, error=str(e))
                 return None
         return None
+    
+    @staticmethod
+    def init_sound_channels(num_channels=8):
+        """初始化多个声道用于同时播放多个音效
+        
+        Args:
+            num_channels: 声道数量，默认为8
+            
+        Returns:
+            声道列表
+        """
+        if pygame.mixer.get_init():
+            pygame.mixer.set_num_channels(num_channels)
+            channels = [pygame.mixer.Channel(i) for i in range(num_channels)]
+            return channels
+        return []

@@ -37,6 +37,7 @@ BACKGROUND_MUSIC = os.path.join(IMAGE_DIR, "Laura Shigihara - Zombies On Your La
 # 音效路径常量
 BULLET_FIRED_SOUND = os.path.join(SOUND_DIR, "bulletFired.mp3")
 HIT_SOUND = os.path.join(SOUND_DIR, "hit.mp3")
+DEATH_SOUND = os.path.join(SOUND_DIR, "death.mp3")
 
 # 动画常量
 ANIMATION_SPEED = 5  # 动画速度

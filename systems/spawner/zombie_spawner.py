@@ -100,14 +100,14 @@ class ZombieSpawner:
         # 随着时间推移，增加快速僵尸和坦克僵尸的权重
         minutes = game_time / 60
         
-        # 2分钟后开始出现快速僵尸
-        if minutes >= 2:
-            fast_weight = min(50, int((minutes - 2) * 10))  # 每分钟增加10点权重，最高50
+        # 1分钟后开始出现快速僵尸
+        if minutes >= 1:
+            fast_weight = min(50, int((minutes - 1) * 10))  # 每分钟增加10点权重，最高50
             self.zombie_weights["fast"] = fast_weight
         
-        # 5分钟后开始出现坦克僵尸
-        if minutes >= 5:
-            tank_weight = min(30, int((minutes - 5) * 6))  # 每分钟增加6点权重，最高30
+        # 2分钟后开始出现坦克僵尸
+        if minutes >= 2:
+            tank_weight = min(30, int((minutes - 2) * 6))  # 每分钟增加6点权重，最高30
             self.zombie_weights["tank"] = tank_weight
     
     def _update_level_probabilities(self, game_time):
@@ -279,3 +279,45 @@ class ZombieSpawner:
             4: 0,
             5: 0
         }
+    
+    def spawn_specific_zombie(self, zombie_type, level, x, y):
+        """在指定位置生成特定类型和等级的僵尸（用于测试）
+        
+        Args:
+            zombie_type: 僵尸类型，可以是"normal"、"fast"或"tank"
+            level: 僵尸等级，1-5
+            x: 僵尸的x坐标
+            y: 僵尸的y坐标
+            
+        Returns:
+            生成的僵尸对象
+        """
+        # 确保参数有效
+        if zombie_type not in ["normal", "fast", "tank"]:
+            zombie_type = "normal"
+        
+        level = max(1, min(5, level))  # 确保等级在1-5之间
+        
+        # 创建僵尸
+        zombie = None
+        if zombie_type == "normal":
+            zombie = NormalZombie(y, level)
+        elif zombie_type == "fast":
+            zombie = FastZombie(y, level)
+        elif zombie_type == "tank":
+            zombie = TankZombie(y, level)
+        
+        # 设置僵尸位置
+        if zombie:
+            zombie.rect.x = x
+            zombie.update_hit_rect()  # 更新碰撞区域位置
+            
+            # 将僵尸添加到游戏中
+            self.game.zombies.add(zombie)
+            self.game.all_sprites.add(zombie)
+            
+            # 记录日志
+            from utils.logger import log_zombie
+            log_zombie("测试生成僵尸", zombie_type=zombie_type, level=level, position=(x, y))
+        
+        return zombie
