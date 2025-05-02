@@ -1,0 +1,446 @@
+[2025-05-02 14:15:39] [INFO] [SYSTEM] 日志系统初始化完成
+[2025-05-02 14:15:39] [INFO] [SYSTEM] 游戏初始化开始
+[2025-05-02 14:15:39] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\move\zombie_move_01.png
+[2025-05-02 14:15:39] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\move\zombie_move_02.png
+[2025-05-02 14:15:39] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\move\zombie_move_03.png
+[2025-05-02 14:15:39] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\move\zombie_move_04.png
+[2025-05-02 14:15:39] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\move\zombie_move_05.png
+[2025-05-02 14:15:39] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\move\zombie_move_06.png
+[2025-05-02 14:15:39] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\move\zombie_move_07.png
+[2025-05-02 14:15:39] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\move\zombie_move_08.png
+[2025-05-02 14:15:39] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\move\zombie_move_09.png
+[2025-05-02 14:15:39] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\move\zombie_move_10.png
+[2025-05-02 14:15:39] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\move\zombie_move_11.png
+[2025-05-02 14:15:39] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\move\zombie_move_12.png
+[2025-05-02 14:15:39] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\move\zombie_move_13.png
+[2025-05-02 14:15:39] [INFO] [SYSTEM] 僵尸动画资源预加载完成
+[2025-05-02 14:15:39] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\bullet_new.png
+[2025-05-02 14:15:39] [INFO] [SYSTEM] 子弹图片资源预加载完成
+[2025-05-02 14:15:39] [INFO] [SYSTEM] 开始加载游戏资源
+[2025-05-02 14:15:39] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\background_playing.jpg
+[2025-05-02 14:15:39] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\background_start-menu.jpg
+[2025-05-02 14:15:39] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\game_over_screen.png
+[2025-05-02 14:15:39] [INFO] [RESOURCE] 音频加载成功 - file_path=assets\sounds\bulletFired.mp3
+[2025-05-02 14:15:39] [INFO] [RESOURCE] 音频加载成功 - file_path=assets\sounds\hit.mp3
+[2025-05-02 14:15:39] [INFO] [RESOURCE] 字体加载成功 - file_path=assets\fonts\regular.ttf, size=50
+[2025-05-02 14:15:40] [INFO] [RESOURCE] 字体加载成功 - file_path=assets\fonts\warning.ttf, size=80
+[2025-05-02 14:15:40] [INFO] [RESOURCE] 字体加载成功 - file_path=assets\fonts\game_over.ttf, size=100
+[2025-05-02 14:15:40] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\button.png
+[2025-05-02 14:15:40] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\button.png
+[2025-05-02 14:15:40] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\button.png
+[2025-05-02 14:15:40] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\button.png
+[2025-05-02 14:15:40] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\button.png
+[2025-05-02 14:15:40] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\button.png
+[2025-05-02 14:15:40] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\button.png
+[2025-05-02 14:15:40] [INFO] [SYSTEM] 初始化游戏系统
+[2025-05-02 14:15:40] [INFO] [RESOURCE] 音频加载成功 - file_path=assets\sounds\hit.mp3
+[2025-05-02 14:15:40] [INFO] [SAVE] 游戏数据加载成功 - coins=1016, upgrades={'damage': 0, 'fire_rate': 1, 'bullet_speed': 0}, current_level=1
+[2025-05-02 14:15:40] [INFO] [SAVE] 应用存档数据
+[2025-05-02 14:15:40] [INFO] [SYSTEM] 游戏初始化完成
+[2025-05-02 14:15:40] [INFO] [GAME_STATE] 开始新游戏
+[2025-05-02 14:15:40] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\cannon_new.png
+[2025-05-02 14:15:40] [INFO] [PLAYER] 玩家创建完成
+[2025-05-02 14:15:40] [INFO] [GAME_STATE] 游戏状态切换为进行中
+[2025-05-02 14:15:40] [INFO] [UPGRADE] 创建子弹 - damage=1, speed=5, position=(418, 346)
+[2025-05-02 14:15:40] [INFO] [PLAYER] 玩家发射子弹 - position=(418, 386)
+[2025-05-02 14:15:41] [INFO] [UPGRADE] 创建子弹 - damage=1, speed=5, position=(370, 323)
+[2025-05-02 14:15:41] [INFO] [PLAYER] 玩家发射子弹 - position=(370, 363)
+[2025-05-02 14:15:42] [INFO] [UPGRADE] 创建子弹 - damage=1, speed=5, position=(343, 323)
+[2025-05-02 14:15:42] [INFO] [PLAYER] 玩家发射子弹 - position=(343, 363)
+[2025-05-02 14:15:42] [INFO] [UPGRADE] 创建子弹 - damage=1, speed=5, position=(343, 323)
+[2025-05-02 14:15:42] [INFO] [PLAYER] 玩家发射子弹 - position=(343, 363)
+[2025-05-02 14:15:42] [INFO] [UPGRADE] 创建子弹 - damage=1, speed=5, position=(327, 253)
+[2025-05-02 14:15:42] [INFO] [PLAYER] 玩家发射子弹 - position=(327, 293)
+[2025-05-02 14:15:43] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=4
+[2025-05-02 14:15:43] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(1138, 371)
+[2025-05-02 14:15:43] [INFO] [UPGRADE] 创建子弹 - damage=1, speed=5, position=(415, 286)
+[2025-05-02 14:15:43] [INFO] [PLAYER] 玩家发射子弹 - position=(415, 326)
+[2025-05-02 14:15:43] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=3
+[2025-05-02 14:15:43] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(1065, 348)
+[2025-05-02 14:15:43] [INFO] [UPGRADE] 创建子弹 - damage=1, speed=5, position=(365, 303)
+[2025-05-02 14:15:43] [INFO] [PLAYER] 玩家发射子弹 - position=(365, 343)
+[2025-05-02 14:15:44] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=2
+[2025-05-02 14:15:44] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(1018, 348)
+[2025-05-02 14:15:44] [INFO] [UPGRADE] 创建子弹 - damage=1, speed=5, position=(390, 308)
+[2025-05-02 14:15:44] [INFO] [PLAYER] 玩家发射子弹 - position=(390, 348)
+[2025-05-02 14:15:44] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=1
+[2025-05-02 14:15:44] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(978, 348)
+[2025-05-02 14:15:44] [INFO] [UPGRADE] 创建子弹 - damage=1, speed=5, position=(377, 313)
+[2025-05-02 14:15:44] [INFO] [PLAYER] 玩家发射子弹 - position=(377, 353)
+[2025-05-02 14:15:44] [INFO] [ZOMBIE] 僵尸被击杀 - zombie_type=NormalZombie, position=(1003, 377)
+[2025-05-02 14:15:44] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(932, 278)
+[2025-05-02 14:15:45] [INFO] [UPGRADE] 创建子弹 - damage=1, speed=5, position=(390, 327)
+[2025-05-02 14:15:45] [INFO] [PLAYER] 玩家发射子弹 - position=(390, 367)
+[2025-05-02 14:15:45] [INFO] [ECONOMY] 获得金币 - amount=1, total=1017, position=(1012, 332)
+[2025-05-02 14:15:45] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=4
+[2025-05-02 14:15:45] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(1090, 311)
+[2025-05-02 14:15:45] [INFO] [UPGRADE] 创建子弹 - damage=1, speed=5, position=(441, 349)
+[2025-05-02 14:15:45] [INFO] [PLAYER] 玩家发射子弹 - position=(441, 389)
+[2025-05-02 14:15:45] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=3
+[2025-05-02 14:15:45] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(1035, 328)
+[2025-05-02 14:15:46] [INFO] [UPGRADE] 创建子弹 - damage=1, speed=5, position=(441, 349)
+[2025-05-02 14:15:46] [INFO] [PLAYER] 玩家发射子弹 - position=(441, 389)
+[2025-05-02 14:15:46] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=2
+[2025-05-02 14:15:46] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(1005, 333)
+[2025-05-02 14:15:46] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=1
+[2025-05-02 14:15:46] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(962, 338)
+[2025-05-02 14:15:46] [INFO] [UPGRADE] 创建子弹 - damage=1, speed=5, position=(441, 349)
+[2025-05-02 14:15:46] [INFO] [PLAYER] 玩家发射子弹 - position=(441, 389)
+[2025-05-02 14:15:46] [INFO] [ZOMBIE] 僵尸被击杀 - zombie_type=NormalZombie, position=(995, 409)
+[2025-05-02 14:15:46] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(925, 352)
+[2025-05-02 14:15:47] [INFO] [UPGRADE] 创建子弹 - damage=1, speed=5, position=(441, 349)
+[2025-05-02 14:15:47] [INFO] [PLAYER] 玩家发射子弹 - position=(441, 389)
+[2025-05-02 14:15:47] [INFO] [ECONOMY] 获得金币 - amount=1, total=1018, position=(965, 352)
+[2025-05-02 14:15:48] [INFO] [GAME_STATE] 游戏退出
+[2025-05-02 14:15:48] [INFO] [SAVE] 游戏数据保存成功 - coins=1018, upgrades={'damage': 0, 'fire_rate': 1, 'bullet_speed': 0}, completed_levels=[], current_level=1
+[2025-05-02 14:19:13] [INFO] [SYSTEM] 日志系统初始化完成
+[2025-05-02 14:19:13] [INFO] [SYSTEM] 游戏初始化开始
+[2025-05-02 14:19:13] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\move\zombie_move_01.png
+[2025-05-02 14:19:13] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\move\zombie_move_02.png
+[2025-05-02 14:19:13] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\move\zombie_move_03.png
+[2025-05-02 14:19:13] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\move\zombie_move_04.png
+[2025-05-02 14:19:13] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\move\zombie_move_05.png
+[2025-05-02 14:19:13] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\move\zombie_move_06.png
+[2025-05-02 14:19:13] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\move\zombie_move_07.png
+[2025-05-02 14:19:13] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\move\zombie_move_08.png
+[2025-05-02 14:19:13] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\move\zombie_move_09.png
+[2025-05-02 14:19:13] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\move\zombie_move_10.png
+[2025-05-02 14:19:13] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\move\zombie_move_11.png
+[2025-05-02 14:19:13] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\move\zombie_move_12.png
+[2025-05-02 14:19:13] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\move\zombie_move_13.png
+[2025-05-02 14:19:13] [INFO] [SYSTEM] 僵尸动画资源预加载完成
+[2025-05-02 14:19:13] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\bullet_new.png
+[2025-05-02 14:19:13] [INFO] [SYSTEM] 子弹图片资源预加载完成
+[2025-05-02 14:19:13] [INFO] [SYSTEM] 开始加载游戏资源
+[2025-05-02 14:19:13] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\background_playing.jpg
+[2025-05-02 14:19:13] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\background_start-menu.jpg
+[2025-05-02 14:19:13] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\game_over_screen.png
+[2025-05-02 14:19:13] [INFO] [RESOURCE] 音频加载成功 - file_path=assets\sounds\bulletFired.mp3
+[2025-05-02 14:19:13] [INFO] [RESOURCE] 音频加载成功 - file_path=assets\sounds\hit.mp3
+[2025-05-02 14:19:13] [INFO] [RESOURCE] 字体加载成功 - file_path=assets\fonts\regular.ttf, size=50
+[2025-05-02 14:19:13] [INFO] [RESOURCE] 字体加载成功 - file_path=assets\fonts\warning.ttf, size=80
+[2025-05-02 14:19:13] [INFO] [RESOURCE] 字体加载成功 - file_path=assets\fonts\game_over.ttf, size=100
+[2025-05-02 14:19:13] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\button.png
+[2025-05-02 14:19:13] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\button.png
+[2025-05-02 14:19:13] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\button.png
+[2025-05-02 14:19:13] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\button.png
+[2025-05-02 14:19:13] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\button.png
+[2025-05-02 14:19:13] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\button.png
+[2025-05-02 14:19:13] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\button.png
+[2025-05-02 14:19:13] [INFO] [SYSTEM] 初始化游戏系统
+[2025-05-02 14:19:13] [INFO] [RESOURCE] 音频加载成功 - file_path=assets\sounds\hit.mp3
+[2025-05-02 14:19:13] [INFO] [SAVE] 游戏数据加载成功 - coins=1018, upgrades={'damage': 0, 'fire_rate': 1, 'bullet_speed': 0}, current_level=1
+[2025-05-02 14:19:13] [INFO] [SAVE] 应用存档数据
+[2025-05-02 14:19:13] [INFO] [SYSTEM] 游戏初始化完成
+[2025-05-02 14:19:14] [INFO] [GAME_STATE] 开始新游戏
+[2025-05-02 14:19:14] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\cannon_new.png
+[2025-05-02 14:19:14] [INFO] [PLAYER] 玩家创建完成
+[2025-05-02 14:19:14] [INFO] [GAME_STATE] 游戏状态切换为进行中
+[2025-05-02 14:19:14] [INFO] [UPGRADE] 创建子弹 - damage=1, speed=5, position=(427, 285)
+[2025-05-02 14:19:14] [INFO] [PLAYER] 玩家发射子弹 - position=(427, 325)
+[2025-05-02 14:19:15] [INFO] [UPGRADE] 创建子弹 - damage=1, speed=5, position=(427, 285)
+[2025-05-02 14:19:15] [INFO] [PLAYER] 玩家发射子弹 - position=(427, 325)
+[2025-05-02 14:19:15] [INFO] [UPGRADE] 创建子弹 - damage=1, speed=5, position=(427, 285)
+[2025-05-02 14:19:15] [INFO] [PLAYER] 玩家发射子弹 - position=(427, 325)
+[2025-05-02 14:19:15] [INFO] [UPGRADE] 创建子弹 - damage=1, speed=5, position=(427, 285)
+[2025-05-02 14:19:15] [INFO] [PLAYER] 玩家发射子弹 - position=(427, 325)
+[2025-05-02 14:19:16] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=4
+[2025-05-02 14:19:16] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(1142, 310)
+[2025-05-02 14:19:17] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=3
+[2025-05-02 14:19:17] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(1102, 310)
+[2025-05-02 14:19:17] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=2
+[2025-05-02 14:19:17] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(1067, 310)
+[2025-05-02 14:19:17] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=1
+[2025-05-02 14:19:17] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(1027, 310)
+[2025-05-02 14:19:18] [INFO] [UPGRADE] 创建子弹 - damage=1, speed=5, position=(427, 285)
+[2025-05-02 14:19:18] [INFO] [PLAYER] 玩家发射子弹 - position=(427, 325)
+[2025-05-02 14:19:19] [INFO] [ZOMBIE] 僵尸被击杀 - zombie_type=NormalZombie, position=(875, 350)
+[2025-05-02 14:19:19] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(807, 310)
+[2025-05-02 14:19:19] [INFO] [UPGRADE] 创建子弹 - damage=1, speed=5, position=(423, 285)
+[2025-05-02 14:19:19] [INFO] [PLAYER] 玩家发射子弹 - position=(423, 325)
+[2025-05-02 14:19:20] [INFO] [ECONOMY] 获得金币 - amount=1, total=1019, position=(898, 329)
+[2025-05-02 14:19:20] [INFO] [UPGRADE] 创建子弹 - damage=1, speed=5, position=(432, 359)
+[2025-05-02 14:19:20] [INFO] [PLAYER] 玩家发射子弹 - position=(432, 399)
+[2025-05-02 14:19:21] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=4
+[2025-05-02 14:19:21] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(797, 384)
+[2025-05-02 14:19:21] [INFO] [UPGRADE] 创建子弹 - damage=1, speed=5, position=(433, 337)
+[2025-05-02 14:19:21] [INFO] [PLAYER] 玩家发射子弹 - position=(433, 377)
+[2025-05-02 14:19:22] [INFO] [UPGRADE] 创建子弹 - damage=1, speed=5, position=(412, 328)
+[2025-05-02 14:19:22] [INFO] [PLAYER] 玩家发射子弹 - position=(412, 368)
+[2025-05-02 14:19:22] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=3
+[2025-05-02 14:19:22] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(693, 362)
+[2025-05-02 14:19:22] [INFO] [UPGRADE] 创建子弹 - damage=1, speed=5, position=(413, 339)
+[2025-05-02 14:19:22] [INFO] [PLAYER] 玩家发射子弹 - position=(413, 379)
+[2025-05-02 14:19:22] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=2
+[2025-05-02 14:19:22] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(647, 353)
+[2025-05-02 14:19:23] [INFO] [UPGRADE] 创建子弹 - damage=1, speed=5, position=(415, 346)
+[2025-05-02 14:19:23] [INFO] [PLAYER] 玩家发射子弹 - position=(415, 386)
+[2025-05-02 14:19:23] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=1
+[2025-05-02 14:19:23] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(603, 364)
+[2025-05-02 14:19:23] [INFO] [ZOMBIE] 僵尸被击杀 - zombie_type=NormalZombie, position=(637, 416)
+[2025-05-02 14:19:23] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(565, 371)
+[2025-05-02 14:19:23] [INFO] [UPGRADE] 创建子弹 - damage=1, speed=5, position=(414, 344)
+[2025-05-02 14:19:23] [INFO] [PLAYER] 玩家发射子弹 - position=(414, 384)
+[2025-05-02 14:19:24] [INFO] [ECONOMY] 获得金币 - amount=1, total=1020, position=(637, 413)
+[2025-05-02 14:19:24] [INFO] [UPGRADE] 创建子弹 - damage=1, speed=5, position=(549, 63)
+[2025-05-02 14:19:24] [INFO] [PLAYER] 玩家发射子弹 - position=(549, 103)
+[2025-05-02 14:19:24] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=4
+[2025-05-02 14:19:24] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(694, 88)
+[2025-05-02 14:19:24] [INFO] [UPGRADE] 创建子弹 - damage=1, speed=5, position=(527, 110)
+[2025-05-02 14:19:24] [INFO] [PLAYER] 玩家发射子弹 - position=(527, 150)
+[2025-05-02 14:19:24] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=3
+[2025-05-02 14:19:24] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(647, 135)
+[2025-05-02 14:19:25] [INFO] [UPGRADE] 创建子弹 - damage=1, speed=5, position=(456, 138)
+[2025-05-02 14:19:25] [INFO] [PLAYER] 玩家发射子弹 - position=(456, 178)
+[2025-05-02 14:19:25] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=2
+[2025-05-02 14:19:25] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(591, 163)
+[2025-05-02 14:19:25] [INFO] [UPGRADE] 创建子弹 - damage=1, speed=5, position=(400, 139)
+[2025-05-02 14:19:25] [INFO] [PLAYER] 玩家发射子弹 - position=(400, 179)
+[2025-05-02 14:19:25] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=4
+[2025-05-02 14:19:25] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(1034, 369)
+[2025-05-02 14:19:25] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=1
+[2025-05-02 14:19:25] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(535, 164)
+[2025-05-02 14:19:25] [INFO] [UPGRADE] 创建子弹 - damage=1, speed=5, position=(387, 135)
+[2025-05-02 14:19:25] [INFO] [PLAYER] 玩家发射子弹 - position=(387, 175)
+[2025-05-02 14:19:26] [INFO] [ZOMBIE] 僵尸被击杀 - zombie_type=NormalZombie, position=(561, 190)
+[2025-05-02 14:19:26] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(487, 160)
+[2025-05-02 14:19:26] [INFO] [UPGRADE] 创建子弹 - damage=1, speed=5, position=(408, 125)
+[2025-05-02 14:19:26] [INFO] [PLAYER] 玩家发射子弹 - position=(408, 165)
+[2025-05-02 14:19:26] [INFO] [ECONOMY] 获得金币 - amount=1, total=1021, position=(535, 193)
+[2025-05-02 14:19:26] [INFO] [UPGRADE] 创建子弹 - damage=1, speed=5, position=(408, 124)
+[2025-05-02 14:19:26] [INFO] [PLAYER] 玩家发射子弹 - position=(408, 164)
+[2025-05-02 14:19:26] [INFO] [ECONOMY] 获得金币 - amount=0, total=1021, position=(402, 150)
+[2025-05-02 14:19:26] [INFO] [ECONOMY] 获得金币 - amount=0, total=1021, position=(385, 145)
+[2025-05-02 14:19:26] [INFO] [ECONOMY] 获得金币 - amount=0, total=1021, position=(367, 139)
+[2025-05-02 14:19:26] [INFO] [ECONOMY] 获得金币 - amount=0, total=1021, position=(349, 133)
+[2025-05-02 14:19:26] [INFO] [ECONOMY] 获得金币 - amount=0, total=1021, position=(330, 127)
+[2025-05-02 14:19:27] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=4
+[2025-05-02 14:19:27] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(628, 150)
+[2025-05-02 14:19:27] [INFO] [UPGRADE] 创建子弹 - damage=1, speed=5, position=(410, 126)
+[2025-05-02 14:19:27] [INFO] [PLAYER] 玩家发射子弹 - position=(410, 166)
+[2025-05-02 14:19:27] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=3
+[2025-05-02 14:19:27] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(588, 149)
+[2025-05-02 14:19:27] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=2
+[2025-05-02 14:19:27] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(550, 151)
+[2025-05-02 14:19:27] [INFO] [UPGRADE] 创建子弹 - damage=1, speed=5, position=(409, 126)
+[2025-05-02 14:19:27] [INFO] [PLAYER] 玩家发射子弹 - position=(409, 166)
+[2025-05-02 14:19:28] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=1
+[2025-05-02 14:19:28] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(509, 151)
+[2025-05-02 14:19:28] [INFO] [UPGRADE] 创建子弹 - damage=1, speed=5, position=(404, 116)
+[2025-05-02 14:19:28] [INFO] [PLAYER] 玩家发射子弹 - position=(404, 156)
+[2025-05-02 14:19:28] [INFO] [ZOMBIE] 僵尸被击杀 - zombie_type=NormalZombie, position=(537, 148)
+[2025-05-02 14:19:28] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(469, 141)
+[2025-05-02 14:19:28] [INFO] [UPGRADE] 创建子弹 - damage=1, speed=5, position=(636, 282)
+[2025-05-02 14:19:28] [INFO] [PLAYER] 玩家发射子弹 - position=(636, 322)
+[2025-05-02 14:19:28] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=3
+[2025-05-02 14:19:28] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(666, 307)
+[2025-05-02 14:19:28] [INFO] [ECONOMY] 获得金币 - amount=1, total=1022, position=(563, 121)
+[2025-05-02 14:19:29] [INFO] [UPGRADE] 创建子弹 - damage=1, speed=5, position=(604, 261)
+[2025-05-02 14:19:29] [INFO] [PLAYER] 玩家发射子弹 - position=(604, 301)
+[2025-05-02 14:19:29] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=2
+[2025-05-02 14:19:29] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(634, 286)
+[2025-05-02 14:19:29] [INFO] [UPGRADE] 创建子弹 - damage=1, speed=5, position=(497, 253)
+[2025-05-02 14:19:29] [INFO] [PLAYER] 玩家发射子弹 - position=(497, 293)
+[2025-05-02 14:19:29] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=1
+[2025-05-02 14:19:29] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(542, 278)
+[2025-05-02 14:19:30] [INFO] [UPGRADE] 创建子弹 - damage=1, speed=5, position=(452, 254)
+[2025-05-02 14:19:30] [INFO] [PLAYER] 玩家发射子弹 - position=(452, 294)
+[2025-05-02 14:19:30] [INFO] [ZOMBIE] 僵尸被击杀 - zombie_type=NormalZombie, position=(561, 284)
+[2025-05-02 14:19:30] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(492, 279)
+[2025-05-02 14:19:30] [INFO] [UPGRADE] 创建子弹 - damage=1, speed=5, position=(515, 196)
+[2025-05-02 14:19:30] [INFO] [PLAYER] 玩家发射子弹 - position=(515, 236)
+[2025-05-02 14:19:30] [INFO] [ECONOMY] 获得金币 - amount=1, total=1023, position=(538, 257)
+[2025-05-02 14:19:30] [INFO] [ECONOMY] 获得金币 - amount=0, total=1023, position=(530, 253)
+[2025-05-02 14:19:30] [INFO] [ECONOMY] 获得金币 - amount=0, total=1023, position=(521, 249)
+[2025-05-02 14:19:30] [INFO] [ECONOMY] 获得金币 - amount=0, total=1023, position=(511, 245)
+[2025-05-02 14:19:30] [INFO] [ECONOMY] 获得金币 - amount=0, total=1023, position=(501, 240)
+[2025-05-02 14:19:30] [INFO] [ECONOMY] 获得金币 - amount=0, total=1023, position=(490, 235)
+[2025-05-02 14:19:30] [INFO] [ECONOMY] 获得金币 - amount=0, total=1023, position=(478, 230)
+[2025-05-02 14:19:30] [INFO] [ECONOMY] 获得金币 - amount=0, total=1023, position=(466, 224)
+[2025-05-02 14:19:30] [INFO] [ECONOMY] 获得金币 - amount=0, total=1023, position=(453, 218)
+[2025-05-02 14:19:30] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=4
+[2025-05-02 14:19:30] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(635, 221)
+[2025-05-02 14:19:31] [INFO] [UPGRADE] 创建子弹 - damage=1, speed=5, position=(531, 176)
+[2025-05-02 14:19:31] [INFO] [PLAYER] 玩家发射子弹 - position=(531, 216)
+[2025-05-02 14:19:31] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=3
+[2025-05-02 14:19:31] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(601, 201)
+[2025-05-02 14:19:31] [INFO] [UPGRADE] 创建子弹 - damage=1, speed=5, position=(455, 178)
+[2025-05-02 14:19:31] [INFO] [PLAYER] 玩家发射子弹 - position=(455, 218)
+[2025-05-02 14:19:31] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=2
+[2025-05-02 14:19:31] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(540, 203)
+[2025-05-02 14:19:32] [INFO] [UPGRADE] 创建子弹 - damage=1, speed=5, position=(479, 355)
+[2025-05-02 14:19:32] [INFO] [PLAYER] 玩家发射子弹 - position=(479, 395)
+[2025-05-02 14:19:32] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=4
+[2025-05-02 14:19:32] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(634, 380)
+[2025-05-02 14:19:33] [INFO] [UPGRADE] 创建子弹 - damage=1, speed=5, position=(463, 335)
+[2025-05-02 14:19:33] [INFO] [PLAYER] 玩家发射子弹 - position=(463, 375)
+[2025-05-02 14:19:33] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=3
+[2025-05-02 14:19:33] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(573, 360)
+[2025-05-02 14:19:33] [INFO] [UPGRADE] 创建子弹 - damage=1, speed=5, position=(246, 152)
+[2025-05-02 14:19:33] [INFO] [PLAYER] 玩家发射子弹 - position=(246, 192)
+[2025-05-02 14:19:33] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=1
+[2025-05-02 14:19:33] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(286, 177)
+[2025-05-02 14:19:34] [INFO] [UPGRADE] 创建子弹 - damage=1, speed=5, position=(246, 153)
+[2025-05-02 14:19:34] [INFO] [PLAYER] 玩家发射子弹 - position=(246, 193)
+[2025-05-02 14:19:34] [INFO] [ZOMBIE] 僵尸被击杀 - zombie_type=NormalZombie, position=(309, 191)
+[2025-05-02 14:19:34] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(276, 178)
+[2025-05-02 14:19:34] [INFO] [UPGRADE] 创建子弹 - damage=1, speed=5, position=(282, 397)
+[2025-05-02 14:19:34] [INFO] [PLAYER] 玩家发射子弹 - position=(282, 437)
+[2025-05-02 14:19:34] [INFO] [ECONOMY] 获得金币 - amount=1, total=1024, position=(305, 194)
+[2025-05-02 14:19:34] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=2
+[2025-05-02 14:19:34] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(387, 422)
+[2025-05-02 14:19:35] [INFO] [UPGRADE] 创建子弹 - damage=1, speed=5, position=(266, 344)
+[2025-05-02 14:19:35] [INFO] [PLAYER] 玩家发射子弹 - position=(266, 384)
+[2025-05-02 14:19:35] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=1
+[2025-05-02 14:19:35] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(341, 369)
+[2025-05-02 14:19:35] [INFO] [UPGRADE] 创建子弹 - damage=1, speed=5, position=(256, 353)
+[2025-05-02 14:19:35] [INFO] [PLAYER] 玩家发射子弹 - position=(256, 393)
+[2025-05-02 14:19:35] [INFO] [ZOMBIE] 僵尸被击杀 - zombie_type=NormalZombie, position=(371, 415)
+[2025-05-02 14:19:35] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(301, 378)
+[2025-05-02 14:19:36] [INFO] [UPGRADE] 创建子弹 - damage=1, speed=5, position=(516, 188)
+[2025-05-02 14:19:36] [INFO] [PLAYER] 玩家发射子弹 - position=(516, 228)
+[2025-05-02 14:19:36] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=4
+[2025-05-02 14:19:36] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(546, 213)
+[2025-05-02 14:19:36] [INFO] [ECONOMY] 获得金币 - amount=1, total=1025, position=(373, 400)
+[2025-05-02 14:19:36] [INFO] [UPGRADE] 创建子弹 - damage=1, speed=5, position=(376, 239)
+[2025-05-02 14:19:36] [INFO] [PLAYER] 玩家发射子弹 - position=(376, 279)
+[2025-05-02 14:19:36] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=3
+[2025-05-02 14:19:36] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(421, 264)
+[2025-05-02 14:19:36] [INFO] [UPGRADE] 创建子弹 - damage=1, speed=5, position=(328, 226)
+[2025-05-02 14:19:36] [INFO] [PLAYER] 玩家发射子弹 - position=(328, 266)
+[2025-05-02 14:19:37] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=2
+[2025-05-02 14:19:37] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(368, 251)
+[2025-05-02 14:19:37] [INFO] [UPGRADE] 创建子弹 - damage=1, speed=5, position=(249, 226)
+[2025-05-02 14:19:37] [INFO] [PLAYER] 玩家发射子弹 - position=(249, 266)
+[2025-05-02 14:19:37] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=1
+[2025-05-02 14:19:37] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(304, 251)
+[2025-05-02 14:19:37] [INFO] [UPGRADE] 创建子弹 - damage=1, speed=5, position=(236, 219)
+[2025-05-02 14:19:37] [INFO] [PLAYER] 玩家发射子弹 - position=(236, 259)
+[2025-05-02 14:19:37] [INFO] [ZOMBIE] 僵尸被击杀 - zombie_type=NormalZombie, position=(331, 255)
+[2025-05-02 14:19:37] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(266, 244)
+[2025-05-02 14:19:38] [INFO] [ECONOMY] 获得金币 - amount=1, total=1026, position=(331, 213)
+[2025-05-02 14:19:38] [INFO] [ECONOMY] 获得金币 - amount=1, total=1027, position=(330, 213)
+[2025-05-02 14:19:38] [INFO] [ECONOMY] 获得金币 - amount=0, total=1027, position=(330, 213)
+[2025-05-02 14:19:38] [INFO] [UPGRADE] 创建子弹 - damage=1, speed=5, position=(437, 131)
+[2025-05-02 14:19:38] [INFO] [PLAYER] 玩家发射子弹 - position=(437, 171)
+[2025-05-02 14:19:38] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=4
+[2025-05-02 14:19:38] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(467, 156)
+[2025-05-02 14:19:38] [INFO] [UPGRADE] 创建子弹 - damage=1, speed=5, position=(262, 160)
+[2025-05-02 14:19:38] [INFO] [PLAYER] 玩家发射子弹 - position=(262, 200)
+[2025-05-02 14:19:39] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=3
+[2025-05-02 14:19:39] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(357, 185)
+[2025-05-02 14:19:39] [INFO] [UPGRADE] 创建子弹 - damage=1, speed=5, position=(242, 158)
+[2025-05-02 14:19:39] [INFO] [PLAYER] 玩家发射子弹 - position=(242, 198)
+[2025-05-02 14:19:39] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=2
+[2025-05-02 14:19:39] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(307, 183)
+[2025-05-02 14:19:39] [INFO] [UPGRADE] 创建子弹 - damage=1, speed=5, position=(227, 159)
+[2025-05-02 14:19:39] [INFO] [PLAYER] 玩家发射子弹 - position=(227, 199)
+[2025-05-02 14:19:39] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=1
+[2025-05-02 14:19:39] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(267, 184)
+[2025-05-02 14:19:40] [INFO] [UPGRADE] 创建子弹 - damage=1, speed=5, position=(169, 149)
+[2025-05-02 14:19:40] [INFO] [PLAYER] 玩家发射子弹 - position=(169, 189)
+[2025-05-02 14:19:40] [INFO] [ZOMBIE] 僵尸被击杀 - zombie_type=NormalZombie, position=(279, 173)
+[2025-05-02 14:19:40] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(209, 174)
+[2025-05-02 14:19:40] [INFO] [UPGRADE] 创建子弹 - damage=1, speed=5, position=(317, 311)
+[2025-05-02 14:19:40] [INFO] [PLAYER] 玩家发射子弹 - position=(317, 351)
+[2025-05-02 14:19:40] [INFO] [ECONOMY] 获得金币 - amount=1, total=1028, position=(293, 140)
+[2025-05-02 14:19:40] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=4
+[2025-05-02 14:19:40] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(377, 336)
+[2025-05-02 14:19:41] [INFO] [UPGRADE] 创建子弹 - damage=1, speed=5, position=(211, 289)
+[2025-05-02 14:19:41] [INFO] [PLAYER] 玩家发射子弹 - position=(211, 329)
+[2025-05-02 14:19:41] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=3
+[2025-05-02 14:19:41] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(306, 314)
+[2025-05-02 14:19:41] [INFO] [UPGRADE] 创建子弹 - damage=1, speed=5, position=(211, 289)
+[2025-05-02 14:19:41] [INFO] [PLAYER] 玩家发射子弹 - position=(211, 329)
+[2025-05-02 14:19:41] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=2
+[2025-05-02 14:19:41] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(266, 314)
+[2025-05-02 14:19:42] [INFO] [UPGRADE] 创建子弹 - damage=1, speed=5, position=(215, 289)
+[2025-05-02 14:19:42] [INFO] [PLAYER] 玩家发射子弹 - position=(215, 329)
+[2025-05-02 14:19:42] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=1
+[2025-05-02 14:19:42] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(245, 314)
+[2025-05-02 14:19:42] [INFO] [UPGRADE] 创建子弹 - damage=1, speed=5, position=(417, 268)
+[2025-05-02 14:19:42] [INFO] [PLAYER] 玩家发射子弹 - position=(417, 308)
+[2025-05-02 14:19:42] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=4
+[2025-05-02 14:19:42] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(447, 293)
+[2025-05-02 14:19:43] [INFO] [UPGRADE] 创建子弹 - damage=1, speed=5, position=(142, 293)
+[2025-05-02 14:19:43] [INFO] [PLAYER] 玩家发射子弹 - position=(142, 333)
+[2025-05-02 14:19:43] [INFO] [ZOMBIE] 僵尸被击杀 - zombie_type=NormalZombie, position=(127, 337)
+[2025-05-02 14:19:43] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(172, 318)
+[2025-05-02 14:19:43] [INFO] [ECONOMY] 获得金币 - amount=1, total=1029, position=(127, 337)
+[2025-05-02 14:19:43] [INFO] [ECONOMY] 获得金币 - amount=1, total=1030, position=(127, 336)
+[2025-05-02 14:19:43] [INFO] [ECONOMY] 获得金币 - amount=0, total=1030, position=(127, 336)
+[2025-05-02 14:19:43] [INFO] [UPGRADE] 创建子弹 - damage=1, speed=5, position=(257, 282)
+[2025-05-02 14:19:43] [INFO] [PLAYER] 玩家发射子弹 - position=(257, 322)
+[2025-05-02 14:19:43] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=3
+[2025-05-02 14:19:43] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(287, 307)
+[2025-05-02 14:19:44] [INFO] [GAME_STATE] 第 1 波结束，准备下一波... - wave=1
+[2025-05-02 14:19:44] [INFO] [UPGRADE] 创建子弹 - damage=1, speed=5, position=(129, 300)
+[2025-05-02 14:19:44] [INFO] [PLAYER] 玩家发射子弹 - position=(129, 340)
+[2025-05-02 14:19:44] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=2
+[2025-05-02 14:19:44] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(169, 325)
+[2025-05-02 14:19:44] [INFO] [UPGRADE] 创建子弹 - damage=1, speed=5, position=(129, 300)
+[2025-05-02 14:19:44] [INFO] [PLAYER] 玩家发射子弹 - position=(129, 340)
+[2025-05-02 14:19:44] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=1
+[2025-05-02 14:19:44] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(159, 325)
+[2025-05-02 14:19:45] [INFO] [UPGRADE] 创建子弹 - damage=1, speed=5, position=(96, 300)
+[2025-05-02 14:19:45] [INFO] [PLAYER] 玩家发射子弹 - position=(96, 340)
+[2025-05-02 14:19:45] [INFO] [ZOMBIE] 僵尸被击杀 - zombie_type=NormalZombie, position=(133, 351)
+[2025-05-02 14:19:45] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(126, 325)
+[2025-05-02 14:19:45] [INFO] [ECONOMY] 获得金币 - amount=1, total=1031, position=(143, 328)
+[2025-05-02 14:19:45] [INFO] [ECONOMY] 获得金币 - amount=1, total=1032, position=(143, 327)
+[2025-05-02 14:19:45] [INFO] [ECONOMY] 获得金币 - amount=0, total=1032, position=(143, 327)
+[2025-05-02 14:19:45] [INFO] [ECONOMY] 获得金币 - amount=0, total=1032, position=(143, 325)
+[2025-05-02 14:19:45] [INFO] [ECONOMY] 获得金币 - amount=0, total=1032, position=(143, 323)
+[2025-05-02 14:19:45] [INFO] [ECONOMY] 获得金币 - amount=0, total=1032, position=(143, 320)
+[2025-05-02 14:19:45] [INFO] [ECONOMY] 获得金币 - amount=0, total=1032, position=(142, 316)
+[2025-05-02 14:19:45] [INFO] [UPGRADE] 创建子弹 - damage=1, speed=5, position=(238, 331)
+[2025-05-02 14:19:45] [INFO] [PLAYER] 玩家发射子弹 - position=(238, 371)
+[2025-05-02 14:19:45] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=4
+[2025-05-02 14:19:45] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(268, 356)
+[2025-05-02 14:19:46] [INFO] [UPGRADE] 创建子弹 - damage=1, speed=5, position=(163, 319)
+[2025-05-02 14:19:46] [INFO] [PLAYER] 玩家发射子弹 - position=(163, 359)
+[2025-05-02 14:19:46] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=3
+[2025-05-02 14:19:46] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(193, 344)
+[2025-05-02 14:19:46] [INFO] [UPGRADE] 创建子弹 - damage=1, speed=5, position=(161, 323)
+[2025-05-02 14:19:46] [INFO] [PLAYER] 玩家发射子弹 - position=(161, 363)
+[2025-05-02 14:19:46] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=2
+[2025-05-02 14:19:46] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(191, 348)
+[2025-05-02 14:19:47] [INFO] [UPGRADE] 创建子弹 - damage=1, speed=5, position=(125, 323)
+[2025-05-02 14:19:47] [INFO] [PLAYER] 玩家发射子弹 - position=(125, 363)
+[2025-05-02 14:19:47] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=1
+[2025-05-02 14:19:47] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(155, 348)
+[2025-05-02 14:19:47] [INFO] [UPGRADE] 创建子弹 - damage=1, speed=5, position=(109, 228)
+[2025-05-02 14:19:47] [INFO] [PLAYER] 玩家发射子弹 - position=(109, 268)
+[2025-05-02 14:19:47] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=4
+[2025-05-02 14:19:47] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(209, 253)
+[2025-05-02 14:19:48] [INFO] [UPGRADE] 创建子弹 - damage=1, speed=5, position=(71, 292)
+[2025-05-02 14:19:48] [INFO] [PLAYER] 玩家发射子弹 - position=(71, 332)
+[2025-05-02 14:19:48] [INFO] [ZOMBIE] 僵尸被击杀 - zombie_type=NormalZombie, position=(31, 395)
+[2025-05-02 14:19:48] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(101, 317)
+[2025-05-02 14:19:48] [INFO] [ECONOMY] 获得金币 - amount=1, total=1033, position=(37, 382)
+[2025-05-02 14:19:48] [INFO] [ECONOMY] 获得金币 - amount=1, total=1034, position=(37, 381)
+[2025-05-02 14:19:48] [INFO] [ECONOMY] 获得金币 - amount=0, total=1034, position=(37, 381)
+[2025-05-02 14:19:48] [INFO] [ECONOMY] 获得金币 - amount=0, total=1034, position=(37, 379)
+[2025-05-02 14:19:48] [INFO] [ECONOMY] 获得金币 - amount=0, total=1034, position=(37, 377)
+[2025-05-02 14:19:48] [INFO] [ECONOMY] 获得金币 - amount=0, total=1034, position=(38, 374)
+[2025-05-02 14:19:48] [INFO] [ECONOMY] 获得金币 - amount=0, total=1034, position=(39, 370)
+[2025-05-02 14:19:48] [INFO] [UPGRADE] 创建子弹 - damage=1, speed=5, position=(309, 154)
+[2025-05-02 14:19:48] [INFO] [PLAYER] 玩家发射子弹 - position=(309, 194)
+[2025-05-02 14:19:48] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=4
+[2025-05-02 14:19:48] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(349, 179)
+[2025-05-02 14:19:48] [INFO] [UPGRADE] 创建子弹 - damage=1, speed=5, position=(347, 224)
+[2025-05-02 14:19:48] [INFO] [PLAYER] 玩家发射子弹 - position=(347, 264)
+[2025-05-02 14:19:48] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=3
+[2025-05-02 14:19:48] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(377, 249)
+[2025-05-02 14:19:49] [INFO] [GAME_STATE] 第 2 波僵尸来袭 - wave=2
+[2025-05-02 14:19:49] [INFO] [UPGRADE] 创建子弹 - damage=1, speed=5, position=(440, 293)
+[2025-05-02 14:19:49] [INFO] [PLAYER] 玩家发射子弹 - position=(440, 333)
+[2025-05-02 14:19:49] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=4
+[2025-05-02 14:19:49] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(470, 318)
+[2025-05-02 14:19:49] [INFO] [UPGRADE] 创建子弹 - damage=1, speed=5, position=(456, 277)
+[2025-05-02 14:19:49] [INFO] [PLAYER] 玩家发射子弹 - position=(456, 317)
+[2025-05-02 14:19:49] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=3
+[2025-05-02 14:19:49] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(486, 302)
+[2025-05-02 14:19:56] [INFO] [GAME_STATE] 返回主菜单
+[2025-05-02 14:19:57] [INFO] [GAME_STATE] 游戏退出
+[2025-05-02 14:19:57] [INFO] [SAVE] 游戏数据保存成功 - coins=1034, upgrades={'damage': 0, 'fire_rate': 1, 'bullet_speed': 0}, completed_levels=[], current_level=1

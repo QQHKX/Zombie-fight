@@ -38,7 +38,7 @@ class TankZombie(BaseZombie):
         return super().update()
     
     def take_damage(self, damage):
-        """受到伤害，坦克僵尸有护甲减伤和护盾免疫
+        """受到伤害，坦克僵尸有护甲减伤和护盾减伤
         
         Args:
             damage: 受到的伤害值
@@ -46,9 +46,9 @@ class TankZombie(BaseZombie):
         Returns:
             bool: 如果僵尸死亡则返回True，否则返回False
         """
-        # 如果护盾激活，完全免疫伤害
+        # 如果护盾激活，减少50%伤害而不是完全免疫
         if self.shield_active:
-            return False
+            damage = damage * 0.5  # 减少50%伤害
         
         # 护甲减伤
         actual_damage = max(1, damage - self.armor)  # 至少造成1点伤害
@@ -74,10 +74,10 @@ class TankZombie(BaseZombie):
         
         # 如果护盾激活，绘制护盾效果
         if self.shield_active:
-            # 创建半透明的护盾效果
-            shield_surface = pygame.Surface((self.rect.width + 20, self.rect.height + 20), pygame.SRCALPHA)
+            # 创建半透明的护盾效果，减小护盾范围
+            shield_surface = pygame.Surface((self.rect.width - 20, self.rect.height - 20), pygame.SRCALPHA)
             pygame.draw.ellipse(shield_surface, (100, 100, 255, 128), shield_surface.get_rect())
             
-            # 绘制护盾
+            # 绘制护盾，确保位于僵尸正中心
             shield_rect = shield_surface.get_rect(center=self.rect.center)
             screen.blit(shield_surface, shield_rect)
