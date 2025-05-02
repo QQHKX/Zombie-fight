@@ -46,7 +46,7 @@ class WeaponUpgrades:
         bullet.speed = 5 + level
         return bullet
     
-    def create_upgraded_bullet(self, x, y, target_y):
+    def create_bullet(self, x, y, target_y):
         """创建已应用所有升级效果的子弹
         
         Args:
@@ -70,7 +70,7 @@ class WeaponUpgrades:
         
         # 记录日志
         from utils.logger import log_upgrade
-        log_upgrade("创建升级子弹", damage=damage, speed=speed, position=(x, y))
+        log_upgrade("创建子弹", damage=damage, speed=speed, position=(x, y))
         
         return bullet
     

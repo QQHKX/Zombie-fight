@@ -57,6 +57,16 @@ class Game:
         self.screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
         pygame.display.set_caption("炮打僵尸_无尽版")
         
+        # 预加载僵尸动画资源（优化性能）
+        from entities.zombies.base_zombie import BaseZombie
+        BaseZombie.preload_animations()
+        log_system("僵尸动画资源预加载完成")
+        
+        # 预加载子弹图片资源（优化性能）
+        from entities.bullet import Bullet
+        Bullet.preload_image()
+        log_system("子弹图片资源预加载完成")
+        
         # 加载游戏资源
         log_system("开始加载游戏资源")
         self.background_playing = ResourceManager.load_image(BACKGROUND_PLAYING_IMAGE)
@@ -299,8 +309,8 @@ class Game:
         if not self.player.can_fire():
             return
         
-        # 使用武器升级系统创建升级后的子弹
-        bullet = self.weapon_upgrades.create_upgraded_bullet(
+        # 使用武器升级系统创建子弹
+        bullet = self.weapon_upgrades.create_bullet(
             self.player.rect.right, y_pos - 40, y_pos
         )
         

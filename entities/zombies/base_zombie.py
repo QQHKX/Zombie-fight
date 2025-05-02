@@ -8,6 +8,35 @@ from core.resource_manager import ResourceManager
 class BaseZombie(pygame.sprite.Sprite):
     """僵尸基类，定义所有僵尸的基本属性和行为"""
     
+    # 类变量，所有实例共享
+    move_frames_normal = None
+    move_frames_fast = None
+    move_frames_tank = None
+    
+    @classmethod
+    def preload_animations(cls):
+        """预加载所有僵尸动画，游戏启动时调用一次"""
+        if cls.move_frames_normal is None:
+            cls.move_frames_normal = []
+            cls.move_frames_fast = []
+            cls.move_frames_tank = []
+            
+            for i in range(1, 14):
+                frame_path = os.path.join(ZOMBIE_MOVE_DIR, f"zombie_move_{i:02d}.png")
+                frame = ResourceManager.load_image(frame_path)
+                
+                cls.move_frames_normal.append(frame)
+                
+                # 快速僵尸偏绿色
+                colorized = frame.copy()
+                colorized.fill((100, 255, 100), special_flags=pygame.BLEND_RGB_MULT)
+                cls.move_frames_fast.append(colorized)
+                
+                # 坦克僵尸偏红色
+                colorized = frame.copy()
+                colorized.fill((255, 100, 100), special_flags=pygame.BLEND_RGB_MULT)
+                cls.move_frames_tank.append(colorized)
+    
     def __init__(self, y, level=1, zombie_type="normal"):
         """初始化僵尸对象
         
@@ -76,29 +105,18 @@ class BaseZombie(pygame.sprite.Sprite):
         self.damage = int(base_damage * level_multiplier)
     
     def _load_animation_frames(self):
-        """加载僵尸动画帧"""
-        frames = []
-        
-        # 默认使用普通僵尸的动画
-        for i in range(1, 14):
-            frame_path = os.path.join(ZOMBIE_MOVE_DIR, f"zombie_move_{i:02d}.png")
-            frame = ResourceManager.load_image(frame_path)
+        """获取僵尸动画帧（不再重新加载图片）"""
+        # 确保动画已预加载
+        if BaseZombie.move_frames_normal is None:
+            BaseZombie.preload_animations()
             
-            # 根据僵尸类型调整颜色
-            if self.zombie_type == "fast":
-                # 快速僵尸偏绿色
-                colorized = frame.copy()
-                colorized.fill((100, 255, 100), special_flags=pygame.BLEND_RGB_MULT)
-                frames.append(colorized)
-            elif self.zombie_type == "tank":
-                # 坦克僵尸偏红色
-                colorized = frame.copy()
-                colorized.fill((255, 100, 100), special_flags=pygame.BLEND_RGB_MULT)
-                frames.append(colorized)
-            else:
-                frames.append(frame)
-        
-        return frames
+        # 根据僵尸类型返回对应的动画帧
+        if self.zombie_type == "fast":
+            return BaseZombie.move_frames_fast
+        elif self.zombie_type == "tank":
+            return BaseZombie.move_frames_tank
+        else:
+            return BaseZombie.move_frames_normal
     
     def _calculate_coin_value(self):
         """计算僵尸掉落的金币价值"""

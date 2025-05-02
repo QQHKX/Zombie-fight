@@ -6,6 +6,15 @@ from core.resource_manager import ResourceManager
 class Bullet(pygame.sprite.Sprite):
     """子弹类，由玩家发射"""
     
+    # 类变量，所有实例共享
+    bullet_image = None
+    
+    @classmethod
+    def preload_image(cls):
+        """预加载子弹图片，游戏启动时调用一次"""
+        if cls.bullet_image is None:
+            cls.bullet_image = ResourceManager.load_image(BULLET_IMAGE)
+    
     def __init__(self, x, y, target_y, speed=None, damage=None):
         """初始化子弹对象
         
@@ -18,8 +27,12 @@ class Bullet(pygame.sprite.Sprite):
         """
         super().__init__()
         
-        # 加载子弹图像
-        self.original_image = ResourceManager.load_image(BULLET_IMAGE)
+        # 确保子弹图片已预加载
+        if Bullet.bullet_image is None:
+            Bullet.preload_image()
+        
+        # 使用预加载的子弹图像
+        self.original_image = Bullet.bullet_image
         self.image = self.original_image
         self.rect = self.image.get_rect()
         self.rect.x = x
