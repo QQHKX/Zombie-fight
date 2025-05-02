@@ -154,15 +154,3 @@ python main.py
 
 本项目采用 MIT 许可证 - 详情请参阅 [LICENSE](LICENSE) 文件
 
-## 联系方式
-
-如有任何问题或建议，请通过以下方式联系我：
-
-- GitHub Issues: [https://github.com/你的用户名/daves-bombardment-experiment/issues](https://github.com/你的用户名/daves-bombardment-experiment/issues)
-- 邮箱：你的邮箱地址
-
-## 致谢
-
-- 感谢 Pygame 社区提供的优秀游戏开发库
-- 感谢所有为本项目做出贡献的开发者
-- 背景音乐：Laura Shigihara - Zombies On Your Lawn
