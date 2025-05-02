@@ -108,3 +108,460 @@ AttributeError: 'Game' object has no attribute 'upgrade_menu'
 [2025-05-02 02:02:50] [INFO] [GAME_STATE] 游戏状态重置为进行中
 [2025-05-02 02:03:27] [INFO] [GAME_STATE] 返回主菜单
 [2025-05-02 02:03:29] [INFO] [GAME_STATE] 游戏退出
+[2025-05-02 12:42:02] [INFO] [SYSTEM] 日志系统初始化完成
+[2025-05-02 12:42:03] [INFO] [SYSTEM] 游戏初始化开始
+[2025-05-02 12:42:03] [INFO] [SYSTEM] 开始加载游戏资源
+[2025-05-02 12:42:03] [INFO] [SYSTEM] 初始化游戏系统
+[2025-05-02 12:42:03] [INFO] [SAVE] 应用存档数据
+[2025-05-02 12:42:03] [INFO] [SYSTEM] 游戏初始化完成
+[2025-05-02 12:42:07] [INFO] [GAME_STATE] 开始新游戏
+[2025-05-02 12:42:07] [INFO] [PLAYER] 玩家创建完成
+[2025-05-02 12:42:07] [INFO] [GAME_STATE] 游戏状态切换为进行中
+[2025-05-02 12:42:07] [INFO] [PLAYER] 玩家发射子弹 - position=(365, 276)
+[2025-05-02 12:42:08] [INFO] [PLAYER] 玩家发射子弹 - position=(324, 285)
+[2025-05-02 12:42:08] [INFO] [PLAYER] 玩家发射子弹 - position=(301, 301)
+[2025-05-02 12:42:09] [INFO] [PLAYER] 玩家发射子弹 - position=(231, 344)
+[2025-05-02 12:42:09] [INFO] [PLAYER] 玩家发射子弹 - position=(185, 392)
+[2025-05-02 12:42:10] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=4
+[2025-05-02 12:42:10] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(1100, 261)
+[2025-05-02 12:42:10] [INFO] [PLAYER] 玩家发射子弹 - position=(232, 179)
+[2025-05-02 12:42:10] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=3
+[2025-05-02 12:42:10] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(1049, 270)
+[2025-05-02 12:42:10] [INFO] [PLAYER] 玩家发射子弹 - position=(215, 198)
+[2025-05-02 12:42:11] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=2
+[2025-05-02 12:42:11] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(1001, 286)
+[2025-05-02 12:42:11] [INFO] [PLAYER] 玩家发射子弹 - position=(190, 218)
+[2025-05-02 12:42:11] [INFO] [PLAYER] 玩家发射子弹 - position=(195, 190)
+[2025-05-02 12:42:12] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=4
+[2025-05-02 12:42:12] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(1106, 329)
+[2025-05-02 12:42:12] [INFO] [PLAYER] 玩家发射子弹 - position=(195, 190)
+[2025-05-02 12:42:12] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=1
+[2025-05-02 12:42:12] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(847, 164)
+[2025-05-02 12:42:12] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=3
+[2025-05-02 12:42:12] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(1055, 377)
+[2025-05-02 12:42:12] [INFO] [ZOMBIE] 僵尸被击杀 - zombie_type=NormalZombie, position=(871, 188)
+[2025-05-02 12:42:12] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(800, 183)
+[2025-05-02 12:42:12] [INFO] [PLAYER] 玩家发射子弹 - position=(195, 190)
+[2025-05-02 12:42:13] [INFO] [PLAYER] 玩家发射子弹 - position=(636, 379)
+[2025-05-02 12:42:13] [INFO] [PLAYER] 玩家发射子弹 - position=(453, 346)
+[2025-05-02 12:42:13] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=2
+[2025-05-02 12:42:13] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(891, 364)
+[2025-05-02 12:42:14] [INFO] [PLAYER] 玩家发射子弹 - position=(446, 343)
+[2025-05-02 12:42:14] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=4
+[2025-05-02 12:42:14] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(1095, 203)
+[2025-05-02 12:42:14] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=3
+[2025-05-02 12:42:14] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(1055, 175)
+[2025-05-02 12:42:14] [INFO] [PLAYER] 玩家发射子弹 - position=(442, 342)
+[2025-05-02 12:42:14] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=1
+[2025-05-02 12:42:14] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(798, 331)
+[2025-05-02 12:42:14] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=2
+[2025-05-02 12:42:14] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(1015, 175)
+[2025-05-02 12:42:15] [INFO] [PLAYER] 玩家发射子弹 - position=(401, 349)
+[2025-05-02 12:42:15] [INFO] [ZOMBIE] 僵尸被击杀 - zombie_type=NormalZombie, position=(829, 358)
+[2025-05-02 12:42:15] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(756, 328)
+[2025-05-02 12:42:15] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=1
+[2025-05-02 12:42:15] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(975, 175)
+[2025-05-02 12:42:15] [INFO] [PLAYER] 玩家发射子弹 - position=(534, 263)
+[2025-05-02 12:42:16] [INFO] [ZOMBIE] 僵尸被击杀 - zombie_type=NormalZombie, position=(957, 232)
+[2025-05-02 12:42:16] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(887, 327)
+[2025-05-02 12:42:16] [INFO] [PLAYER] 玩家发射子弹 - position=(512, 266)
+[2025-05-02 12:42:16] [INFO] [PLAYER] 玩家发射子弹 - position=(575, 197)
+[2025-05-02 12:42:16] [INFO] [PLAYER] 玩家发射子弹 - position=(544, 191)
+[2025-05-02 12:42:17] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=4
+[2025-05-02 12:42:17] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(1004, 248)
+[2025-05-02 12:42:17] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=3
+[2025-05-02 12:42:17] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(957, 251)
+[2025-05-02 12:42:17] [INFO] [PLAYER] 玩家发射子弹 - position=(413, 183)
+[2025-05-02 12:42:17] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=2
+[2025-05-02 12:42:17] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(935, 182)
+[2025-05-02 12:42:17] [INFO] [PLAYER] 玩家发射子弹 - position=(387, 168)
+[2025-05-02 12:42:17] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=1
+[2025-05-02 12:42:17] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(884, 176)
+[2025-05-02 12:42:18] [INFO] [PLAYER] 玩家发射子弹 - position=(387, 168)
+[2025-05-02 12:42:18] [INFO] [ZOMBIE] 僵尸被击杀 - zombie_type=NormalZombie, position=(879, 149)
+[2025-05-02 12:42:18] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(808, 168)
+[2025-05-02 12:42:18] [INFO] [PLAYER] 玩家发射子弹 - position=(353, 171)
+[2025-05-02 12:42:19] [INFO] [PLAYER] 玩家发射子弹 - position=(353, 171)
+[2025-05-02 12:42:19] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=4
+[2025-05-02 12:42:19] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(927, 153)
+[2025-05-02 12:42:19] [INFO] [PLAYER] 玩家发射子弹 - position=(280, 256)
+[2025-05-02 12:42:19] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=3
+[2025-05-02 12:42:19] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(887, 153)
+[2025-05-02 12:42:20] [INFO] [PLAYER] 玩家发射子弹 - position=(286, 237)
+[2025-05-02 12:42:20] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=2
+[2025-05-02 12:42:20] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(838, 156)
+[2025-05-02 12:42:20] [INFO] [PLAYER] 玩家发射子弹 - position=(270, 220)
+[2025-05-02 12:42:20] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=1
+[2025-05-02 12:42:20] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(798, 156)
+[2025-05-02 12:42:21] [INFO] [PLAYER] 玩家发射子弹 - position=(279, 211)
+[2025-05-02 12:42:21] [INFO] [ZOMBIE] 僵尸被击杀 - zombie_type=NormalZombie, position=(809, 219)
+[2025-05-02 12:42:21] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(740, 241)
+[2025-05-02 12:42:21] [INFO] [PLAYER] 玩家发射子弹 - position=(339, 180)
+[2025-05-02 12:42:22] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=4
+[2025-05-02 12:42:22] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(871, 222)
+[2025-05-02 12:42:22] [INFO] [PLAYER] 玩家发射子弹 - position=(214, 202)
+[2025-05-02 12:42:22] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=3
+[2025-05-02 12:42:22] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(825, 205)
+[2025-05-02 12:42:22] [INFO] [PLAYER] 玩家发射子弹 - position=(282, 204)
+[2025-05-02 12:42:22] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=2
+[2025-05-02 12:42:22] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(789, 196)
+[2025-05-02 12:42:22] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=1
+[2025-05-02 12:42:22] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(764, 165)
+[2025-05-02 12:42:22] [INFO] [PLAYER] 玩家发射子弹 - position=(295, 204)
+[2025-05-02 12:42:23] [INFO] [PLAYER] 玩家发射子弹 - position=(279, 205)
+[2025-05-02 12:42:23] [INFO] [ZOMBIE] 僵尸被击杀 - zombie_type=NormalZombie, position=(761, 181)
+[2025-05-02 12:42:23] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(689, 187)
+[2025-05-02 12:42:23] [INFO] [PLAYER] 玩家发射子弹 - position=(339, 365)
+[2025-05-02 12:42:24] [INFO] [PLAYER] 玩家发射子弹 - position=(334, 403)
+[2025-05-02 12:42:24] [INFO] [PLAYER] 玩家发射子弹 - position=(334, 403)
+[2025-05-02 12:42:25] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=4
+[2025-05-02 12:42:25] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(734, 350)
+[2025-05-02 12:42:25] [INFO] [PLAYER] 玩家发射子弹 - position=(334, 401)
+[2025-05-02 12:42:25] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=4
+[2025-05-02 12:42:25] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(1167, 189)
+[2025-05-02 12:42:25] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=3
+[2025-05-02 12:42:25] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(694, 388)
+[2025-05-02 12:42:25] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=3
+[2025-05-02 12:42:25] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(1135, 189)
+[2025-05-02 12:42:25] [INFO] [PLAYER] 玩家发射子弹 - position=(324, 382)
+[2025-05-02 12:42:25] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=2
+[2025-05-02 12:42:25] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(654, 388)
+[2025-05-02 12:42:26] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=2
+[2025-05-02 12:42:26] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(1089, 190)
+[2025-05-02 12:42:26] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=1
+[2025-05-02 12:42:26] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(614, 386)
+[2025-05-02 12:42:26] [INFO] [PLAYER] 玩家发射子弹 - position=(305, 390)
+[2025-05-02 12:42:26] [INFO] [ZOMBIE] 僵尸被击杀 - zombie_type=NormalZombie, position=(643, 416)
+[2025-05-02 12:42:26] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(569, 367)
+[2025-05-02 12:42:26] [INFO] [PLAYER] 玩家发射子弹 - position=(356, 385)
+[2025-05-02 12:42:27] [INFO] [PLAYER] 玩家发射子弹 - position=(401, 353)
+[2025-05-02 12:42:27] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=4
+[2025-05-02 12:42:27] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(690, 375)
+[2025-05-02 12:42:27] [INFO] [PLAYER] 玩家发射子弹 - position=(402, 361)
+[2025-05-02 12:42:27] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=3
+[2025-05-02 12:42:27] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(666, 370)
+[2025-05-02 12:42:27] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=2
+[2025-05-02 12:42:27] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(641, 338)
+[2025-05-02 12:42:28] [INFO] [PLAYER] 玩家发射子弹 - position=(406, 371)
+[2025-05-02 12:42:28] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=1
+[2025-05-02 12:42:28] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(602, 346)
+[2025-05-02 12:42:28] [INFO] [ZOMBIE] 僵尸被击杀 - zombie_type=NormalZombie, position=(633, 389)
+[2025-05-02 12:42:28] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(561, 356)
+[2025-05-02 12:42:28] [INFO] [PLAYER] 玩家发射子弹 - position=(386, 136)
+[2025-05-02 12:42:28] [INFO] [PLAYER] 玩家发射子弹 - position=(386, 309)
+[2025-05-02 12:42:29] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=1
+[2025-05-02 12:42:29] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(681, 121)
+[2025-05-02 12:42:29] [INFO] [PLAYER] 玩家发射子弹 - position=(362, 150)
+[2025-05-02 12:42:29] [INFO] [PLAYER] 玩家发射子弹 - position=(336, 136)
+[2025-05-02 12:42:30] [INFO] [ZOMBIE] 僵尸被击杀 - zombie_type=NormalZombie, position=(667, 147)
+[2025-05-02 12:42:30] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(597, 135)
+[2025-05-02 12:42:30] [INFO] [PLAYER] 玩家发射子弹 - position=(305, 144)
+[2025-05-02 12:42:30] [INFO] [PLAYER] 玩家发射子弹 - position=(338, 240)
+[2025-05-02 12:42:30] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=4
+[2025-05-02 12:42:30] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(971, 294)
+[2025-05-02 12:42:31] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=4
+[2025-05-02 12:42:31] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(711, 121)
+[2025-05-02 12:42:31] [INFO] [PLAYER] 玩家发射子弹 - position=(425, 224)
+[2025-05-02 12:42:31] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=3
+[2025-05-02 12:42:31] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(665, 129)
+[2025-05-02 12:42:31] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=2
+[2025-05-02 12:42:31] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(633, 225)
+[2025-05-02 12:42:31] [INFO] [PLAYER] 玩家发射子弹 - position=(442, 204)
+[2025-05-02 12:42:31] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=1
+[2025-05-02 12:42:31] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(620, 209)
+[2025-05-02 12:42:32] [INFO] [ZOMBIE] 僵尸被击杀 - zombie_type=NormalZombie, position=(655, 186)
+[2025-05-02 12:42:32] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(587, 189)
+[2025-05-02 12:42:32] [INFO] [PLAYER] 玩家发射子弹 - position=(510, 199)
+[2025-05-02 12:42:32] [INFO] [PLAYER] 玩家发射子弹 - position=(623, 238)
+[2025-05-02 12:42:32] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=3
+[2025-05-02 12:42:32] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(725, 184)
+[2025-05-02 12:42:32] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=2
+[2025-05-02 12:42:32] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(718, 223)
+[2025-05-02 12:42:33] [INFO] [PLAYER] 玩家发射子弹 - position=(509, 260)
+[2025-05-02 12:42:33] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=1
+[2025-05-02 12:42:33] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(649, 245)
+[2025-05-02 12:42:33] [INFO] [PLAYER] 玩家发射子弹 - position=(510, 232)
+[2025-05-02 12:42:33] [INFO] [ZOMBIE] 僵尸被击杀 - zombie_type=NormalZombie, position=(679, 246)
+[2025-05-02 12:42:33] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(610, 217)
+[2025-05-02 12:42:34] [INFO] [PLAYER] 玩家发射子弹 - position=(562, 205)
+[2025-05-02 12:42:34] [INFO] [PLAYER] 玩家发射子弹 - position=(509, 211)
+[2025-05-02 12:42:34] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=4
+[2025-05-02 12:42:34] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(747, 190)
+[2025-05-02 12:42:34] [INFO] [PLAYER] 玩家发射子弹 - position=(446, 206)
+[2025-05-02 12:42:35] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=3
+[2025-05-02 12:42:35] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(689, 196)
+[2025-05-02 12:42:35] [INFO] [PLAYER] 玩家发射子弹 - position=(509, 208)
+[2025-05-02 12:42:35] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=2
+[2025-05-02 12:42:35] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(636, 191)
+[2025-05-02 12:42:35] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=1
+[2025-05-02 12:42:35] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(614, 193)
+[2025-05-02 12:42:35] [INFO] [PLAYER] 玩家发射子弹 - position=(456, 188)
+[2025-05-02 12:42:36] [INFO] [ZOMBIE] 僵尸被击杀 - zombie_type=NormalZombie, position=(629, 203)
+[2025-05-02 12:42:36] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(556, 173)
+[2025-05-02 12:42:36] [INFO] [PLAYER] 玩家发射子弹 - position=(460, 230)
+[2025-05-02 12:42:36] [INFO] [PLAYER] 玩家发射子弹 - position=(608, 347)
+[2025-05-02 12:42:36] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=4
+[2025-05-02 12:42:36] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(683, 332)
+[2025-05-02 12:42:37] [INFO] [PLAYER] 玩家发射子弹 - position=(583, 333)
+[2025-05-02 12:42:37] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=3
+[2025-05-02 12:42:37] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(638, 318)
+[2025-05-02 12:42:37] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=4
+[2025-05-02 12:42:37] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(840, 215)
+[2025-05-02 12:42:37] [INFO] [PLAYER] 玩家发射子弹 - position=(357, 316)
+[2025-05-02 12:42:38] [INFO] [PLAYER] 玩家发射子弹 - position=(469, 317)
+[2025-05-02 12:42:38] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=2
+[2025-05-02 12:42:38] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(532, 301)
+[2025-05-02 12:42:38] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=1
+[2025-05-02 12:42:38] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(524, 302)
+[2025-05-02 12:42:38] [INFO] [PLAYER] 玩家发射子弹 - position=(328, 314)
+[2025-05-02 12:42:38] [INFO] [ZOMBIE] 僵尸被击杀 - zombie_type=NormalZombie, position=(517, 336)
+[2025-05-02 12:42:38] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(443, 299)
+[2025-05-02 12:42:39] [INFO] [PLAYER] 玩家发射子弹 - position=(195, 347)
+[2025-05-02 12:42:39] [INFO] [PLAYER] 玩家发射子弹 - position=(444, 257)
+[2025-05-02 12:42:39] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=3
+[2025-05-02 12:42:39] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(559, 242)
+[2025-05-02 12:42:40] [INFO] [PLAYER] 玩家发射子弹 - position=(366, 297)
+[2025-05-02 12:42:40] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=2
+[2025-05-02 12:42:40] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(530, 332)
+[2025-05-02 12:42:40] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=1
+[2025-05-02 12:42:40] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(496, 282)
+[2025-05-02 12:42:40] [INFO] [PLAYER] 玩家发射子弹 - position=(337, 271)
+[2025-05-02 12:42:40] [INFO] [ZOMBIE] 僵尸被击杀 - zombie_type=NormalZombie, position=(521, 255)
+[2025-05-02 12:42:40] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(447, 256)
+[2025-05-02 12:42:40] [INFO] [PLAYER] 玩家发射子弹 - position=(325, 251)
+[2025-05-02 12:42:41] [INFO] [PLAYER] 玩家发射子弹 - position=(370, 307)
+[2025-05-02 12:42:41] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=4
+[2025-05-02 12:42:41] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(565, 236)
+[2025-05-02 12:42:41] [INFO] [PLAYER] 玩家发射子弹 - position=(370, 280)
+[2025-05-02 12:42:41] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=3
+[2025-05-02 12:42:41] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(540, 292)
+[2025-05-02 12:42:42] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=2
+[2025-05-02 12:42:42] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(500, 265)
+[2025-05-02 12:42:42] [INFO] [PLAYER] 玩家发射子弹 - position=(366, 324)
+[2025-05-02 12:42:42] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=1
+[2025-05-02 12:42:42] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(461, 309)
+[2025-05-02 12:42:42] [INFO] [PLAYER] 玩家发射子弹 - position=(282, 293)
+[2025-05-02 12:42:43] [INFO] [ZOMBIE] 僵尸被击杀 - zombie_type=NormalZombie, position=(469, 298)
+[2025-05-02 12:42:43] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(397, 278)
+[2025-05-02 12:42:43] [INFO] [PLAYER] 玩家发射子弹 - position=(450, 303)
+[2025-05-02 12:42:43] [INFO] [PLAYER] 玩家发射子弹 - position=(465, 184)
+[2025-05-02 12:42:44] [INFO] [PLAYER] 玩家发射子弹 - position=(433, 177)
+[2025-05-02 12:42:44] [INFO] [PLAYER] 玩家发射子弹 - position=(452, 150)
+[2025-05-02 12:42:45] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=4
+[2025-05-02 12:42:45] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(890, 169)
+[2025-05-02 12:42:45] [INFO] [PLAYER] 玩家发射子弹 - position=(357, 221)
+[2025-05-02 12:42:45] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=4
+[2025-05-02 12:42:45] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(1085, 288)
+[2025-05-02 12:42:45] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=3
+[2025-05-02 12:42:45] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(843, 162)
+[2025-05-02 12:42:45] [INFO] [PLAYER] 玩家发射子弹 - position=(429, 126)
+[2025-05-02 12:42:45] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=2
+[2025-05-02 12:42:45] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(812, 135)
+[2025-05-02 12:42:46] [INFO] [PLAYER] 玩家发射子弹 - position=(506, 181)
+[2025-05-02 12:42:46] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=1
+[2025-05-02 12:42:46] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(742, 206)
+[2025-05-02 12:42:46] [INFO] [ZOMBIE] 僵尸被击杀 - zombie_type=NormalZombie, position=(795, 152)
+[2025-05-02 12:42:46] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(724, 111)
+[2025-05-02 12:42:46] [INFO] [PLAYER] 玩家发射子弹 - position=(406, 195)
+[2025-05-02 12:42:46] [INFO] [PLAYER] 玩家发射子弹 - position=(527, 228)
+[2025-05-02 12:42:47] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=3
+[2025-05-02 12:42:47] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(866, 166)
+[2025-05-02 12:42:47] [INFO] [PLAYER] 玩家发射子弹 - position=(452, 254)
+[2025-05-02 12:42:47] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=2
+[2025-05-02 12:42:47] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(796, 180)
+[2025-05-02 12:42:47] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=1
+[2025-05-02 12:42:47] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(792, 213)
+[2025-05-02 12:42:47] [INFO] [PLAYER] 玩家发射子弹 - position=(517, 181)
+[2025-05-02 12:42:48] [INFO] [ZOMBIE] 僵尸被击杀 - zombie_type=NormalZombie, position=(801, 229)
+[2025-05-02 12:42:48] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(727, 239)
+[2025-05-02 12:42:48] [INFO] [PLAYER] 玩家发射子弹 - position=(349, 246)
+[2025-05-02 12:42:48] [INFO] [PLAYER] 玩家发射子弹 - position=(636, 292)
+[2025-05-02 12:42:49] [INFO] [PLAYER] 玩家发射子弹 - position=(524, 321)
+[2025-05-02 12:42:49] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=4
+[2025-05-02 12:42:49] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(816, 277)
+[2025-05-02 12:42:49] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=4
+[2025-05-02 12:42:49] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(1022, 166)
+[2025-05-02 12:42:49] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=3
+[2025-05-02 12:42:49] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(774, 231)
+[2025-05-02 12:42:49] [INFO] [PLAYER] 玩家发射子弹 - position=(586, 300)
+[2025-05-02 12:42:49] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=2
+[2025-05-02 12:42:49] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(744, 306)
+[2025-05-02 12:42:50] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=1
+[2025-05-02 12:42:50] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(721, 285)
+[2025-05-02 12:42:50] [INFO] [PLAYER] 玩家发射子弹 - position=(551, 293)
+[2025-05-02 12:42:50] [INFO] [ZOMBIE] 僵尸被击杀 - zombie_type=NormalZombie, position=(745, 292)
+[2025-05-02 12:42:50] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(671, 278)
+[2025-05-02 12:42:50] [INFO] [PLAYER] 玩家发射子弹 - position=(544, 131)
+[2025-05-02 12:42:51] [INFO] [PLAYER] 玩家发射子弹 - position=(555, 210)
+[2025-05-02 12:42:51] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=3
+[2025-05-02 12:42:51] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(789, 116)
+[2025-05-02 12:42:51] [INFO] [PLAYER] 玩家发射子弹 - position=(584, 175)
+[2025-05-02 12:42:51] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=2
+[2025-05-02 12:42:51] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(750, 195)
+[2025-05-02 12:42:51] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=1
+[2025-05-02 12:42:51] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(719, 160)
+[2025-05-02 12:42:52] [INFO] [PLAYER] 玩家发射子弹 - position=(396, 163)
+[2025-05-02 12:42:52] [INFO] [PLAYER] 玩家发射子弹 - position=(568, 258)
+[2025-05-02 12:42:52] [INFO] [ZOMBIE] 僵尸被击杀 - zombie_type=NormalZombie, position=(707, 141)
+[2025-05-02 12:42:52] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(633, 243)
+[2025-05-02 12:42:52] [INFO] [PLAYER] 玩家发射子弹 - position=(620, 254)
+[2025-05-02 12:42:53] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=4
+[2025-05-02 12:42:53] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(781, 148)
+[2025-05-02 12:42:53] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=3
+[2025-05-02 12:42:53] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(765, 239)
+[2025-05-02 12:42:53] [INFO] [PLAYER] 玩家发射子弹 - position=(494, 176)
+[2025-05-02 12:42:53] [INFO] [PLAYER] 玩家发射子弹 - position=(478, 161)
+[2025-05-02 12:42:53] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=2
+[2025-05-02 12:42:53] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(689, 161)
+[2025-05-02 12:42:54] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=1
+[2025-05-02 12:42:54] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(643, 146)
+[2025-05-02 12:42:54] [INFO] [PLAYER] 玩家发射子弹 - position=(381, 306)
+[2025-05-02 12:42:54] [INFO] [PLAYER] 玩家发射子弹 - position=(455, 305)
+[2025-05-02 12:42:55] [INFO] [PLAYER] 玩家发射子弹 - position=(475, 215)
+[2025-05-02 12:42:55] [INFO] [ZOMBIE] 僵尸被击杀 - zombie_type=NormalZombie, position=(595, 183)
+[2025-05-02 12:42:55] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(525, 200)
+[2025-05-02 12:42:55] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=4
+[2025-05-02 12:42:55] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(731, 291)
+[2025-05-02 12:42:55] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=3
+[2025-05-02 12:42:55] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(715, 290)
+[2025-05-02 12:42:55] [INFO] [PLAYER] 玩家发射子弹 - position=(380, 310)
+[2025-05-02 12:42:56] [INFO] [PLAYER] 玩家发射子弹 - position=(413, 230)
+[2025-05-02 12:42:56] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=2
+[2025-05-02 12:42:56] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(610, 295)
+[2025-05-02 12:42:56] [INFO] [PLAYER] 玩家发射子弹 - position=(332, 267)
+[2025-05-02 12:42:56] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=1
+[2025-05-02 12:42:56] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(583, 215)
+[2025-05-02 12:42:57] [INFO] [PLAYER] 玩家发射子弹 - position=(187, 401)
+[2025-05-02 12:42:57] [INFO] [ZOMBIE] 僵尸被击杀 - zombie_type=NormalZombie, position=(589, 241)
+[2025-05-02 12:42:57] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(517, 252)
+[2025-05-02 12:42:57] [INFO] [PLAYER] 玩家发射子弹 - position=(165, 322)
+[2025-05-02 12:42:58] [INFO] [PLAYER] 玩家发射子弹 - position=(168, 273)
+[2025-05-02 12:42:58] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=4
+[2025-05-02 12:42:58] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(587, 386)
+[2025-05-02 12:42:58] [INFO] [PLAYER] 玩家发射子弹 - position=(168, 273)
+[2025-05-02 12:42:58] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=3
+[2025-05-02 12:42:58] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(545, 307)
+[2025-05-02 12:42:58] [INFO] [PLAYER] 玩家发射子弹 - position=(168, 273)
+[2025-05-02 12:42:59] [INFO] [PLAYER] 玩家发射子弹 - position=(168, 273)
+[2025-05-02 12:42:59] [INFO] [PLAYER] 玩家发射子弹 - position=(168, 273)
+[2025-05-02 12:43:00] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=4
+[2025-05-02 12:43:00] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(813, 258)
+[2025-05-02 12:43:00] [INFO] [PLAYER] 玩家发射子弹 - position=(168, 273)
+[2025-05-02 12:43:00] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=3
+[2025-05-02 12:43:00] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(773, 258)
+[2025-05-02 12:43:00] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=2
+[2025-05-02 12:43:00] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(733, 258)
+[2025-05-02 12:43:00] [INFO] [PLAYER] 玩家发射子弹 - position=(168, 273)
+[2025-05-02 12:43:01] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=1
+[2025-05-02 12:43:01] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(693, 258)
+[2025-05-02 12:43:01] [INFO] [PLAYER] 玩家发射子弹 - position=(173, 326)
+[2025-05-02 12:43:01] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=2
+[2025-05-02 12:43:01] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(228, 311)
+[2025-05-02 12:43:01] [INFO] [ZOMBIE] 僵尸被击杀 - zombie_type=NormalZombie, position=(721, 197)
+[2025-05-02 12:43:01] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(653, 258)
+[2025-05-02 12:43:01] [INFO] [PLAYER] 玩家发射子弹 - position=(174, 367)
+[2025-05-02 12:43:01] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=1
+[2025-05-02 12:43:01] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(204, 352)
+[2025-05-02 12:43:02] [INFO] [PLAYER] 玩家发射子弹 - position=(191, 363)
+[2025-05-02 12:43:02] [INFO] [ZOMBIE] 僵尸被击杀 - zombie_type=NormalZombie, position=(197, 392)
+[2025-05-02 12:43:02] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(221, 348)
+[2025-05-02 12:43:02] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=4
+[2025-05-02 12:43:02] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(763, 258)
+[2025-05-02 12:43:02] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=3
+[2025-05-02 12:43:02] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(723, 258)
+[2025-05-02 12:43:02] [INFO] [PLAYER] 玩家发射子弹 - position=(231, 355)
+[2025-05-02 12:43:02] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=4
+[2025-05-02 12:43:02] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(276, 340)
+[2025-05-02 12:43:03] [INFO] [PLAYER] 玩家发射子弹 - position=(231, 354)
+[2025-05-02 12:43:03] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=3
+[2025-05-02 12:43:03] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(261, 339)
+[2025-05-02 12:43:03] [INFO] [PLAYER] 玩家发射子弹 - position=(161, 355)
+[2025-05-02 12:43:03] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=2
+[2025-05-02 12:43:03] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(191, 340)
+[2025-05-02 12:43:04] [INFO] [PLAYER] 玩家发射子弹 - position=(112, 369)
+[2025-05-02 12:43:04] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=1
+[2025-05-02 12:43:04] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(142, 354)
+[2025-05-02 12:43:04] [INFO] [PLAYER] 玩家发射子弹 - position=(87, 364)
+[2025-05-02 12:43:04] [INFO] [ZOMBIE] 僵尸被击杀 - zombie_type=NormalZombie, position=(133, 368)
+[2025-05-02 12:43:04] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(117, 349)
+[2025-05-02 12:43:05] [INFO] [GAME_STATE] 游戏暂停
+[2025-05-02 12:43:07] [INFO] [GAME_STATE] 游戏继续
+[2025-05-02 12:43:07] [INFO] [PLAYER] 玩家发射子弹 - position=(128, 242)
+[2025-05-02 12:43:08] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=2
+[2025-05-02 12:43:08] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(283, 227)
+[2025-05-02 12:43:08] [INFO] [PLAYER] 玩家发射子弹 - position=(146, 231)
+[2025-05-02 12:43:08] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=1
+[2025-05-02 12:43:08] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(246, 216)
+[2025-05-02 12:43:08] [INFO] [PLAYER] 玩家发射子弹 - position=(151, 230)
+[2025-05-02 12:43:08] [INFO] [ZOMBIE] 僵尸被击杀 - zombie_type=NormalZombie, position=(281, 223)
+[2025-05-02 12:43:08] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(211, 215)
+[2025-05-02 12:43:09] [INFO] [PLAYER] 玩家发射子弹 - position=(326, 361)
+[2025-05-02 12:43:09] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=4
+[2025-05-02 12:43:09] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(371, 346)
+[2025-05-02 12:43:09] [INFO] [PLAYER] 玩家发射子弹 - position=(239, 342)
+[2025-05-02 12:43:09] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=3
+[2025-05-02 12:43:09] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(304, 327)
+[2025-05-02 12:43:10] [INFO] [PLAYER] 玩家发射子弹 - position=(206, 347)
+[2025-05-02 12:43:10] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=2
+[2025-05-02 12:43:10] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(256, 332)
+[2025-05-02 12:43:10] [INFO] [PLAYER] 玩家发射子弹 - position=(147, 345)
+[2025-05-02 12:43:10] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=1
+[2025-05-02 12:43:10] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(197, 330)
+[2025-05-02 12:43:11] [INFO] [PLAYER] 玩家发射子弹 - position=(120, 344)
+[2025-05-02 12:43:11] [INFO] [ZOMBIE] 僵尸被击杀 - zombie_type=NormalZombie, position=(223, 329)
+[2025-05-02 12:43:11] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(150, 329)
+[2025-05-02 12:43:11] [INFO] [PLAYER] 玩家发射子弹 - position=(219, 220)
+[2025-05-02 12:43:11] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=4
+[2025-05-02 12:43:11] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(289, 205)
+[2025-05-02 12:43:11] [INFO] [PLAYER] 玩家发射子弹 - position=(201, 226)
+[2025-05-02 12:43:12] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=3
+[2025-05-02 12:43:12] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(246, 211)
+[2025-05-02 12:43:12] [INFO] [PLAYER] 玩家发射子弹 - position=(163, 221)
+[2025-05-02 12:43:12] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=2
+[2025-05-02 12:43:12] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(193, 206)
+[2025-05-02 12:43:12] [INFO] [PLAYER] 玩家发射子弹 - position=(131, 217)
+[2025-05-02 12:43:12] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=1
+[2025-05-02 12:43:12] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(161, 202)
+[2025-05-02 12:43:13] [INFO] [PLAYER] 玩家发射子弹 - position=(95, 212)
+[2025-05-02 12:43:13] [INFO] [ZOMBIE] 僵尸被击杀 - zombie_type=NormalZombie, position=(153, 205)
+[2025-05-02 12:43:13] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(125, 197)
+[2025-05-02 12:43:13] [INFO] [PLAYER] 玩家发射子弹 - position=(220, 443)
+[2025-05-02 12:43:13] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=4
+[2025-05-02 12:43:13] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(250, 428)
+[2025-05-02 12:43:14] [INFO] [PLAYER] 玩家发射子弹 - position=(160, 418)
+[2025-05-02 12:43:14] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=3
+[2025-05-02 12:43:14] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(190, 403)
+[2025-05-02 12:43:14] [INFO] [PLAYER] 玩家发射子弹 - position=(160, 418)
+[2025-05-02 12:43:14] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=2
+[2025-05-02 12:43:14] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(190, 403)
+[2025-05-02 12:43:15] [INFO] [PLAYER] 玩家发射子弹 - position=(71, 430)
+[2025-05-02 12:43:15] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=1
+[2025-05-02 12:43:15] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(101, 415)
+[2025-05-02 12:43:15] [INFO] [PLAYER] 玩家发射子弹 - position=(93, 394)
+[2025-05-02 12:43:15] [INFO] [ZOMBIE] 僵尸被击杀 - zombie_type=NormalZombie, position=(83, 431)
+[2025-05-02 12:43:15] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(123, 379)
+[2025-05-02 12:43:16] [INFO] [PLAYER] 玩家发射子弹 - position=(224, 378)
+[2025-05-02 12:43:16] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=4
+[2025-05-02 12:43:16] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(254, 363)
+[2025-05-02 12:43:16] [INFO] [PLAYER] 玩家发射子弹 - position=(149, 344)
+[2025-05-02 12:43:16] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=3
+[2025-05-02 12:43:16] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(179, 329)
+[2025-05-02 12:43:17] [INFO] [PLAYER] 玩家发射子弹 - position=(105, 381)
+[2025-05-02 12:43:17] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=2
+[2025-05-02 12:43:17] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(135, 366)
+[2025-05-02 12:43:17] [INFO] [PLAYER] 玩家发射子弹 - position=(192, 368)
+[2025-05-02 12:43:17] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=4
+[2025-05-02 12:43:17] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(222, 353)
+[2025-05-02 12:43:17] [INFO] [PLAYER] 玩家发射子弹 - position=(209, 348)
+[2025-05-02 12:43:17] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=3
+[2025-05-02 12:43:17] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(239, 333)
+[2025-05-02 12:43:18] [INFO] [PLAYER] 玩家发射子弹 - position=(211, 297)
+[2025-05-02 12:43:18] [INFO] [ZOMBIE] 僵尸受伤 - zombie_type=NormalZombie, damage=1, health_remaining=2
+[2025-05-02 12:43:18] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=1, position=(241, 282)
+[2025-05-02 12:43:19] [INFO] [GAME_STATE] 重置游戏
+[2025-05-02 12:43:19] [INFO] [PLAYER] 玩家重新创建完成
+[2025-05-02 12:43:19] [INFO] [SAVE] 重置时应用存档数据
+[2025-05-02 12:43:19] [INFO] [GAME_STATE] 游戏状态重置为进行中
+[2025-05-02 12:43:23] [INFO] [GAME_STATE] 游戏暂停
+[2025-05-02 12:43:24] [INFO] [GAME_STATE] 返回主菜单
+[2025-05-02 12:43:25] [INFO] [GAME_STATE] 游戏退出
