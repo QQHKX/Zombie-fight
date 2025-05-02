@@ -58,14 +58,18 @@ class ZombieSpawner:
                 self.in_wave_break = False
                 self.wave_start_time = current_time
                 self.current_wave += 1
-                print(f"第 {self.current_wave} 波僵尸来袭！")
+                
+                from utils.logger import log_game_state
+                log_game_state(f"第 {self.current_wave} 波僵尸来袭", wave=self.current_wave)
         else:
             # 检查当前波次是否结束
             wave_elapsed = current_time - self.wave_start_time
             if wave_elapsed >= self.wave_duration:
                 self.in_wave_break = True
                 self.wave_break_start_time = current_time
-                print(f"第 {self.current_wave} 波结束，准备下一波...")
+                
+                from utils.logger import log_game_state
+                log_game_state(f"第 {self.current_wave} 波结束，准备下一波...", wave=self.current_wave)
         
         # 如果在波次休息中，不生成僵尸
         if self.in_wave_break:
@@ -151,6 +155,12 @@ class ZombieSpawner:
         Args:
             count: 要生成的僵尸数量
         """
+        # 导入日志模块
+        from utils.logger import log_zombie
+        
+        # 记录生成的僵尸数量
+        zombies_created = []
+        
         for _ in range(count):
             # 随机选择僵尸类型
             zombie_type = self._select_zombie_type()
@@ -174,6 +184,16 @@ class ZombieSpawner:
             if zombie:
                 self.game.zombies.add(zombie)
                 self.game.all_sprites.add(zombie)
+                
+                # 记录日志
+                log_zombie("生成僵尸", zombie_type=zombie_type, level=zombie_level, position=(SCREEN_WIDTH, y))
+                
+                # 添加到已创建列表
+                zombies_created.append({"type": zombie_type, "level": zombie_level})
+        
+        # 如果生成了多个僵尸，记录批量生成日志
+        if len(zombies_created) > 1:
+            log_zombie(f"批量生成{len(zombies_created)}个僵尸", wave=self.current_wave, zombies=zombies_created)
     
     def _select_zombie_type(self):
         """根据权重随机选择僵尸类型

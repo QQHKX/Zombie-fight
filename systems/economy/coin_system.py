@@ -48,6 +48,10 @@ class CoinSystem:
         """
         self.coins += amount
         
+        # 记录日志
+        from utils.logger import log_economy
+        log_economy("获得金币", amount=amount, total=self.coins, position=position)
+        
         # 播放金币音效
         if self.coin_sound:
             self.coin_sound.play()
@@ -67,6 +71,11 @@ class CoinSystem:
         """
         if self.coins >= amount:
             self.coins -= amount
+            
+            # 记录日志
+            from utils.logger import log_economy
+            log_economy("消费金币", amount=amount, remaining=self.coins)
+            
             return True
         return False
     

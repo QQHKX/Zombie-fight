@@ -47,13 +47,21 @@ class SaveManager:
         try:
             with open(save_path, "w") as f:
                 json.dump(self.save_data, f)
-            print("游戏数据保存成功")
+            
+            from utils.logger import log_save
+            log_save("游戏数据保存成功", coins=self.save_data["coins"], upgrades=self.save_data["upgrades"], 
+                    completed_levels=self.save_data["completed_levels"], current_level=self.save_data["current_level"])
         except Exception as e:
-            print(f"保存游戏数据失败: {e}")
+            
+            from utils.logger import log_error
+            log_error("保存游戏数据失败", error=str(e))
     
     def load_save_data(self):
         """加载存档数据"""
         save_path = os.path.join(self.save_dir, "save_data.json")
+        
+        # 导入日志模块
+        from utils.logger import log_save, log_error
         
         # 如果保存文件存在，加载数据
         if os.path.exists(save_path):
@@ -63,13 +71,23 @@ class SaveManager:
                     # 将加载的数据合并到save_data中
                     for key, value in loaded_data.items():
                         self.save_data[key] = value
-                print("游戏数据加载成功")
+                
+                log_save("游戏数据加载成功", coins=self.save_data["coins"], 
+                        upgrades=self.save_data.get("upgrades", {}), 
+                        current_level=self.save_data["current_level"])
             except Exception as e:
-                print(f"加载游戏数据失败: {e}")
+                
                 # 加载失败时使用默认数据
                 self.save_data = self.default_save_data.copy()
+                
+                # 记录错误日志
+                log_error("加载游戏数据失败", error=str(e))
         else:
-            print("未找到存档文件，使用默认数据")
+            
+            log_save("未找到存档文件，使用默认数据")
+            
+            # 记录日志
+            log_save("未找到存档文件，使用默认数据")
     
     def apply_save_data(self):
         """应用存档数据到游戏（游戏启动时调用）"""

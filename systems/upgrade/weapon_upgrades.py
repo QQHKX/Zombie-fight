@@ -68,6 +68,10 @@ class WeaponUpgrades:
         # 创建子弹
         bullet = Bullet(x, y, target_y, speed, damage)
         
+        # 记录日志
+        from utils.logger import log_upgrade
+        log_upgrade("创建升级子弹", damage=damage, speed=speed, position=(x, y))
+        
         return bullet
     
     def get_upgrade_description(self, upgrade_type, level):

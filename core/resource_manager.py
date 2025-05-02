@@ -18,10 +18,15 @@ class ResourceManager:
             pygame.error: 如果图片加载失败
         """
         try:
-            return pygame.image.load(file_path)
+            image = pygame.image.load(file_path)
+            # 记录日志
+            from utils.logger import log_resource
+            log_resource("图片加载成功", file_path=file_path)
+            return image
         except pygame.error as e:
-            print(f"无法加载图片: {file_path}")
-            print(f"错误信息: {e}")
+            
+            from utils.logger import log_error
+            log_error("图片加载失败", file_path=file_path, error=str(e))
             sys.exit(1)
     
     @staticmethod
@@ -39,10 +44,15 @@ class ResourceManager:
             pygame.error: 如果字体加载失败
         """
         try:
-            return pygame.font.Font(file_path, size)
+            font = pygame.font.Font(file_path, size)
+            # 记录日志
+            from utils.logger import log_resource
+            log_resource("字体加载成功", file_path=file_path, size=size)
+            return font
         except pygame.error as e:
-            print(f"无法加载字体: {file_path}")
-            print(f"错误信息: {e}")
+            
+            from utils.logger import log_error
+            log_error("字体加载失败", file_path=file_path, size=size, error=str(e))
             sys.exit(1)
     
     @staticmethod
@@ -53,14 +63,18 @@ class ResourceManager:
             file_path: 音频文件路径
             
         Returns:
-            加载的音频对象
-            
-        Raises:
-            pygame.error: 如果音频加载失败
+            加载的音频对象，如果加载失败则返回None
         """
-        try:
-            return pygame.mixer.Sound(file_path)
-        except pygame.error as e:
-            print(f"无法加载音频: {file_path}")
-            print(f"错误信息: {e}")
-            return None
+        if pygame.mixer.get_init():
+            try:
+                sound = pygame.mixer.Sound(file_path)
+                # 记录日志
+                from utils.logger import log_resource
+                log_resource("音频加载成功", file_path=file_path)
+                return sound
+            except pygame.error as e:
+                
+                from utils.logger import log_error
+                log_error("音频加载失败", file_path=file_path, error=str(e))
+                return None
+        return None

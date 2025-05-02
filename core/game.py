@@ -128,7 +128,6 @@ class Game:
             pygame.mixer.music.play(-1)  # 循环播放
         except pygame.error as e:
             log_error(f"无法加载背景音乐: {e}")
-            print(f"无法加载背景音乐: {e}")
         
         log_system("游戏初始化完成")
     
