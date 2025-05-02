@@ -112,6 +112,7 @@ class Game:
         self.menu_button = Button(SCREEN_WIDTH // 2 - 150, SCREEN_HEIGHT // 2 + 150, 300, 80, "返回菜单")
         self.upgrade_button = Button(SCREEN_WIDTH - 150, 30, 120, 50, "升级")
         self.pause_button = Button(SCREEN_WIDTH - 150, 90, 120, 50, "暂停")  # 添加暂停按钮
+        self.fps_button = Button(SCREEN_WIDTH // 2 - 150, SCREEN_HEIGHT // 2 + 220, 300, 60, "开启帧率显示")  # 添加帧率显示按钮
         
         # 创建玩家
         self.player = None
@@ -520,15 +521,14 @@ class Game:
             self.restart_button.draw(self.screen)
             self.menu_button.draw(self.screen)
             
-            # 绘制帧率显示开关按钮
-            fps_button_text = "关闭帧率显示" if self.show_fps else "开启帧率显示"
-            fps_button = Button(SCREEN_WIDTH // 2 - 150, SCREEN_HEIGHT // 2 + 220, 300, 60, fps_button_text)
-            fps_button.draw(self.screen)
+            # 更新帧率显示开关按钮文本
+            self.fps_button.text = "关闭帧率显示" if self.show_fps else "开启帧率显示"
+            self.fps_button.draw(self.screen)
             
             # 检测帧率按钮点击
             mouse_pos = pygame.mouse.get_pos()
             mouse_pressed = pygame.mouse.get_pressed()
-            if mouse_pressed[0] and fps_button.is_clicked(mouse_pos):
+            if mouse_pressed[0] and self.fps_button.is_clicked(mouse_pos):
                 self.show_fps = not self.show_fps
                 log_game_state(f"帧率显示{'开启' if self.show_fps else '关闭'}")
                 # 防止按钮连续触发
