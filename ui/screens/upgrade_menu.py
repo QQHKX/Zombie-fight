@@ -27,8 +27,8 @@ class UpgradeMenu:
         # 金币显示
         self.coin_font = pygame.font.Font(REGULAR_FONT, 32)
         
-        # 关闭按钮
-        self.close_button = CloseButton(SCREEN_WIDTH - 50, 50, 40, 40)
+        # 关闭按钮 - 移到左上角
+        self.close_button = CloseButton(50, 50, 40, 40)
         
         # 升级按钮
         self.upgrade_buttons = []
@@ -41,16 +41,29 @@ class UpgradeMenu:
         self.message = None
         self.message_start_time = 0
         self.message_duration = 2.0  # 消息显示时间（秒）
+        
+        # 记录打开菜单前的游戏状态
+        self.previous_game_state = None
     
     def show(self):
         """显示升级菜单"""
         self.active = True
         self._update_buttons()
+        
+        # 保存当前游戏状态并暂停游戏
+        if self.game.game_state == GAME_STATE_PLAYING:
+            self.previous_game_state = self.game.game_state
+            self.game.pause_game()
     
     def hide(self):
         """隐藏升级菜单"""
         self.active = False
         self.confirm_dialog = None
+        
+        # 恢复游戏状态
+        if self.previous_game_state == GAME_STATE_PLAYING:
+            self.game.resume_game()
+            self.previous_game_state = None
     
     def handle_event(self, event):
         """处理事件
@@ -232,6 +245,11 @@ class UpgradeButton:
         self.can_purchase = False
         self.max_level = False
         
+        # 鼠标悬停状态
+        self.is_hovered = False
+        self.border_width = 2  # 正常边框宽度
+        self.hover_border_width = 4  # 悬停时边框宽度
+        
         # 字体
         self.title_font = pygame.font.Font(REGULAR_FONT, 24)
         self.desc_font = pygame.font.Font(REGULAR_FONT, 18)
@@ -272,6 +290,13 @@ class UpgradeButton:
         Args:
             screen: 游戏屏幕
         """
+        # 检查鼠标悬停状态
+        mouse_pos = pygame.mouse.get_pos()
+        self.is_hovered = self.rect.collidepoint(mouse_pos)
+        
+        # 确定边框宽度
+        border_width = self.hover_border_width if self.is_hovered else self.border_width
+        
         # 绘制按钮背景
         if self.max_level:
             # 已达到最大等级，使用金色背景
@@ -283,8 +308,13 @@ class UpgradeButton:
             # 无法购买，使用灰色背景
             color = (100, 100, 100)
         
+        # 如果鼠标悬停，使颜色更亮
+        if self.is_hovered:
+            r, g, b = color
+            color = (min(r + 30, 255), min(g + 30, 255), min(b + 30, 255))
+        
         pygame.draw.rect(screen, color, self.rect)
-        pygame.draw.rect(screen, (255, 255, 255), self.rect, 2)  # 白色边框
+        pygame.draw.rect(screen, (255, 255, 255), self.rect, border_width)  # 白色边框
         
         # 绘制标题
         title_text = self.title_font.render(self.upgrade["name"], True, (255, 255, 255))
@@ -339,6 +369,12 @@ class CloseButton:
             height: 按钮高度
         """
         self.rect = pygame.Rect(x - width // 2, y - height // 2, width, height)
+        
+        # 鼠标悬停状态
+        self.is_hovered = False
+        self.normal_color = (200, 0, 0)  # 正常状态下的颜色
+        self.hover_color = (255, 50, 50)  # 悬停状态下的颜色
+        self.current_color = self.normal_color  # 当前颜色
     
     def is_clicked(self, pos):
         """检查是否点击了按钮
@@ -357,8 +393,15 @@ class CloseButton:
         Args:
             screen: 游戏屏幕
         """
+        # 检查鼠标悬停状态
+        mouse_pos = pygame.mouse.get_pos()
+        self.is_hovered = self.rect.collidepoint(mouse_pos)
+        
+        # 根据悬停状态设置颜色
+        self.current_color = self.hover_color if self.is_hovered else self.normal_color
+        
         # 绘制按钮背景
-        pygame.draw.rect(screen, (200, 0, 0), self.rect)
+        pygame.draw.rect(screen, self.current_color, self.rect)
         pygame.draw.rect(screen, (255, 255, 255), self.rect, 2)  # 白色边框
         
         # 绘制X

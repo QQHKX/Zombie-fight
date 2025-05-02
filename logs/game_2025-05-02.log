@@ -444,3 +444,63 @@
 [2025-05-02 14:19:56] [INFO] [GAME_STATE] 返回主菜单
 [2025-05-02 14:19:57] [INFO] [GAME_STATE] 游戏退出
 [2025-05-02 14:19:57] [INFO] [SAVE] 游戏数据保存成功 - coins=1034, upgrades={'damage': 0, 'fire_rate': 1, 'bullet_speed': 0}, completed_levels=[], current_level=1
+[2025-05-02 14:25:01] [INFO] [SYSTEM] 日志系统初始化完成
+[2025-05-02 14:25:01] [INFO] [SYSTEM] 游戏初始化开始
+[2025-05-02 14:25:01] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\move\zombie_move_01.png
+[2025-05-02 14:25:01] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\move\zombie_move_02.png
+[2025-05-02 14:25:01] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\move\zombie_move_03.png
+[2025-05-02 14:25:01] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\move\zombie_move_04.png
+[2025-05-02 14:25:01] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\move\zombie_move_05.png
+[2025-05-02 14:25:01] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\move\zombie_move_06.png
+[2025-05-02 14:25:01] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\move\zombie_move_07.png
+[2025-05-02 14:25:01] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\move\zombie_move_08.png
+[2025-05-02 14:25:01] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\move\zombie_move_09.png
+[2025-05-02 14:25:01] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\move\zombie_move_10.png
+[2025-05-02 14:25:01] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\move\zombie_move_11.png
+[2025-05-02 14:25:01] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\move\zombie_move_12.png
+[2025-05-02 14:25:01] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\move\zombie_move_13.png
+[2025-05-02 14:25:01] [INFO] [SYSTEM] 僵尸动画资源预加载完成
+[2025-05-02 14:25:01] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\bullet_new.png
+[2025-05-02 14:25:01] [INFO] [SYSTEM] 子弹图片资源预加载完成
+[2025-05-02 14:25:01] [INFO] [SYSTEM] 开始加载游戏资源
+[2025-05-02 14:25:01] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\background_playing.jpg
+[2025-05-02 14:25:01] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\background_start-menu.jpg
+[2025-05-02 14:25:01] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\game_over_screen.png
+[2025-05-02 14:25:01] [INFO] [RESOURCE] 音频加载成功 - file_path=assets\sounds\bulletFired.mp3
+[2025-05-02 14:25:01] [INFO] [RESOURCE] 音频加载成功 - file_path=assets\sounds\hit.mp3
+[2025-05-02 14:25:01] [INFO] [RESOURCE] 字体加载成功 - file_path=assets\fonts\regular.ttf, size=50
+[2025-05-02 14:25:01] [INFO] [RESOURCE] 字体加载成功 - file_path=assets\fonts\warning.ttf, size=80
+[2025-05-02 14:25:01] [INFO] [RESOURCE] 字体加载成功 - file_path=assets\fonts\game_over.ttf, size=100
+[2025-05-02 14:25:01] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\button.png
+[2025-05-02 14:25:01] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\button.png
+[2025-05-02 14:25:01] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\button.png
+[2025-05-02 14:25:01] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\button.png
+[2025-05-02 14:25:01] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\button.png
+[2025-05-02 14:25:01] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\button.png
+[2025-05-02 14:25:01] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\button.png
+[2025-05-02 14:25:01] [INFO] [SYSTEM] 初始化游戏系统
+[2025-05-02 14:25:01] [INFO] [RESOURCE] 音频加载成功 - file_path=assets\sounds\hit.mp3
+[2025-05-02 14:25:01] [INFO] [SAVE] 游戏数据加载成功 - coins=1034, upgrades={'damage': 0, 'fire_rate': 1, 'bullet_speed': 0}, current_level=1
+[2025-05-02 14:25:01] [INFO] [SAVE] 应用存档数据
+[2025-05-02 14:25:01] [INFO] [SYSTEM] 游戏初始化完成
+[2025-05-02 14:25:08] [INFO] [GAME_STATE] 开始新游戏
+[2025-05-02 14:25:08] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\cannon_new.png
+[2025-05-02 14:25:08] [INFO] [PLAYER] 玩家创建完成
+[2025-05-02 14:25:08] [INFO] [GAME_STATE] 游戏状态切换为进行中
+[2025-05-02 14:25:11] [INFO] [GAME_STATE] 游戏暂停
+[2025-05-02 14:25:32] [INFO] [ECONOMY] 消费金币 - amount=30, remaining=1004
+[2025-05-02 14:25:34] [INFO] [ECONOMY] 消费金币 - amount=8, remaining=996
+[2025-05-02 14:25:35] [INFO] [ECONOMY] 消费金币 - amount=45, remaining=951
+[2025-05-02 14:25:36] [INFO] [ECONOMY] 消费金币 - amount=60, remaining=891
+[2025-05-02 14:25:37] [INFO] [ECONOMY] 消费金币 - amount=75, remaining=816
+[2025-05-02 14:25:38] [INFO] [ECONOMY] 消费金币 - amount=10, remaining=806
+[2025-05-02 14:25:39] [INFO] [ECONOMY] 消费金币 - amount=20, remaining=786
+[2025-05-02 14:25:40] [INFO] [ECONOMY] 消费金币 - amount=30, remaining=756
+[2025-05-02 14:25:40] [INFO] [ECONOMY] 消费金币 - amount=40, remaining=716
+[2025-05-02 14:25:41] [INFO] [ECONOMY] 消费金币 - amount=50, remaining=666
+[2025-05-02 14:25:43] [INFO] [ECONOMY] 消费金币 - amount=16, remaining=650
+[2025-05-02 14:25:45] [INFO] [ECONOMY] 消费金币 - amount=24, remaining=626
+[2025-05-02 14:25:46] [INFO] [ECONOMY] 消费金币 - amount=32, remaining=594
+[2025-05-02 14:25:47] [INFO] [ECONOMY] 消费金币 - amount=40, remaining=554
+[2025-05-02 14:25:49] [INFO] [GAME_STATE] 游戏退出
+[2025-05-02 14:25:49] [INFO] [SAVE] 游戏数据保存成功 - coins=554, upgrades={'damage': 5, 'fire_rate': 5, 'bullet_speed': 5}, completed_levels=[], current_level=1
