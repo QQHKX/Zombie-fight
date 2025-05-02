@@ -504,3 +504,245 @@
 [2025-05-02 14:25:47] [INFO] [ECONOMY] 消费金币 - amount=40, remaining=554
 [2025-05-02 14:25:49] [INFO] [GAME_STATE] 游戏退出
 [2025-05-02 14:25:49] [INFO] [SAVE] 游戏数据保存成功 - coins=554, upgrades={'damage': 5, 'fire_rate': 5, 'bullet_speed': 5}, completed_levels=[], current_level=1
+[2025-05-02 14:26:48] [INFO] [SYSTEM] 日志系统初始化完成
+[2025-05-02 14:26:48] [INFO] [SYSTEM] 游戏初始化开始
+[2025-05-02 14:26:48] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\move\zombie_move_01.png
+[2025-05-02 14:26:48] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\move\zombie_move_02.png
+[2025-05-02 14:26:48] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\move\zombie_move_03.png
+[2025-05-02 14:26:48] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\move\zombie_move_04.png
+[2025-05-02 14:26:48] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\move\zombie_move_05.png
+[2025-05-02 14:26:48] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\move\zombie_move_06.png
+[2025-05-02 14:26:48] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\move\zombie_move_07.png
+[2025-05-02 14:26:48] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\move\zombie_move_08.png
+[2025-05-02 14:26:48] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\move\zombie_move_09.png
+[2025-05-02 14:26:48] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\move\zombie_move_10.png
+[2025-05-02 14:26:48] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\move\zombie_move_11.png
+[2025-05-02 14:26:48] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\move\zombie_move_12.png
+[2025-05-02 14:26:48] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\move\zombie_move_13.png
+[2025-05-02 14:26:48] [INFO] [SYSTEM] 僵尸动画资源预加载完成
+[2025-05-02 14:26:48] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\bullet_new.png
+[2025-05-02 14:26:48] [INFO] [SYSTEM] 子弹图片资源预加载完成
+[2025-05-02 14:26:48] [INFO] [SYSTEM] 开始加载游戏资源
+[2025-05-02 14:26:48] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\background_playing.jpg
+[2025-05-02 14:26:48] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\background_start-menu.jpg
+[2025-05-02 14:26:48] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\game_over_screen.png
+[2025-05-02 14:26:48] [INFO] [RESOURCE] 音频加载成功 - file_path=assets\sounds\bulletFired.mp3
+[2025-05-02 14:26:48] [INFO] [RESOURCE] 音频加载成功 - file_path=assets\sounds\hit.mp3
+[2025-05-02 14:26:48] [INFO] [RESOURCE] 字体加载成功 - file_path=assets\fonts\regular.ttf, size=50
+[2025-05-02 14:26:48] [INFO] [RESOURCE] 字体加载成功 - file_path=assets\fonts\warning.ttf, size=80
+[2025-05-02 14:26:48] [INFO] [RESOURCE] 字体加载成功 - file_path=assets\fonts\game_over.ttf, size=100
+[2025-05-02 14:26:48] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\button.png
+[2025-05-02 14:26:48] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\button.png
+[2025-05-02 14:26:48] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\button.png
+[2025-05-02 14:26:48] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\button.png
+[2025-05-02 14:26:48] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\button.png
+[2025-05-02 14:26:48] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\button.png
+[2025-05-02 14:26:48] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\button.png
+[2025-05-02 14:26:48] [INFO] [SYSTEM] 初始化游戏系统
+[2025-05-02 14:26:48] [INFO] [RESOURCE] 音频加载成功 - file_path=assets\sounds\hit.mp3
+[2025-05-02 14:26:48] [INFO] [SAVE] 游戏数据加载成功 - coins=554, upgrades={'damage': 5, 'fire_rate': 5, 'bullet_speed': 5}, current_level=1
+[2025-05-02 14:26:48] [INFO] [SAVE] 应用存档数据
+[2025-05-02 14:26:48] [INFO] [SYSTEM] 游戏初始化完成
+[2025-05-02 14:26:49] [INFO] [GAME_STATE] 开始新游戏
+[2025-05-02 14:26:49] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\cannon_new.png
+[2025-05-02 14:26:49] [INFO] [PLAYER] 玩家创建完成
+[2025-05-02 14:26:49] [INFO] [GAME_STATE] 游戏状态切换为进行中
+[2025-05-02 14:26:49] [INFO] [GAME_STATE] 游戏暂停
+[2025-05-02 14:26:52] [INFO] [GAME_STATE] 返回主菜单
+[2025-05-02 14:26:53] [INFO] [GAME_STATE] 游戏退出
+[2025-05-02 14:26:53] [INFO] [SAVE] 游戏数据保存成功 - coins=554, upgrades={'damage': 5, 'fire_rate': 5, 'bullet_speed': 5}, completed_levels=[], current_level=1
+[2025-05-02 14:26:56] [INFO] [SYSTEM] 日志系统初始化完成
+[2025-05-02 14:26:56] [INFO] [SYSTEM] 游戏初始化开始
+[2025-05-02 14:26:56] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\move\zombie_move_01.png
+[2025-05-02 14:26:56] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\move\zombie_move_02.png
+[2025-05-02 14:26:56] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\move\zombie_move_03.png
+[2025-05-02 14:26:56] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\move\zombie_move_04.png
+[2025-05-02 14:26:56] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\move\zombie_move_05.png
+[2025-05-02 14:26:56] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\move\zombie_move_06.png
+[2025-05-02 14:26:56] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\move\zombie_move_07.png
+[2025-05-02 14:26:56] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\move\zombie_move_08.png
+[2025-05-02 14:26:56] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\move\zombie_move_09.png
+[2025-05-02 14:26:56] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\move\zombie_move_10.png
+[2025-05-02 14:26:56] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\move\zombie_move_11.png
+[2025-05-02 14:26:56] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\move\zombie_move_12.png
+[2025-05-02 14:26:56] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\move\zombie_move_13.png
+[2025-05-02 14:26:56] [INFO] [SYSTEM] 僵尸动画资源预加载完成
+[2025-05-02 14:26:56] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\bullet_new.png
+[2025-05-02 14:26:56] [INFO] [SYSTEM] 子弹图片资源预加载完成
+[2025-05-02 14:26:56] [INFO] [SYSTEM] 开始加载游戏资源
+[2025-05-02 14:26:56] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\background_playing.jpg
+[2025-05-02 14:26:56] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\background_start-menu.jpg
+[2025-05-02 14:26:56] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\game_over_screen.png
+[2025-05-02 14:26:56] [INFO] [RESOURCE] 音频加载成功 - file_path=assets\sounds\bulletFired.mp3
+[2025-05-02 14:26:56] [INFO] [RESOURCE] 音频加载成功 - file_path=assets\sounds\hit.mp3
+[2025-05-02 14:26:56] [INFO] [RESOURCE] 字体加载成功 - file_path=assets\fonts\regular.ttf, size=50
+[2025-05-02 14:26:57] [INFO] [RESOURCE] 字体加载成功 - file_path=assets\fonts\warning.ttf, size=80
+[2025-05-02 14:26:57] [INFO] [RESOURCE] 字体加载成功 - file_path=assets\fonts\game_over.ttf, size=100
+[2025-05-02 14:26:57] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\button.png
+[2025-05-02 14:26:57] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\button.png
+[2025-05-02 14:26:57] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\button.png
+[2025-05-02 14:26:57] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\button.png
+[2025-05-02 14:26:57] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\button.png
+[2025-05-02 14:26:57] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\button.png
+[2025-05-02 14:26:57] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\button.png
+[2025-05-02 14:26:57] [INFO] [SYSTEM] 初始化游戏系统
+[2025-05-02 14:26:57] [INFO] [RESOURCE] 音频加载成功 - file_path=assets\sounds\hit.mp3
+[2025-05-02 14:26:57] [INFO] [SAVE] 游戏数据加载成功 - coins=554, upgrades={'damage': 5, 'fire_rate': 5, 'bullet_speed': 5}, current_level=1
+[2025-05-02 14:26:57] [INFO] [SAVE] 应用存档数据
+[2025-05-02 14:26:57] [INFO] [SYSTEM] 游戏初始化完成
+[2025-05-02 14:26:57] [INFO] [GAME_STATE] 开始新游戏
+[2025-05-02 14:26:57] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\cannon_new.png
+[2025-05-02 14:26:57] [INFO] [PLAYER] 玩家创建完成
+[2025-05-02 14:26:57] [INFO] [GAME_STATE] 游戏状态切换为进行中
+[2025-05-02 14:26:58] [INFO] [GAME_STATE] 游戏暂停
+[2025-05-02 14:27:04] [INFO] [GAME_STATE] 游戏退出
+[2025-05-02 14:27:04] [INFO] [SAVE] 游戏数据保存成功 - coins=554, upgrades={'damage': 5, 'fire_rate': 5, 'bullet_speed': 5}, completed_levels=[], current_level=1
+[2025-05-02 14:27:13] [INFO] [SYSTEM] 日志系统初始化完成
+[2025-05-02 14:27:13] [INFO] [SYSTEM] 游戏初始化开始
+[2025-05-02 14:27:14] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\move\zombie_move_01.png
+[2025-05-02 14:27:14] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\move\zombie_move_02.png
+[2025-05-02 14:27:14] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\move\zombie_move_03.png
+[2025-05-02 14:27:14] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\move\zombie_move_04.png
+[2025-05-02 14:27:14] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\move\zombie_move_05.png
+[2025-05-02 14:27:14] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\move\zombie_move_06.png
+[2025-05-02 14:27:14] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\move\zombie_move_07.png
+[2025-05-02 14:27:14] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\move\zombie_move_08.png
+[2025-05-02 14:27:14] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\move\zombie_move_09.png
+[2025-05-02 14:27:14] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\move\zombie_move_10.png
+[2025-05-02 14:27:14] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\move\zombie_move_11.png
+[2025-05-02 14:27:14] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\move\zombie_move_12.png
+[2025-05-02 14:27:14] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\move\zombie_move_13.png
+[2025-05-02 14:27:14] [INFO] [SYSTEM] 僵尸动画资源预加载完成
+[2025-05-02 14:27:14] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\bullet_new.png
+[2025-05-02 14:27:14] [INFO] [SYSTEM] 子弹图片资源预加载完成
+[2025-05-02 14:27:14] [INFO] [SYSTEM] 开始加载游戏资源
+[2025-05-02 14:27:14] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\background_playing.jpg
+[2025-05-02 14:27:14] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\background_start-menu.jpg
+[2025-05-02 14:27:14] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\game_over_screen.png
+[2025-05-02 14:27:14] [INFO] [RESOURCE] 音频加载成功 - file_path=assets\sounds\bulletFired.mp3
+[2025-05-02 14:27:14] [INFO] [RESOURCE] 音频加载成功 - file_path=assets\sounds\hit.mp3
+[2025-05-02 14:27:14] [INFO] [RESOURCE] 字体加载成功 - file_path=assets\fonts\regular.ttf, size=50
+[2025-05-02 14:27:14] [INFO] [RESOURCE] 字体加载成功 - file_path=assets\fonts\warning.ttf, size=80
+[2025-05-02 14:27:14] [INFO] [RESOURCE] 字体加载成功 - file_path=assets\fonts\game_over.ttf, size=100
+[2025-05-02 14:27:14] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\button.png
+[2025-05-02 14:27:14] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\button.png
+[2025-05-02 14:27:14] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\button.png
+[2025-05-02 14:27:14] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\button.png
+[2025-05-02 14:27:14] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\button.png
+[2025-05-02 14:27:14] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\button.png
+[2025-05-02 14:27:14] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\button.png
+[2025-05-02 14:27:14] [INFO] [SYSTEM] 初始化游戏系统
+[2025-05-02 14:27:14] [INFO] [RESOURCE] 音频加载成功 - file_path=assets\sounds\hit.mp3
+[2025-05-02 14:27:14] [INFO] [SAVE] 游戏数据加载成功 - coins=554, upgrades={'damage': 5, 'fire_rate': 5, 'bullet_speed': 5}, current_level=1
+[2025-05-02 14:27:14] [INFO] [SAVE] 应用存档数据
+[2025-05-02 14:27:14] [INFO] [SYSTEM] 游戏初始化完成
+[2025-05-02 14:27:14] [INFO] [GAME_STATE] 开始新游戏
+[2025-05-02 14:27:14] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\cannon_new.png
+[2025-05-02 14:27:14] [INFO] [PLAYER] 玩家创建完成
+[2025-05-02 14:27:14] [INFO] [GAME_STATE] 游戏状态切换为进行中
+[2025-05-02 14:27:15] [INFO] [GAME_STATE] 游戏暂停
+[2025-05-02 14:27:32] [INFO] [GAME_STATE] 游戏继续
+[2025-05-02 14:27:32] [INFO] [UPGRADE] 创建子弹 - damage=6, speed=10, position=(557, 266)
+[2025-05-02 14:27:32] [INFO] [PLAYER] 玩家发射子弹 - position=(557, 306)
+[2025-05-02 14:27:33] [INFO] [GAME_STATE] 游戏暂停
+[2025-05-02 14:27:42] [INFO] [GAME_STATE] 返回主菜单
+[2025-05-02 14:27:43] [INFO] [GAME_STATE] 开始新游戏
+[2025-05-02 14:27:43] [INFO] [RESOURCE] 图片加载成功 - file_path=assets\images\cannon_new.png
+[2025-05-02 14:27:43] [INFO] [PLAYER] 玩家创建完成
+[2025-05-02 14:27:43] [INFO] [GAME_STATE] 游戏状态切换为进行中
+[2025-05-02 14:27:43] [INFO] [UPGRADE] 创建子弹 - damage=6, speed=10, position=(480, 344)
+[2025-05-02 14:27:43] [INFO] [PLAYER] 玩家发射子弹 - position=(480, 384)
+[2025-05-02 14:27:43] [INFO] [UPGRADE] 创建子弹 - damage=6, speed=10, position=(466, 339)
+[2025-05-02 14:27:43] [INFO] [PLAYER] 玩家发射子弹 - position=(466, 379)
+[2025-05-02 14:27:44] [INFO] [UPGRADE] 创建子弹 - damage=6, speed=10, position=(428, 301)
+[2025-05-02 14:27:44] [INFO] [PLAYER] 玩家发射子弹 - position=(428, 341)
+[2025-05-02 14:27:44] [INFO] [UPGRADE] 创建子弹 - damage=6, speed=10, position=(428, 300)
+[2025-05-02 14:27:44] [INFO] [PLAYER] 玩家发射子弹 - position=(428, 340)
+[2025-05-02 14:27:44] [INFO] [UPGRADE] 创建子弹 - damage=6, speed=10, position=(425, 298)
+[2025-05-02 14:27:44] [INFO] [PLAYER] 玩家发射子弹 - position=(425, 338)
+[2025-05-02 14:27:45] [INFO] [UPGRADE] 创建子弹 - damage=6, speed=10, position=(425, 298)
+[2025-05-02 14:27:45] [INFO] [PLAYER] 玩家发射子弹 - position=(425, 338)
+[2025-05-02 14:27:45] [INFO] [ZOMBIE] 僵尸被击杀 - zombie_type=NormalZombie, position=(1245, 244)
+[2025-05-02 14:27:45] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=6, position=(1173, 326)
+[2025-05-02 14:27:45] [INFO] [UPGRADE] 创建子弹 - damage=6, speed=10, position=(425, 292)
+[2025-05-02 14:27:45] [INFO] [PLAYER] 玩家发射子弹 - position=(425, 332)
+[2025-05-02 14:27:45] [INFO] [UPGRADE] 创建子弹 - damage=6, speed=10, position=(425, 292)
+[2025-05-02 14:27:45] [INFO] [PLAYER] 玩家发射子弹 - position=(425, 332)
+[2025-05-02 14:27:45] [INFO] [ECONOMY] 获得金币 - amount=1, total=555, position=(1186, 229)
+[2025-05-02 14:27:46] [INFO] [UPGRADE] 创建子弹 - damage=6, speed=10, position=(424, 292)
+[2025-05-02 14:27:46] [INFO] [PLAYER] 玩家发射子弹 - position=(424, 332)
+[2025-05-02 14:27:46] [INFO] [UPGRADE] 创建子弹 - damage=6, speed=10, position=(423, 291)
+[2025-05-02 14:27:46] [INFO] [PLAYER] 玩家发射子弹 - position=(423, 331)
+[2025-05-02 14:27:46] [INFO] [UPGRADE] 创建子弹 - damage=6, speed=10, position=(423, 291)
+[2025-05-02 14:27:46] [INFO] [PLAYER] 玩家发射子弹 - position=(423, 331)
+[2025-05-02 14:27:47] [INFO] [UPGRADE] 创建子弹 - damage=6, speed=10, position=(423, 291)
+[2025-05-02 14:27:47] [INFO] [PLAYER] 玩家发射子弹 - position=(423, 331)
+[2025-05-02 14:27:47] [INFO] [ZOMBIE] 僵尸被击杀 - zombie_type=NormalZombie, position=(1277, 376)
+[2025-05-02 14:27:47] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=6, position=(1210, 317)
+[2025-05-02 14:27:47] [INFO] [UPGRADE] 创建子弹 - damage=6, speed=10, position=(423, 291)
+[2025-05-02 14:27:47] [INFO] [PLAYER] 玩家发射子弹 - position=(423, 331)
+[2025-05-02 14:27:47] [INFO] [UPGRADE] 创建子弹 - damage=6, speed=10, position=(408, 288)
+[2025-05-02 14:27:47] [INFO] [PLAYER] 玩家发射子弹 - position=(408, 328)
+[2025-05-02 14:27:47] [INFO] [ECONOMY] 获得金币 - amount=1, total=556, position=(1187, 319)
+[2025-05-02 14:27:47] [INFO] [UPGRADE] 创建子弹 - damage=6, speed=10, position=(408, 288)
+[2025-05-02 14:27:47] [INFO] [PLAYER] 玩家发射子弹 - position=(408, 328)
+[2025-05-02 14:27:48] [INFO] [UPGRADE] 创建子弹 - damage=6, speed=10, position=(408, 288)
+[2025-05-02 14:27:48] [INFO] [PLAYER] 玩家发射子弹 - position=(408, 328)
+[2025-05-02 14:27:48] [INFO] [UPGRADE] 创建子弹 - damage=6, speed=10, position=(408, 288)
+[2025-05-02 14:27:48] [INFO] [PLAYER] 玩家发射子弹 - position=(408, 328)
+[2025-05-02 14:27:48] [INFO] [UPGRADE] 创建子弹 - damage=6, speed=10, position=(408, 288)
+[2025-05-02 14:27:48] [INFO] [PLAYER] 玩家发射子弹 - position=(408, 328)
+[2025-05-02 14:27:48] [INFO] [UPGRADE] 创建子弹 - damage=6, speed=10, position=(408, 288)
+[2025-05-02 14:27:48] [INFO] [PLAYER] 玩家发射子弹 - position=(408, 328)
+[2025-05-02 14:27:49] [INFO] [UPGRADE] 创建子弹 - damage=6, speed=10, position=(408, 288)
+[2025-05-02 14:27:49] [INFO] [PLAYER] 玩家发射子弹 - position=(408, 328)
+[2025-05-02 14:27:49] [INFO] [UPGRADE] 创建子弹 - damage=6, speed=10, position=(408, 288)
+[2025-05-02 14:27:49] [INFO] [PLAYER] 玩家发射子弹 - position=(408, 328)
+[2025-05-02 14:27:49] [INFO] [UPGRADE] 创建子弹 - damage=6, speed=10, position=(408, 288)
+[2025-05-02 14:27:49] [INFO] [PLAYER] 玩家发射子弹 - position=(408, 328)
+[2025-05-02 14:27:49] [INFO] [UPGRADE] 创建子弹 - damage=6, speed=10, position=(408, 288)
+[2025-05-02 14:27:49] [INFO] [PLAYER] 玩家发射子弹 - position=(408, 328)
+[2025-05-02 14:27:50] [INFO] [UPGRADE] 创建子弹 - damage=6, speed=10, position=(408, 288)
+[2025-05-02 14:27:50] [INFO] [PLAYER] 玩家发射子弹 - position=(408, 328)
+[2025-05-02 14:27:50] [INFO] [UPGRADE] 创建子弹 - damage=6, speed=10, position=(408, 288)
+[2025-05-02 14:27:50] [INFO] [PLAYER] 玩家发射子弹 - position=(408, 328)
+[2025-05-02 14:27:50] [INFO] [UPGRADE] 创建子弹 - damage=6, speed=10, position=(408, 288)
+[2025-05-02 14:27:50] [INFO] [PLAYER] 玩家发射子弹 - position=(408, 328)
+[2025-05-02 14:27:51] [INFO] [UPGRADE] 创建子弹 - damage=6, speed=10, position=(408, 288)
+[2025-05-02 14:27:51] [INFO] [PLAYER] 玩家发射子弹 - position=(408, 328)
+[2025-05-02 14:27:51] [INFO] [ZOMBIE] 僵尸被击杀 - zombie_type=NormalZombie, position=(1269, 404)
+[2025-05-02 14:27:51] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=6, position=(1203, 313)
+[2025-05-02 14:27:51] [INFO] [UPGRADE] 创建子弹 - damage=6, speed=10, position=(408, 288)
+[2025-05-02 14:27:51] [INFO] [PLAYER] 玩家发射子弹 - position=(408, 328)
+[2025-05-02 14:27:51] [INFO] [UPGRADE] 创建子弹 - damage=6, speed=10, position=(408, 288)
+[2025-05-02 14:27:51] [INFO] [PLAYER] 玩家发射子弹 - position=(408, 328)
+[2025-05-02 14:27:51] [INFO] [ECONOMY] 获得金币 - amount=1, total=557, position=(1184, 377)
+[2025-05-02 14:27:51] [INFO] [UPGRADE] 创建子弹 - damage=6, speed=10, position=(360, 111)
+[2025-05-02 14:27:51] [INFO] [PLAYER] 玩家发射子弹 - position=(360, 151)
+[2025-05-02 14:27:52] [INFO] [UPGRADE] 创建子弹 - damage=6, speed=10, position=(351, 124)
+[2025-05-02 14:27:52] [INFO] [PLAYER] 玩家发射子弹 - position=(351, 164)
+[2025-05-02 14:27:52] [INFO] [UPGRADE] 创建子弹 - damage=6, speed=10, position=(343, 131)
+[2025-05-02 14:27:52] [INFO] [PLAYER] 玩家发射子弹 - position=(343, 171)
+[2025-05-02 14:27:52] [INFO] [ZOMBIE] 僵尸被击杀 - zombie_type=NormalZombie, position=(879, 205)
+[2025-05-02 14:27:52] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=6, position=(805, 136)
+[2025-05-02 14:27:52] [INFO] [UPGRADE] 创建子弹 - damage=6, speed=10, position=(319, 140)
+[2025-05-02 14:27:52] [INFO] [PLAYER] 玩家发射子弹 - position=(319, 180)
+[2025-05-02 14:27:52] [INFO] [UPGRADE] 创建子弹 - damage=6, speed=10, position=(308, 144)
+[2025-05-02 14:27:52] [INFO] [PLAYER] 玩家发射子弹 - position=(308, 184)
+[2025-05-02 14:27:52] [INFO] [ECONOMY] 获得金币 - amount=1, total=558, position=(872, 148)
+[2025-05-02 14:27:53] [INFO] [UPGRADE] 创建子弹 - damage=6, speed=10, position=(348, 141)
+[2025-05-02 14:27:53] [INFO] [PLAYER] 玩家发射子弹 - position=(348, 181)
+[2025-05-02 14:27:53] [INFO] [UPGRADE] 创建子弹 - damage=6, speed=10, position=(636, 148)
+[2025-05-02 14:27:53] [INFO] [PLAYER] 玩家发射子弹 - position=(636, 188)
+[2025-05-02 14:27:53] [INFO] [ZOMBIE] 僵尸被击杀 - zombie_type=NormalZombie, position=(1245, 162)
+[2025-05-02 14:27:53] [INFO] [COLLISION] 子弹击中僵尸 - bullet_damage=6, position=(1176, 149)
+[2025-05-02 14:27:53] [INFO] [UPGRADE] 创建子弹 - damage=6, speed=10, position=(636, 107)
+[2025-05-02 14:27:53] [INFO] [PLAYER] 玩家发射子弹 - position=(636, 147)
+[2025-05-02 14:27:53] [INFO] [ECONOMY] 获得金币 - amount=1, total=559, position=(1188, 111)
+[2025-05-02 14:27:54] [INFO] [ECONOMY] 获得金币 - amount=0, total=559, position=(639, 75)
+[2025-05-02 14:27:54] [INFO] [ECONOMY] 获得金币 - amount=0, total=559, position=(609, 73)
+[2025-05-02 14:27:54] [INFO] [ECONOMY] 获得金币 - amount=0, total=559, position=(579, 71)
+[2025-05-02 14:27:54] [INFO] [GAME_STATE] 游戏暂停
+[2025-05-02 14:27:55] [INFO] [GAME_STATE] 返回主菜单
+[2025-05-02 14:27:56] [INFO] [GAME_STATE] 游戏退出
+[2025-05-02 14:27:56] [INFO] [SAVE] 游戏数据保存成功 - coins=559, upgrades={'damage': 5, 'fire_rate': 5, 'bullet_speed': 5}, completed_levels=[], current_level=1

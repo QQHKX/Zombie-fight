@@ -28,7 +28,7 @@ class UpgradeMenu:
         self.coin_font = pygame.font.Font(REGULAR_FONT, 32)
         
         # 关闭按钮 - 移到左上角
-        self.close_button = CloseButton(50, 50, 40, 40)
+        self.close_button = CloseButton(100, 100, 40, 40)
         
         # 升级按钮
         self.upgrade_buttons = []
